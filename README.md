@@ -26,5 +26,5 @@ Some setting for git
 	name = erkan000
 	email = sameAsGithubUser
 [core]
-	excludesfile = C:\\Users\\esaricoban\\.gitignore
+	excludesfile = C:\\Users\\erkan\\.gitignore
 ```

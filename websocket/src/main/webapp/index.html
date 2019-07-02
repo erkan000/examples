@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Echo with websocket</h1>
+        
+        <form name="inputForm">
+        <table>
+            <tr>
+                <td>
+                    Say something
+                    <input type="text" id="txtInput" name="txtInput"/>
+                </td>
+                <td>
+                    <input type="submit" value="Send" onclick="sendText(document.getElementById('txtInput').value); return false;">            
+                </td>
+            </tr>
+        </table>            
+        </form>
+        
+        <br>
+        
+        All clients will receive this message: 
+        <label id="lbl"></label>
+        
+        <script type="text/javascript" src="websocket.js"></script>
+    </body>
+</html>

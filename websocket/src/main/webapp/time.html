@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Broadcast time</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <span id="msg"></span>
+
+        <script type="text/javascript">
+
+            var ws = new WebSocket("ws://localhost:8080/websocket/clock");
+
+            ws.onmessage = function (event) {
+                var mySpan = document.getElementById("msg");
+                mySpan.innerHTML = event.data;
+            };
+
+            ws.onerror = function (event) {
+                console.log("Error ", event);
+            };
+
+        </script>
+    </body>
+</html>

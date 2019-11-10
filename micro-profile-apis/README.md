@@ -1,6 +1,6 @@
 ### Micro Profile API Samples
 
-This is a very basic Micro Profile API Sample. It uses Open Liberty dev mode for development.
+This is a very basic Micro Profile API Sample. It uses Open Liberty dev mode for development. Dev mode docs(https://github.com/OpenLiberty/ci.maven/tree/master/docs)
 
 #### Usage:
 - Copy project

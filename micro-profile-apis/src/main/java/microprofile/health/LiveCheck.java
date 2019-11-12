@@ -15,6 +15,8 @@ public class LiveCheck implements HealthCheck {
                 named("apis").
                 up().
                 withData("Health", "OK").
+                withData("memory", Runtime.getRuntime().freeMemory()).
+        		withData("availableProcessors", Runtime.getRuntime().availableProcessors()).
                 build();
     }
 

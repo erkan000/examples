@@ -15,7 +15,7 @@ public class ServletInitializer implements ServletContextListener {
         ServletRegistration.Dynamic registration = servletContext.addServlet("faces-servlet", javax.faces.webapp.FacesServlet.class);
 		registration.addMapping("*.jsf");
 		registration.setLoadOnStartup(1);
-		registration.setInitParameter("primefaces.THEME", "redmond");
+		servletContext.setInitParameter("primefaces.THEME", "redmond");
     }
 
 	@Override

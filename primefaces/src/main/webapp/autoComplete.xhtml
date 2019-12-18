@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="tr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Auto Complete</title>
+	<link type="text/css" rel="stylesheet"
+		href="/faces/javax.faces.resource/theme.css?ln=primefaces-redmond" />
+</h:head>
+<h:body>
+	<p:outputLabel value="Auto Complete Demo"/>
+	<br />
+	<h:form>
+		<p:panel>
+			<p:outputLabel value="Name : " for="acName" />
+        	<p:autoComplete id="acName" value="#{autoCompleteBean.name}" completeMethod="#{autoCompleteBean.completeName}" />
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>

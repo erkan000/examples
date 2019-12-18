@@ -15,8 +15,6 @@ import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.LineChartModel;
 import org.primefaces.model.chart.LineChartSeries;
 
-import tr.gov.sgk.dto.ProvSaatDTO;
-
 @ViewScoped
 @ManagedBean
 public class ChartBean implements Serializable {

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xml:lang="tr" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+	
 <h:head>
 	<title>PrimeFaces Charts</title>
 	<link type="text/css" rel="stylesheet"
@@ -12,13 +14,15 @@
 <h:body>
 	<h:form>
 
-		<p:panel header="Chart Example">
-			<h:panelGrid columns="2" cellpadding="4">
-				<h:outputText value="Name: " />
-				<p:inputText />
+		<p:panel>
+			<p:poll interval="10" update="provizyonChart">
 
-				<p:commandButton value="Submit" />
-			</h:panelGrid>
+				<p:chart id="provizyonChart" value="#{chartBean.linearModel}"
+					legendPosition="ne" title="Anlık Provizyon Sayıları" type="line"
+					style="height:300px" shadow="true" animate="true"
+					showMarkers="true" showDatatip="true" minY="0" rendered="false" />
+
+			</p:poll>
 		</p:panel>
 
 <!--

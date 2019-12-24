@@ -24,9 +24,13 @@ public class DispatcherSample extends HttpServlet {
 		if(kullanici.equals("admin") && sifre.equals("admin")){
 			rd = request.getRequestDispatcher("/result.jsp");
 			rd.forward(request, response);
+//			OR
+//			response.sendRedirect("result.jsp");
 		}else{
 			rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
+//			OR
+//			response.sendRedirect("login.jsp");
 		}
 	}
 

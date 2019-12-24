@@ -1,6 +1,7 @@
-package tmp;
+package example.jsf.dto;
 
-public class ProvSaatDTO {
+public class ProvDTO {
+	
 	private int sayi;
 	private String zaman;
 	
@@ -15,7 +16,5 @@ public class ProvSaatDTO {
 	}
 	public void setZaman(String zaman) {
 		this.zaman = zaman;
-	}
-	
-	
+	}	
 }

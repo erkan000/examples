@@ -16,6 +16,7 @@ public class ServletInitializer implements ServletContextListener {
 		registration.addMapping("*.jsf");
 		registration.setLoadOnStartup(1);
 		servletContext.setInitParameter("primefaces.THEME", "redmond");
+		servletContext.setInitParameter("javax.faces.PROJECT_STAGE", "Development");
     }
 
 	@Override

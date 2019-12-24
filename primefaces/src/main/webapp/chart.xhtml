@@ -12,17 +12,20 @@
 </h:head>
 
 <h:body>
-	<h:form>
+	<h:form id="form">
 
 		<p:panel>
-			<p:poll interval="10" update="provizyonChart">
+			<p:poll interval="10">
 
-				<p:chart id="provizyonChart" value="#{chartBean.linearModel}"
-					legendPosition="ne" title="Anlık Provizyon Sayıları" type="line"
-					style="height:300px" shadow="true" animate="true"
-					showMarkers="true" showDatatip="true" minY="0" rendered="false" />
+				
 
 			</p:poll>
+			eeee
+			<p:chart id="provizyonChart" value="#{chartBean.linearModel}"
+					legendPosition="ne" title="Anlık Provizyon Sayıları" type="line"
+					style="height:300px" shadow="true" animate="true"
+					showMarkers="true" showDatatip="true" minY="0"  />
+					
 		</p:panel>
 
 <!--

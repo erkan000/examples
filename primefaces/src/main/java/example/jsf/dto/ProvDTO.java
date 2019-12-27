@@ -1,7 +1,13 @@
 package example.jsf.dto;
 
-public class ProvDTO {
+import java.io.Serializable;
+
+public class ProvDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -405306754998917083L;
 	private int sayi;
 	private String zaman;
 	

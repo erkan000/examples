@@ -1,147 +1,126 @@
 package example.jsf.mb;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Deque;
 import java.util.Map;
 import java.util.Random;
-import java.util.Stack;
 import java.util.TreeMap;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.CategoryAxis;
+import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartModel;
-import org.primefaces.model.chart.LineChartSeries;
 
 import example.jsf.dto.ProvDTO;
 
-
 @ManagedBean
 @ViewScoped
-public class ChartBean {
+public class ChartBean implements Serializable{
 
-	private LineChartModel linearModel;
-	private LineChartSeries liste = new LineChartSeries();
-	private LineChartSeries liste2 = new LineChartSeries();
-	private int i=0;
-	private String sonAn = "";
-	private Map<Object, Number> data = new TreeMap<Object, Number>();
-	private Object[][] veri = new Object[20][2];
-	private Stack stack = new Stack();
-	private byte grafikGecmis = 15;
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4983748534846578934L;
+	private LineChartModel provModel;	
+	private Deque<ProvDTO> stackProv = new ArrayDeque<>();
+	private ChartSeries listeProv = new ChartSeries();
+	private String sonAn = "";	 
+	private byte grafikGecmis = 20;
+	private SimpleDateFormat saatDakikaDF = new SimpleDateFormat("HH:mm");
+	
 	@PostConstruct
 	public void init() {
-		System.out.println("wwwwww");
+		createProvModel();
+	}
+	private void createLineChartModel(){
+		provModel = new LineChartModel();
+		provModel.setTitle("LineChart Demo");
+		provModel.setLegendPosition("s");
+		provModel.setAnimate(true);
+		provModel.setShowPointLabels(true);
+		provModel.getAxes().put(AxisType.X, new CategoryAxis("Updated on = " + sonAn));
+		Axis yAxis = provModel.getAxis(AxisType.Y);
+		yAxis.setLabel("Count");
+		yAxis.setMin(0);		
 	}
 	
-	
-	public ChartBean() {
-		try {
-			createLinearModel();
+	private void createProvModel() {
+		try {		      
+		      Calendar cal = Calendar.getInstance();          
+		      String saatDakika = saatDakikaDF.format(cal.getTime());
+		             
+		      createLineChartModel();
+		      
+		      Date d = saatDakikaDF.parse(saatDakika);
+		      cal.setTime(d);
+		      cal.add(Calendar.MINUTE, -grafikGecmis);
+		      
+		      for (int z = 0; z < grafikGecmis - 1 ; z++) {  
+		             cal.add(Calendar.MINUTE, 1);
+		             String eskiZaman = saatDakikaDF.format(cal.getTime());
+
+		             ProvDTO tmp = new ProvDTO();
+		             
+		             tmp.setSayi(getRamdomInt());		             
+		             tmp.setZaman(eskiZaman);
+		             stackProv.addLast(tmp);
+		             listeProv.set(String.valueOf(z), z);    
+		      }
+		      
+		      listeProv.setLabel("Prov Sayısı");
+		      provModel.addSeries(listeProv);      
+		      
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}    	
+		}		
 	}
-
-	private void createLinearModel() throws Exception {
-		Calendar cal = Calendar.getInstance();    	
-		SimpleDateFormat df = new SimpleDateFormat("HH:mm");		  
-		String saatDakika = df.format(cal.getTime());
-
-		linearModel = new LineChartModel();  
-
-		Date d = df.parse(saatDakika);
-		cal.setTime(d);
-		cal.add(Calendar.MINUTE, -grafikGecmis);
-
-		Random random = new Random();
-		for (int z = 0; z < grafikGecmis; z++) {  
-			cal.add(Calendar.MINUTE, 1);
-			String eskiZaman = df.format(cal.getTime());
-
-			ProvDTO tmp = new ProvDTO();
-			tmp.setSayi(random.nextInt(100));
-
-
-			tmp.setZaman(eskiZaman );
-			System.out.println(z);
-			stack.add(0, tmp);
-			liste.set(String.valueOf(z), z);
-			liste2.set("13", z);
-
-		}
-
-		Thread.sleep(3000);
-		//liste.set(saatDakika, i);
-		liste.setLabel("Provizyon");
-		liste2.setLabel("testtt");
-		i++;
-
-		liste.setShowLine(true);
-		linearModel.addSeries(liste);
-		linearModel.addSeries(liste2);
-	}
-
-	public LineChartModel getLinearModel() {
+	
+	public LineChartModel getProvModel(){
+//		4 tekrar	
 		ProvDTO veri = new ProvDTO();
 
-		Calendar cal = Calendar.getInstance();    	
-		SimpleDateFormat df = new SimpleDateFormat("HH:mm");		  
-		String saatDakika = df.format(cal.getTime());
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MINUTE , -1);
+		String saatDakika = saatDakikaDF.format(cal.getTime());
 
-		veri.setSayi(new Random().nextInt(100));
-		veri.setZaman(saatDakika);    	
+		veri.setZaman(saatDakika); 
 
 		if(!sonAn.equals(saatDakika)){
-			System.out.println(i);
+			sonAn = saatDakika; 
+			createLineChartModel();
+			Map<Object, Number> data = new TreeMap<>();
 
-			if(stack.size()<grafikGecmis){	    		
-				stack.add(0, veri);
-			}else{
-				stack.pop();
-				stack.add(0, veri);
-				data.clear();
-				liste.setData(data);
+			veri.setSayi(getRamdomInt());
+			stackProv.pop();
+			stackProv.addLast(veri);
+			
+			data.clear();
+			listeProv.setData(data);  
 
-				System.out.println("silinen- yeni boyut " + data.size());
+			for (Object object : stackProv) {
+				ProvDTO provSaatDTO = (ProvDTO)object;                 
+				listeProv.set(provSaatDTO.getZaman(), provSaatDTO.getSayi());
 			}
-
-			byte y = 0;
-
-			for (Object object : stack) {
-				ProvDTO provSaatDTO = (ProvDTO)object;
-
-				liste.set(provSaatDTO.getZaman(), provSaatDTO.getSayi());
-				liste2.set(provSaatDTO.getZaman(), 32);
-
-				y++;
-			}
-
-			liste.set(saatDakika, 450);	    	
-			i++;
-			System.out.println(i);
-			sonAn = saatDakika;
-
-			System.out.println("yapt�m");
-		}else{
-			System.out.println("gectim");
-
+			provModel.addSeries(listeProv);
 		}
+		return provModel;
+	}
+	
+	private int getRamdomInt() {
+		return new Random().nextInt(100);
+	}
 
-		liste.setShowLine(true);
-
-		linearModel = new LineChartModel();
-		linearModel.addSeries(liste);
-
-		linearModel.addSeries(liste2);
-
-
-		return linearModel;
-	}   
-
+	public void setProvModel(LineChartModel provModel) {
+		this.provModel = provModel;
+	}
 
 }

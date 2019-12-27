@@ -12,31 +12,17 @@
 </h:head>
 
 <h:body>
-	<h:form id="form">
-
-		<p:panel>
-			<p:poll interval="10">
-
-				
-
-			</p:poll>
-			eeee
-			<p:chart id="provizyonChart" value="#{chartBean.linearModel}"
-					legendPosition="ne" title="Anlık Provizyon Sayıları" type="line"
-					style="height:300px" shadow="true" animate="true"
-					showMarkers="true" showDatatip="true" minY="0"  />
-					
-		</p:panel>
+	
 
 <!--
 	<p:lineChart model="#{chartJsView.lineModel}" style="width: 100%; height: 500px;"/>
 	<p:chart type="line" model="#{chartView.lineModel1}" style="height:300px;"/>
  -->
-	</h:form>
+	
 	
 		<h:form styleClass="form" id="form1">
-		<p:poll interval="60" update="provChart">
-			<p:chart id="provChart" type="line" model="#{medulaIstatistikBean.provizyonModel}" style="height:600px;"/>
+		<p:poll interval="5" update="provChart">
+			<p:chart id="provChart" type="line" model="#{chartBean.provModel}" style="height:600px;"/>
 		</p:poll>
 	</h:form>
 	

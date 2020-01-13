@@ -11,5 +11,12 @@ jsoup is a Java library for working with real-world HTML. It provides a very con
 
 jsoup document nesnesi içinde dizin yapısı gibi çalışır. Select metodu sadece ana dizindeki bilgileri bulur, içteki div leri bulmak için chain şeklinde bir select daha yazmak gereklidir. Şöyle çalışır;
 
-<div class="sol" />				seçmek için "select("div.sol")"
-<div class="arka fon" />		seçmek için "select("div.arka.fon")"
+<div class="sol" />						seçmek için "select("div.sol")"
+<div class="arka fon" />				seçmek için "select("div.arka.fon")"
+
+<td width="728" align="center" > 		seçmek için ".select("td[width=728]")"	
+<table width="720" border="0" > 		seçmek için ".select("table[width=720]")"
+
+
+
+Document doc = Jsoup.connect(url).get();

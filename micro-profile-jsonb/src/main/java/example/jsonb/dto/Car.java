@@ -29,7 +29,7 @@ public class Car {
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
-		String newLine = "\r\n";
+		String newLine = System.lineSeparator();
 		result.append("Brand:" + brand);
 		result.append(newLine);
 		result.append("Model:" + model);

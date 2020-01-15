@@ -1,0 +1,15 @@
+<server description="LibertyServer">
+    <featureManager>
+        <feature>beanValidation-2.0</feature>
+    	<feature>jaxrs-2.1</feature>
+	</featureManager>    
+
+    <webApplication location="micro-profile-beanvalidation.war" id="micro-profile-beanvalidation" name="micro-profile-beanvalidation" />
+    
+    <logging traceSpecification="com.ibm.ws.microprofile.*=all" />
+
+    <httpEndpoint host="localhost" httpPort="9090" httpsPort="9043" id="defaultHttpEndpoint"/>
+        
+    <keyStore id="defaultKeyStore" location="${server.output.dir}/resources/security/key.p12"/>
+	
+</server>

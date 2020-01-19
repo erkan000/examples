@@ -2,7 +2,6 @@ package example.jaxws;
 
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.servlet.http.HttpServletRequest;
@@ -12,14 +11,15 @@ import javax.xml.ws.handler.MessageContext;
 //@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)
 //Jax-ws has 4 different styles (RPC Vs Document Style)
 @WebService(name="WebServiceName", targetNamespace="http://target.namespace.com.tr", 
-			serviceName="WebServiceServiceName", portName="WebServicePortName")
-public class JaxWs{
+serviceName="WebServiceServiceName", portName="WebServicePortName")
+public class ServiceImpl implements Service{
 
 	@WebMethod(action = "webMethodAction", operationName="webMethodOperationName" )
 	@WebResult(name="webResultName")
-	public String myFirstServiceMethod(@WebParam(name = "nameField") String name) {
+	public String myFirstServiceMethod(String name) {
 		return "Your parameter is " + name + ". Your ip is: " + getRemoteAddr();
 	}
+	
 	
 	@Resource
 	private WebServiceContext wsContext;

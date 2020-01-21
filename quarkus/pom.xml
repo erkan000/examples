@@ -6,7 +6,10 @@
   <artifactId>quarkus</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
-    <quarkus.version>0.28.1</quarkus.version>
+    <surefire-plugin.version>2.22.0</surefire-plugin.version>
+    <maven.compiler.parameters>true</maven.compiler.parameters>
+    <quarkus.version>1.0.0.CR1</quarkus.version>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -41,6 +44,19 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <systemProperties>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+          </systemProperties>
+        </configuration>
       </plugin>
     </plugins>
   </build>

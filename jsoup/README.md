@@ -7,6 +7,9 @@ jsoup is a Java library for working with real-world HTML. It provides a very con
 - DovizCrawler.java döviz fiyatlarını istenen yıllar için konsola yazdırır.
 - SahibindenCrawler.java sahibinden araba listesini konsola yazdırır.
 
+- Crawler.java my main crawler utility!
+- JsfCrawler	sample jsf page login using my main crawler utility
+
 ### Notlar
 
 jsoup document nesnesi içinde dizin yapısı gibi çalışır. Select metodu sadece ana dizindeki bilgileri bulur, içteki div leri bulmak için chain şeklinde bir select daha yazmak gereklidir. Şöyle çalışır;

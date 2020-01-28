@@ -1,4 +1,4 @@
-package examples.crawler;
+package examples.okhttp.crawler;
 
 import java.io.IOException;
 

@@ -21,6 +21,19 @@ public class IslemDTO {
 	@Column(name = "degistirme_zamani")
 	private Timestamp degistirmeZamani;	
 	
+//	*** Use Temporal for date and time values. Above example is JDBC driver specific! ***
+//	@Temporal(TemporalType.TIMESTAMP)
+//	private java.util.Date degistirmeZamani2;
+	
+//	*** Embeddable use for Class variables ***
+//	@Embedded
+//	private MyClass evAdresi;
+//	@Embedded
+//	@AttributeOverrides({
+//		@AttributeOverride(name="postaKodu", column=@Column(name="EV_POSTA_KODU")),
+//		@AttributeOverride(name="sokakNo", column=@Column(name="EV_SOKAK_NO"))
+//	})
+	
 	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();

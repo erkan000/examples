@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  mq:
+    image: vromero/activemq-artemis
+    container_name: artemis
+    environment:
+      ARTEMIS_USERNAME: admin
+      ARTEMIS_PASSWORD: erkan
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:8161/console"]
+      interval: 5s
+      timeout: 5s
+      retries: 5    
+
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile-consumer
+    container_name: consumer
+    restart: always
+    depends_on:
+      - mq
+      
+  producer:
+    build:
+      context: .
+      dockerfile: Dockerfile-producer
+    container_name: producer
+    restart: always
+    depends_on:
+      - mq
+      
+  

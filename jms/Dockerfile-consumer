@@ -1,0 +1,13 @@
+FROM openjdk:8-jre-alpine
+
+ARG JAR_FILE=target/jms.jar
+ARG JAR_LIB_FILE=target/lib/
+
+WORKDIR /
+
+COPY ${JAR_FILE} jms.jar
+
+# copy project dependencies
+ADD ${JAR_LIB_FILE} lib/
+
+CMD java -cp jms.jar example.topic.TopicConsumer

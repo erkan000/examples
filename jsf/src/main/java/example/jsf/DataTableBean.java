@@ -18,7 +18,7 @@ public class DataTableBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -7999541639972549305L;
-	private static List<User> users;
+	private List<User> users;
 
 	@PostConstruct
 	public void init() {
@@ -33,10 +33,20 @@ public class DataTableBean implements Serializable{
 		System.out.println("Test");
 	}
 	
-	public String guncelle(String t){
-		System.out.println(t);
+	public String guncelle(User t){
 		return null;
 	}
+
+	public List<User> getUsers() {
+		System.out.println(users);
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	
 	
 
 

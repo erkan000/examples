@@ -29,11 +29,13 @@
         </dependency>
         
         <dependency>
-<groupId>io.openliberty</groupId>
-<artifactId>openliberty-runtime</artifactId>
-<version>18.0.0.2</version>
-<type>zip</type>
-</dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>3.1</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        
     </dependencies>
 
 	<build>
@@ -41,33 +43,16 @@
 		<plugins>
 			
     		
-    		<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${version.maven-war-plugin}</version>
-            </plugin>
+    		
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>${version.liberty-maven-plugin}</version>
+                <version>3.1</version>
                 <configuration>
-                    
-                    <libertyRuntimeVersion>18.0.0.2</libertyRuntimeVersion>
-                    <features>javaee-8.0</features>
-                    
+                    <libertyRuntimeVersion>20.0.0.1</libertyRuntimeVersion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${version.maven-failsafe-plugin}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <http.port>${liberty.var.default.http.port}</http.port>
-                        <war.name>${liberty.var.app.context.root}</war.name>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
+           
             
 		</plugins>
 	</build>

@@ -11,25 +11,25 @@
 <body>
 
    <h:form>
-     <h:dataTable value="#{takimBean.takimlar}" var="takim" 
+     <h:dataTable value="#{dataTableBean.users}" var="user" 
           styleClass="order-table" headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row">
      
         <h:column>
           <f:facet name="header">ADI</f:facet>
-          <h:outputLabel value="#{takim.isim}"></h:outputLabel>
+          <h:outputLabel value="#{user.name}"></h:outputLabel>
         </h:column>
          <h:column>
           <f:facet name="header">RENK</f:facet>
-          <h:outputLabel value="#{takim.renk}"></h:outputLabel>
+          <h:outputLabel value="#{user.surname}"></h:outputLabel>
         </h:column>
           <h:column>
           <f:facet name="header">GUNCELLE</f:facet>
-          <h:commandLink value="Guncelle" action="#{takimBean.guncelle(takim)}"></h:commandLink>
+          <h:commandLink value="Guncelle" action="#{dataTableBean.guncelle(user)}"></h:commandLink>
         </h:column> 
         
      </h:dataTable>
      
-     <h:commandButton value="DENEME" rendered="false"/>
+     <h:commandButton value="DENEME" />
       
    </h:form>
    

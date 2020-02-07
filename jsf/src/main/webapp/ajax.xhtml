@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:head>
+  <title>GIRIS SAYFASI</title>
+</h:head>
+
+<h:body>
+
+   <h:form>
+     
+ TAKIMLAR  
+    <h:selectOneMenu>  
+      <f:selectItem itemLabel="Seciniz..."/>#{p.adi} #{p.soyadi}
+      <f:selectItems value="#{ajaxBean.users}" var="user" itemLabel="#{user.name} #{user.surname}" itemValue="#{user.id}"/>
+      <f:ajax listener="#{ajaxBean.changeWithAjax}" render="futbolcuListesi" />    
+    </h:selectOneMenu>
+    
+    
+    Deger: 
+    <h:inputText value="#{ajaxBean.deger}">
+       <f:ajax listener="#{ajaxBean.onFocus}" event="focus" render="label"/>
+        <f:ajax listener="#{ajaxBean.onKeyup}" event="keyup" render="label"/>
+        <!-- 
+        	<f:ajax execute="@this" render="@form" event="keyup"/>
+         -->
+    </h:inputText><br/><br/>
+    <h:outputLabel id="label" value="#{ajaxBean.olay}"/>
+    
+    
+    ARALIK: <h:inputText id="inputGiris" value="#{ajaxBean.deger}" />
+     <h:commandButton value="YARAT" action="#{ajaxBean.rasgeleSayiUret}">
+       <f:ajax render="etkilencekId" execute="inputGiris" />
+     </h:commandButton> <br/>
+     <h:outputText id="etkilencekId" value="#{ajaxBean.aNumber}" /> <br/> 
+      
+   </h:form>
+   
+</h:body>
+
+</html>

@@ -9,5 +9,5 @@
         httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
         
     <keyStore id="defaultKeyStore" location="${server.output.dir}/resources/security/key.p12"/>
-	<mpMetrics authentication="false" />
+	
 </server>

@@ -5,29 +5,30 @@
       xmlns:f="http://java.sun.com/jsf/core"
 >
 <h:head>
-  <title>GIRIS SAYFASI</title>
+  <title>JSF Parameters</title>
 </h:head>
 
 <h:body>
 
    <h:form>
      
-     <h:commandButton value="GONDER" action="#{parameterBean.gonder}">
-        <f:param name="isim" value="Almeida"/>
+     <h:commandButton value="f:param" action="#{parameterBean.method1()}">
+        <f:param name="var1" value="Jakarte EE"/>
      </h:commandButton>
+     #{var1Response}
+     <br/>
      
-     
-          <h:commandButton value="GONDER" actionListener="#{parameterBean.listenerMetodu}">
-       <f:attribute name="isim" value="Fernandes" />
+     <h:commandButton value="f:attribute" actionListener="#{parameterBean.method2}">
+       <f:attribute name="var2" value="Micro Profile" />
      </h:commandButton>
+     #{var2Response}
+     <br/>
      
-     
-     <h:commandButton value="bean value set et"">
-       <f:setPropertyActionListener target="#{ornekBean3.degisken}" value="Cenk" />
+     <h:commandButton value="f:setPropertyActionListener">
+       <f:setPropertyActionListener target="#{parameterBean.param1}" value="New Value" />
      </h:commandButton>
-     
-     
-     
+     <br/>
+     "param1" value is: <h:outputText value="#{parameterBean.param1}" />
       
    </h:form>
    

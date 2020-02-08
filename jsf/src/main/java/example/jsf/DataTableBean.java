@@ -23,22 +23,20 @@ public class DataTableBean implements Serializable{
 	@PostConstruct
 	public void init() {
 		users = new ArrayList<User>();
-		users.add(new User("Erkan", "Sa"));
-		users.add(new User("Test 1", "Surname 1"));
-		users.add(new User("Test 2", "Surname 2"));
-		users.add(new User("Test 4", "Surname 4"));
+		users.add(new User(1, "Name 1", "Surname 1"));
+		users.add(new User(2, "Name 2", "Surname 2"));
+		users.add(new User(3, "Name 3", "Surname 3"));
+		users.add(new User(4, "Name 4", "Surname 4"));
 	}
 	
-	public void test() {
-		System.out.println("Test");
-	}
-	
-	public String guncelle(User t){
-		return null;
+	public void update(User user){
+		User u = users.stream().filter(e -> e.getId() == user.getId()).findFirst().get();
+		if(u != null) {
+			u.setName(user.getName() + " modified!");
+		}
 	}
 
 	public List<User> getUsers() {
-		System.out.println(users);
 		return users;
 	}
 

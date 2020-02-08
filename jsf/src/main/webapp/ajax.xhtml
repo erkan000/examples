@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
->
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-  <title>GIRIS SAYFASI</title>
+	<title>Ajax Test</title>
 </h:head>
 
 <h:body>
 
-   <h:form>
+	<h:form>
      
- TAKIMLAR  
-    <h:selectOneMenu>  
-      <f:selectItem itemLabel="Seciniz..."/>#{p.adi} #{p.soyadi}
-      <f:selectItems value="#{ajaxBean.users}" var="user" itemLabel="#{user.name} #{user.surname}" itemValue="#{user.id}"/>
-      <f:ajax listener="#{ajaxBean.changeWithAjax}" render="futbolcuListesi" />    
-    </h:selectOneMenu>
+ 	---f:ajax listener---  
+    <h:selectOneMenu id="selectOne">
+		<f:selectItem itemLabel="Please Select..." />
+      	<f:selectItems value="#{ajaxBean.users}" var="user"	itemLabel="#{user.name} #{user.surname}" itemValue="#{user.id}" />
+		<f:ajax listener="#{ajaxBean.changeWithAjax}" render="labelPeople" />
+	</h:selectOneMenu>
+	<h:outputLabel id="labelPeople" value="#{ajaxBean.selectedUser.name}" for="selectOne"/>
+    <br/><br/>
     
-    
-    Deger: 
-    <h:inputText value="#{ajaxBean.deger}">
-       <f:ajax listener="#{ajaxBean.onFocus}" event="focus" render="label"/>
-        <f:ajax listener="#{ajaxBean.onKeyup}" event="keyup" render="label"/>
-        <!-- 
+    ---f:ajax events---   
+    <h:inputText value="#{ajaxBean.aValue}" id="inputDeger">
+			<f:ajax listener="#{ajaxBean.onFocus}" event="focus" render="label" />
+			<f:ajax listener="#{ajaxBean.onKeyup}" event="keyup" render="label" />
+			<!-- 
         	<f:ajax execute="@this" render="@form" event="keyup"/>
          -->
-    </h:inputText><br/><br/>
-    <h:outputLabel id="label" value="#{ajaxBean.olay}"/>
+	</h:inputText>
+	<h:outputLabel id="label" value="#{ajaxBean.event}" for="inputDeger"/>    
+    <br/><br/>
     
-    
-    ARALIK: <h:inputText id="inputGiris" value="#{ajaxBean.deger}" />
-     <h:commandButton value="YARAT" action="#{ajaxBean.rasgeleSayiUret}">
-       <f:ajax render="etkilencekId" execute="inputGiris" />
-     </h:commandButton> <br/>
-     <h:outputText id="etkilencekId" value="#{ajaxBean.aNumber}" /> <br/> 
-      
-   </h:form>
-   
+    ---f:ajax execute---  
+    <h:inputText id="inputGiris" value="#{ajaxBean.aValue}" />
+	<h:commandButton value="Generate" action="#{ajaxBean.rasgeleSayiUret}">
+		<f:ajax render="etkilencekId" execute="inputGiris" />
+	</h:commandButton>
+	<h:outputText id="etkilencekId" value="#{ajaxBean.aNumber}" />
+
+	</h:form>
+
 </h:body>
 
 </html>

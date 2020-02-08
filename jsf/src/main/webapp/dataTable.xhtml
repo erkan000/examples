@@ -5,7 +5,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
 >
 <h:head>
-  <title>GIRIS SAYFASI</title>
+  <title>h:dataTable page</title>
 </h:head>
 
 <body>
@@ -15,21 +15,19 @@
           styleClass="order-table" headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row">
      
         <h:column>
-          <f:facet name="header">ADI</f:facet>
+          <f:facet name="header">Name</f:facet>
           <h:outputLabel value="#{user.name}"></h:outputLabel>
         </h:column>
          <h:column>
-          <f:facet name="header">RENK</f:facet>
+          <f:facet name="header">Surname</f:facet>
           <h:outputLabel value="#{user.surname}"></h:outputLabel>
         </h:column>
           <h:column>
-          <f:facet name="header">GUNCELLE</f:facet>
-          <h:commandLink value="Guncelle" action="#{dataTableBean.guncelle(user)}"></h:commandLink>
+          <f:facet name="header">Update</f:facet>
+          <h:commandLink value="Update" action="#{dataTableBean.update(user)}" />
         </h:column> 
         
      </h:dataTable>
-     
-     <h:commandButton value="DENEME" />
       
    </h:form>
    

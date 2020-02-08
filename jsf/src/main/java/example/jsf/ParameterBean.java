@@ -1,10 +1,6 @@
 package example.jsf;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -15,36 +11,35 @@ import javax.servlet.http.HttpSession;
 @Named
 @RequestScoped
 public class ParameterBean implements Serializable{
-	
-
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7781585654619412685L;
+	private String param1;
 
-	@PostConstruct
-	public void init() {
-
-	}
-	
-public String gonder(){
-		
+	public void method1(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
-		String adi = request.getParameter("isim");
-		System.out.println("Parameter is : " + adi);
-		
+		String var1 = request.getParameter("var1");
 		HttpSession session = request.getSession();
-		session.setAttribute("kullanici", "");
-		
-		return null;
+		session.setAttribute("var1Response", var1);
 	}
 
-public void listenerMetodu(ActionEvent e){
-	String adi = (String)e.getComponent().getAttributes().get("isim");
-	System.out.println("ADI: " + adi);
-}
-		
+	public void method2(ActionEvent e){
+		String var2 = (String)e.getComponent().getAttributes().get("var2");
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
+		HttpSession session = request.getSession();
+		session.setAttribute("var2Response", var2);
+	}
+
+	public String getParam1() {
+		return param1;
+	}
+
+	public void setParam1(String param1) {
+		this.param1 = param1;
+	}
 
 }

@@ -1,13 +1,15 @@
-### Primefaces Samples
+### JSF (JSR 372: JavaServer Faces (JSF 2.3) Specification) Samples
 
-This is a very basic Primefaces Sample. It uses jetty.
+This is a very basic JSF Sample. It uses maven liberty plug-in
 
 #### Usage:
 - Copy project
 - mvn clean package
-- mvn jetty:run
-- http://localhost:9090/primefaces/autoComplete.jsf
-- http://localhost:9090/primefaces/chart.jsf
+- mvn liberty:dev
+- http://localhost:9080/jsf/parameter.jsf
+- http://localhost:9080/jsf/dataTable.jsf
+- http://localhost:9080/jsf/listeners/actionListener.jsf
+- http://localhost:9080/jsf/listeners/valueChangeListener.jsf
 
 
 <f:ajax execute="@this" render="@form" event="keyup"/>

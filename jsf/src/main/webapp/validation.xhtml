@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
->
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-  <title>GIRIS SAYFASI</title>
+	<title>JSF Validation</title>
 </h:head>
 
 <h:body>
 
-   <h:form>
+	<h:form>
+		<h:outputLabel value="Input a date:" for="inputDate"/>
+		<h:inputText id="inputDate" value="#{validationBean.utilDate}"
+			required="true" label="tarih" 
+			converterMessage="Date format is wrong! Use dd-MM-yyyy"
+			requiredMessage="This field is empty">
+				<f:convertDateTime pattern="dd-MM-yyyy" />
+		</h:inputText>
+		
+		<h:message for="inputDate" style="padding:12px; color:red" />
+		<br />
+
+		<h:commandButton value="Send" />
      
- <h:inputText id="tarih" value="#{dateBean.tarih}" required="true" label="tarih" 
-        converterMessage="tarih formati yanlis" requiredMessage="bosssssss">
-         <f:convertDateTime pattern="dd-MM-yyyy"/>
-      </h:inputText>
-      <h:message for="tarih" style="color:red" /><br/>
-      
-      <h:commandButton value="GONDER" action="sonuc" />
-     
-     
-     Girilen Tarih:
-     <h:outputText value="#{dateBean.tarih}" >
-        <f:convertDateTime pattern="dd-MM-yyyy" />
-      </h:outputText> 
-      
-   </h:form>
-   
+     	<br />
+     	You have entered:
+     	<h:outputText value="#{validationBean.utilDate}">
+			<f:convertDateTime pattern="dd-MM-yyyy" />
+		</h:outputText>
+
+	</h:form>
+
 </h:body>
 
 </html>

@@ -7,20 +7,21 @@
 >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>Custom action Listener</title>
 </head>
 <body>
    <h:form>
    
-      <ui:remove>
-         <h:commandButton id="butonId" value="GIRIS" action="#{listenerBean.giris}"
-                       actionListener="#{listenerBean.listenerMetodu}" />
-      </ui:remove>
+         <h:commandButton id="butonId" value="Listener 1" 
+         	action="listeners/result"
+            actionListener="#{commonBean.listenerMetodu}" />
+	<br/>
       
-      <h:commandButton value="GIRIS2" action="#{listenerBean.giris}">
-         <f:actionListener type="listeners.ButonListener"/>
+      <h:commandButton value="Listener 2" action="listeners/result" >
+         <f:actionListener type="example.jsf.listeners.CustomActionListener"/>
       </h:commandButton>
      
+     <br/>
    
    </h:form>
 </body>

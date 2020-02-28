@@ -18,6 +18,9 @@ public class ParameterBean implements Serializable{
 	private static final long serialVersionUID = 7781585654619412685L;
 	private String param1;
 
+	// Getting all variables
+	// Map<String, Object> map = FacesContext.getCurrentInstance().getExternalContext().getRequestMap();
+	
 	public void method1(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();

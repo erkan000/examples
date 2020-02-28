@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Expression Language</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<table border="1">
+			<tr>
+				<td>EL Escape</td>
+				<td>EL Calc</td>
+				<td>El</td>
+				<td>EL</td>
+				<td>EL</td>
+			</tr>
+			<tr>
+				<td>\#{3+2-1}</td>
+				<td>#{3+2-1}</td>
+				<td>\#{1 lt 2}</td>
+				<td>#{1 lt 2}</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>\#{"2" + 5*2}</td>
+				<td>#{"2" + 5*2}</td>
+				<td>#{bean.aValue ge 2}</td>
+				<td>#{dataTableBean.users['2'].surname}</td>
+				<td>#{dataTableBean.users[1].name}</td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+
+</html>

@@ -26,6 +26,7 @@
 			<f:ajax listener="#{ajaxBean.onKeyup}" event="keyup" render="label" />
 			<!-- 
         	<f:ajax execute="@this" render="@form" event="keyup"/>
+        	<f:ajax execute="@form" render="@form" />
          -->
 	</h:inputText>
 	<h:outputLabel id="label" value="#{ajaxBean.event}" for="inputDeger"/>    

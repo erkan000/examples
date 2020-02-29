@@ -20,15 +20,40 @@
 		
 		<h:message for="inputDate" style="padding:12px; color:red" />
 		<br />
-
-		<h:commandButton value="Send" />
      
      	<br />
-     	You have entered:
+     	Valid date format:
      	<h:outputText value="#{validationBean.utilDate}">
-			<f:convertDateTime pattern="dd-MM-yyyy" />
+			<f:convertDateTime pattern="yyyy-dd-MM" />
 		</h:outputText>
+		
+		<br/><br/>
+		
+		Validate Length<h:inputText value="#{bean.stringValue}" 
+							required="true" requiredMessage="Parola adi boş geçilemez"
+							validatorMessage="En az 3, en çok 10 karakter girilmeli">
+				<f:validateLength minimum="3" maximum="10"/>
+		</h:inputText>
 
+		<br/>
+		Validate Long Range<h:inputText value="#{bean.longValue}" required="true" 
+								requiredMessage="Value cant be empty"
+								converterMessage="Only numbers"
+								validatorMessage="Value must between 1-500">
+				<f:validateLongRange minimum="1" maximum="500"/>
+		</h:inputText>
+		
+		<br/>
+		Validate Regex<h:inputText id="email" value="#{bean.stringValue}" required="true" 
+							requiredMessage="E-Mail can not be empty."
+							validatorMessage="E-Mail not valid">
+			<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+			<f:ajax event="keyup" render="err"/>
+		</h:inputText>
+		<h:message for="email" id="err" style="color:red"></h:message>
+
+		<br/>
+		<h:commandButton value="Send" />
 	</h:form>
 
 </h:body>

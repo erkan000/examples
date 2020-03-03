@@ -9,12 +9,12 @@
 <h:head> </h:head>
 <h:body>
 	<h:form>
-		<p:commandButton value="RAPOR AL" action="#{zamanAlanBean.baglan}"/>
+		<p:commandButton value="p:ajaxstatus" action="#{bean.longThread}"/>
 		<br/>
 		<p:ajaxStatus>
 			<f:facet name="start">
 				<h:outputText value="İşleminiz devam ediyor..."/>
-				<h:graphicImage library="images" name="loading.gif"/>
+				<!-- <h:graphicImage library="images" name="loading.gif"/>  -->
 			</f:facet>
 			<f:facet name="complete">
 				<h:outputText value="İşleminiz tamalandı..."/>

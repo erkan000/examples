@@ -32,11 +32,11 @@
     <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-    <param-value>client</param-value>
+    <param-value>server</param-value>
   </context-param>
   
   <context-param>
-    <description>gfd</description>
+    <description>Development, Production</description>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>
   </context-param>
@@ -76,4 +76,15 @@
     <param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
     <param-value>true</param-value>
   </context-param>
+  
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config>
+  
+  <!-- doesnt works for ajax calls, instead of use ExceptionHandlerFactory class -->
+  <error-page>
+  	<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+  	<location>/viewExpired.jsf</location>
+  </error-page>
+  
 </web-app>

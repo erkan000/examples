@@ -22,3 +22,5 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 			
 			execute : parametreleri gondermek icin
 			 -->
+			 
+javax.faces.STATE_SAVING_METHOD : View state'leri sunucu mu yoksa client mı yönetsin? client seçilir ise view expired exception doğal olarak sunucu hiçbir zaman fırlatmaz.

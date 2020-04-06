@@ -17,5 +17,9 @@
          <var>mesaj</var>
        </resource-bundle>
     </application>
+    
+    <factory>
+		<exception-handler-factory>example.jsf.exception.CustomErrorHandlerFactory</exception-handler-factory>
+	</factory>
 
 </faces-config>

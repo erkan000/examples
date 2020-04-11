@@ -15,10 +15,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import examples.ssl.DummySSLSocketFactory;
 
 public class Crawler {
     
@@ -33,6 +37,17 @@ public class Crawler {
     
     public Crawler(String endpoint) throws MalformedURLException{
     	url = new URL(endpoint);
+    }
+    
+    public String getRequestHttps(String path) throws IOException{
+    	URL url = new URL(this.url.getProtocol() + "://" + this.url.getHost() + ":" + this.url.getPort() + path);
+    	HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
+    	con.setRequestProperty(USER_AGENT, USER_AGENT_VALUE);
+    	con.setSSLSocketFactory(new DummySSLSocketFactory());
+    	setCookies(con);
+    	con.connect();
+    	getCookies(con);
+    	return getPageContent(con);
     }
     
     public String getRequest(String path) throws IOException{

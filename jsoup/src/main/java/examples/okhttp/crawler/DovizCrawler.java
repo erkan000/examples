@@ -36,6 +36,10 @@ public class DovizCrawler {
 	public String fiyatParse(String tarih, int sira){
 		String aranan = "";
 		OkHttpClient client = new OkHttpClient();
+//		HTTPS untrusted cert
+//		OkHttpClient client = new OkHttpClient.Builder()
+//				.sslSocketFactory(new DummySSLSocketFactory(), new DummyTrustManager())
+//			    .build();
 		Request request = new Request.Builder()
 				.url("http://finans.mynet.com/doviz/arsiv/" + tarih + "/")
 				.build();

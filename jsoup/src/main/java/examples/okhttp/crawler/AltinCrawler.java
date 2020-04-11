@@ -47,6 +47,10 @@ public class AltinCrawler {
 	public String alisSatisFiyatParse(String tarih){
 		String aranan = "";
 		OkHttpClient client = new OkHttpClient();
+//		HTTPS untrusted cert
+//		OkHttpClient client = new OkHttpClient.Builder()
+//				.sslSocketFactory(new DummySSLSocketFactory(), new DummyTrustManager())
+//			    .build();
 		Request request = new Request.Builder()
 				.url(adres + tarih)
 				.build();

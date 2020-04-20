@@ -11,6 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.websocket.OnClose;
+import javax.websocket.OnError;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
@@ -48,8 +49,13 @@ public class ClockWebsocket {
                 peer.getBasicRemote().sendText("Time: " +
                         LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
             } catch (IOException ex) {
-                // ex
+                ex.printStackTrace();
             }
         }
+    }
+    
+    @OnError
+    public void processError(Throwable t) {
+        t.printStackTrace();
     }
 }

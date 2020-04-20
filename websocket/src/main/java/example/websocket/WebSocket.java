@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.websocket.EncodeException;
 import javax.websocket.OnClose;
+import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
@@ -29,11 +30,20 @@ public class WebSocket {
 
     @OnMessage
     public void incomingMessage(String text , Session session) throws IOException, EncodeException {
-        System.out.println("Message Received: " + text);
+        System.out.println("SERVER: Message Received: " + text);
         for (Session peer : peers) {
            // if (!peer.equals(session)) {
-                peer.getBasicRemote().sendObject("You sent:" + text);
+                peer.getBasicRemote().sendObject("You sent : " + text);
+                
+//              ByteBuffer ee = ByteBuffer.wrap("this is a stream".getBytes());
+//				peer.getBasicRemote().sendBinary(ee);
+//              peer.getBasicRemote().sendText("text");
            // }
         }
+    }
+    
+    @OnError
+    public void processError(Throwable t) {
+        t.printStackTrace();
     }
 }

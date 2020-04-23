@@ -31,15 +31,23 @@ public class WebSocket {
     @OnMessage
     public void incomingMessage(String text , Session session) throws IOException, EncodeException {
         System.out.println("SERVER: Message Received: " + text);
-        for (Session peer : peers) {
-           // if (!peer.equals(session)) {
-                peer.getBasicRemote().sendObject("You sent : " + text);
-                
-//              ByteBuffer ee = ByteBuffer.wrap("this is a stream".getBytes());
-//				peer.getBasicRemote().sendBinary(ee);
-//              peer.getBasicRemote().sendText("text");
-           // }
-        }
+        broadcast(text);
+    }
+    
+    private void broadcast(String text) {
+    	for (Session peer : peers) {
+            // if (!peer.equals(session)) {
+                 try {
+					peer.getBasicRemote().sendText("You sent : " + text);
+				} catch (IOException e) {
+					peers.remove(peer);
+				}
+                 
+//               ByteBuffer ee = ByteBuffer.wrap("this is a stream".getBytes());
+// 				 peer.getBasicRemote().sendBinary(ee);
+//               peer.getBasicRemote().sendObject("text");
+            // }
+         }
     }
     
     @OnError

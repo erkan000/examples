@@ -33,7 +33,7 @@ public class WsClientEndpoint extends Endpoint{
         session.addMessageHandler(new MessageHandler.Whole<String>() {
             @Override
             public void onMessage(String message) {
-            	System.out.println(message);
+            	System.out.println("Received:" + message);
             	messageI = message;
             	if(textArea != null)
             		textArea.append(message + "\r\n");

@@ -11,11 +11,13 @@ My .gitignore file;
 /.project
 /.classpath
 /.gitignore
+/.factorypath
 /*/target/
 /*/.settings/
 /*/.project
 /*/.classpath
 /*/.gitignore
+/*/.factorypath
 ```
 
 Some setting for git

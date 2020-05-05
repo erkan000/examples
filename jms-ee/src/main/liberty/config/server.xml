@@ -1,0 +1,37 @@
+<server description="LibertyServer">
+	<featureManager>
+		<feature>wasJmsClient-2.0</feature>
+		<feature>wasJmsServer-1.0</feature>
+		<feature>cdi-1.2</feature>
+		<feature>mdb-3.2</feature>
+		<feature>servlet-3.1</feature>
+		<feature>jndi-1.0</feature>
+		<feature>jca-1.7</feature>
+	</featureManager>
+
+	<webApplication location="jms-ee.war" id="jms-ee" name="jms-ee" />
+
+	<httpEndpoint host="*" httpPort="9080" id="defaultHttpEndpoint" />
+
+	<messagingEngine>
+		<queue id="myQueue" />
+		<queue id="myAnotherQueue" />
+	</messagingEngine>
+
+	<jmsQueueConnectionFactory jndiName="jms/myQueueConnectionFactory">
+		<properties.wasJms />
+	</jmsQueueConnectionFactory>
+
+	<jmsQueue jndiName="jms/myQueue" id="myQueueId">
+		<properties.wasJms queueName="myQueue" />
+	</jmsQueue>
+	
+	<jmsActivationSpec id="jms-ee/MessageMDB">
+		<properties.wasJms destinationRef="myQueueId" />
+	</jmsActivationSpec>
+	
+	<jmsQueue jndiName="jms/myAnotherQueue" id="myAnotherQueueId">
+		<properties.wasJms queueName="myAnotherQueue" />
+	</jmsQueue>
+	
+</server>

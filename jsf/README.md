@@ -11,18 +11,31 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 - http://localhost:9080/jsf/listeners/actionListener.jsf
 - http://localhost:9080/jsf/listeners/valueChangeListener.jsf
 
+### Ajax
 
-<f:ajax execute="@this" render="@form" event="keyup"/>
+<f:ajax event=" "	hangi tür eventte ajax request yapılacağı(içindeki komponente göre event türleri değişir)
+	    execute=""	hangi komponentlerin JSF execute lifecycle'da işleneği, default olarak hiçbiri işlenmez
+	    render=" "	hangi komponentlerin JSF render lifecycle'da işleneği, default olarak hiçbiri işlenmez
+		/>
 
-<!-- 
-			render="@none" hicbir bilesen etkilenmez
-			render="@this" sadece ajax'i cevreleyen
-			render="@form" ajax'i iceren form
-			render="@all"  tum bilesenler
-			
-			execute : parametreleri gondermek icin
-			 -->
+Burada komponentler aralarında boşluk ayrılarak listelenir.
+
+Events;
+- HTML standart DOM events (focus, blur, keydown, mouseover, click)
+- ActionSource components, action
+- EditableValueHolder components, value
+
+Render;
+- "@none" hicbir bilesen etkilenmez
+- "@this" sadece ajax'i cevreleyen komponentin kendisi (Default)
+- "@form" ajax'i iceren form
+- "@all"  tum bilesenler
 			 
+f:ajax diğer özellikleri
+- listener		attach a server-side event listener
+- onevent		attach a client-side event listener
+- onerror		attach a client-side error handler
+
 javax.faces.STATE_SAVING_METHOD : View state'leri sunucu mu yoksa client mı yönetsin? client seçilir ise view expired exception doğal olarak sunucu hiçbir zaman fırlatmaz.
 
 JSF 2.3 ile ManagedBean ler deprecate oldu, View katmanında controller olarak artık CDI Beans leri kullanacağız(Named anotasyonu kullanarak) Ayrıca JSF artifacts , validators, converter, behaviours CDI @Inject kullanılarak inject edilebilir.

@@ -13,11 +13,7 @@ CDI samples
 ### Dependency injection Design Patterns
 
 - Bridge (with alternatives)
-
 - Factory (with producers)
-
 - Interceptor
-
 - Decorator
-
 - Observer/observable (with events)

@@ -10,6 +10,7 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 - http://localhost:9080/jsf/dataTable.jsf
 - http://localhost:9080/jsf/listeners/actionListener.jsf
 - http://localhost:9080/jsf/listeners/valueChangeListener.jsf
+- http://localhost:9080/jsf/facelets/index.jsf
 
 ### Ajax
 

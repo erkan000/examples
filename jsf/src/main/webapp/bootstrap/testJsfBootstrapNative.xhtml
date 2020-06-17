@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://java.sun.com/jsf">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>JSF and Bootstrap</title>
+	
+	<ui:remove>
+		<link jsf:name="css/bootstrap.min.css" jsf:library="bootstrap" />
+	</ui:remove>
+	
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+		<h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+	</f:facet>
+	
+	<h:outputScript name="bootstrap/js/bootstrap.min.js" />
+	<h:outputScript name="bootstrap/js/jquery.min.js" />
+	
+</h:head>
+
+<h:body>
+<div class="container">
+	<h:form>
+		<ol class="breadcrumb">
+			<li><a href="#"> Home </a></li>
+			<li class="active">Data</li>
+		</ol>
+
+		<div class="panel panel-info">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm">
+						<input type="text" jsf:id="inputUserName" jsf:value="#{bean.stringValue}" class="form-control" placeholder="Username" aria-label="Username" />
+						<button type="submit" class="btn btn-primary" jsf:actionListener="#{bean.test()}">Test</button>
+						<table></table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</h:form>
+</div>
+</h:body>
+</html>

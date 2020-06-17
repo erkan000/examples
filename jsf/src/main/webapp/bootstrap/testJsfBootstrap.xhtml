@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>JSF and Bootstrap</title>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
+	</f:facet>
+	
+	<h:outputScript name="bootstrap/js/bootstrap.min.js" />
+	<h:outputScript name="bootstrap/js/jquery.min.js" />
+	
+	<ui:remove>
+		<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" ></link>
+		<script src="#{request.contextPath}/resources/bootstrap/js/jquery.min.js" type="text/javascript" ></script>
+		<script src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+ 	</ui:remove>
+
+</h:head>
+
+<h:body>
+	<div class="container">
+		<h:form styleClass="form-signin">
+			<h2 class="form-signin-heading">Giriş yapınız </h2>
+			<h:messages for="inputEmail" errorStyle="sr-only" infoStyle="sr-only">E-mail:</h:messages>			
+			<h:inputText styleClass="form-control" id="inputEmail" value="#{bean.stringValue}" required="true" />
+			<label for="inputPassword" class="sr-only">Password</label>
+			<h:inputText styleClass="form-control" id="inputPassword" value="#{bean.stringValue}" required="true"/>
+			<h:commandButton styleClass="btn btn-lg btn-primary btn-block" actionListener="#{bean.test}" value="Giriş Yap" />
+		</h:form>
+	</div>
+</h:body>
+</html>

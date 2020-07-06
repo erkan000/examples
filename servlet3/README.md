@@ -17,3 +17,13 @@ This is a very basic Servlet demo app
     * http://localhost:8080/servlet3/async
 
 
+### Secure a Servlet
+
+```
+@WebServlet("services/aaa")
+@ServletSecurity(
+@HttpConstraint(transportGuarantee = TransportGuarantee.CONFIDENTIAL,
+    rolesAllowed = {"select"} ) 
+		)
+```
+

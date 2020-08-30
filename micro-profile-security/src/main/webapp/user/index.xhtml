@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core" lang="en">
+<h:head>
+	<title>Welcome</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid class="table" columns="2" border="1" cellspacing="1" cellpadding="6">
+			<h:panelGroup>Username:</h:panelGroup>
+			<h:panelGroup>#{userBean.username}</h:panelGroup>
+			<h:panelGroup>Roles:</h:panelGroup>
+			<h:panelGroup>#{userBean.roles}</h:panelGroup>
+		</h:panelGrid>
+		<p/>
+		<h:commandButton id="submit" value="Log Out" action="#{loginBean.logout}" />
+	</h:form>
+
+	<h:panelGroup>
+		<form method="post" action="ibm_security_logout">
+			<input type="submit" name="logout" value="Log Out (IBM)" />
+			<input type="hidden" name="logoutExitPage" value="/login.xhtml" />
+		</form>
+	</h:panelGroup>
+	
+	<p/>
+	
+	<p/><a href="../rest/me">Custom security rest service</a>
+	<p/><a href="../rest/admin">Admin role rest service</a>
+	<p/><a href="../rest/user">User role rest service</a>
+	
+	<p/><a href="../user/admin.xhtml">Admin page</a>
+
+</h:body>
+
+</html>

@@ -1,0 +1,28 @@
+<server description="LibertyServer">
+	<featureManager>
+		<feature>jaxrs-2.1</feature>
+		<feature>appSecurity-3.0</feature>
+		<feature>cdi-2.0</feature>
+		<feature>jsf-2.3</feature>
+	</featureManager>
+
+	<httpEndpoint host="localhost"
+		httpPort="${default.http.port}" httpsPort="${default.https.port}"
+		id="defaultHttpEndpoint" />
+		
+	<basicRegistry id="basic" realm="basicRealm">
+		<user name="erkan" password="erkan" />
+		<user name="nurdan" password="nurdan" />
+		<group name="admin">
+			<member name="erkan" />
+		</group>
+		<group name="user">
+			<member name="nurdan" />
+			<member name="erkan" />
+		</group>
+	</basicRegistry>
+	
+	<webApplication location="micro-profile-security.war"
+		id="micro-profile-security" name="micro-profile-security" />
+
+</server>

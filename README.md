@@ -20,7 +20,7 @@ My .gitignore file;
 /*/.factorypath
 ```
 
-Some setting for git
+Some setting for git (".gitconfig" file)
 ```
 [http "https://github.com"]
 	sslVerify = false

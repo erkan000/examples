@@ -18,6 +18,8 @@ My .gitignore file;
 /*/.classpath
 /*/.gitignore
 /*/.factorypath
+/bin/
+/*/bin/
 ```
 
 Some setting for git (".gitconfig" file)

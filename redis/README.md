@@ -15,3 +15,9 @@ Jedis is a Redis java client.
 Also Redis supports a mechanism to define transactions, as in Redis. This allows you to use the MULTI, EXEC, DISCARD, WATCH, and UNWATCH commands to execute atomic transactions.
 
 
+#### GUI Client
+
+https://github.com/caoxinyu/RedisClient
+
+Usage:
+java -jar redisclient-win32.x86_64.2.0.jar

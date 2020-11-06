@@ -1,0 +1,13 @@
+<server description="LibertyServer">
+    <featureManager>    	
+    	<feature>webProfile-8.0</feature>
+	</featureManager>    
+
+    <webApplication location="redis.war" id="redis" name="redis" />
+
+    <httpEndpoint host="localhost" httpPort="${default.http.port}" 
+        httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
+        
+    <keyStore id="defaultKeyStore" location="${server.output.dir}/resources/security/key.p12"/>
+	
+</server>

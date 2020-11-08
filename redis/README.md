@@ -21,3 +21,9 @@ https://github.com/caoxinyu/RedisClient
 
 Usage:
 java -jar redisclient-win32.x86_64.2.0.jar
+
+
+#### Redis Docker Image
+
+- docker run --name redis-server -p 6379:6379 -d redis
+- docker rm -f redis-server

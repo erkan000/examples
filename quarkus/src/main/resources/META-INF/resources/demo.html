@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Custom Elements</title>	
+</head>
+
+<body>
+	<main>
+		<p>Web Components - Custom Elements Demo</p>
+
+		<table border="1em">
+			<tr>
+				<td>Parameter</td>
+				<td>
+					<mycustom-text param="Erkan"></mycustom-text>
+				</td>
+			</tr>
+			<tr>
+				<td>Button onclick</td>
+				<td>
+					<mycustom-button></mycustom-button>
+				</td>
+			</tr>
+			<tr>
+				<td>Rest service</td>
+				<td>
+					<mycustom-client></mycustom-client>
+				</td>
+			</tr>
+		</table>
+
+		<script src="component.js" type="module"></script>
+		<script src="button.js" type="module"></script>
+		<script src="service.js" type="module"></script>
+
+	</main>
+</body>
+
+</html>

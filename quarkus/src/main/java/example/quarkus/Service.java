@@ -14,4 +14,11 @@ public class Service {
         return "Hello from Quarkus!";
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("json")
+    public Person json() {
+        return new Person("Erkan", 35);
+    }
+    
 }

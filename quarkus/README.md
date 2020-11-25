@@ -8,9 +8,20 @@ This is a very basic Quarkus sample app
 #### Usage:
 - Copy project
 - mvn clean compile
-- mvn quarkus:dev
+- mvn quarkus:dev (Read stopping server section)
 - Navigate to http://localhost:8080/
 - Navigate to http://localhost:8080/quarkus
+- Web componets frontend added, navigate to http://localhost:8080/demo.html
+
+- mvn quarkus:list-extensions	Lists extensions(e.g quarkus-resteasy-jsonb)
 
 #### Notes
 - With Quarkus, there is no need to create an Application class. It’s supported, but not required. In addition, only one instance of the resource is created and not one per request. You can configure this using the different *Scoped annotations (ApplicationScoped, RequestScoped, etc).
+
+#### Stopping server
+ In documentation dev server can be stopped by "CTRL+C", but in Eclipse, shortcut doesn't works. (https://www.eclipse.org/forums/index.php/t/587605/)
+ 
+ Solution is to use "@QuarkusMain" annotation, so you can start and stop quarkus like a spring boot project. Only run Main.java!, thats it.
+ 
+ Json parsing is done by "quarkus-resteasy-jsonb" dependency.
+ 

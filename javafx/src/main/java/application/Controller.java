@@ -11,6 +11,7 @@ public class Controller  implements Initializable {
 
 	@FXML
 	private TextField txtAd;
+	
 	@FXML
 	private TextField txtSifre;
 

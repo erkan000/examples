@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import example.jsf.pojos.User;
+
 @Named
 @RequestScoped
 public class Bean implements Serializable{
@@ -15,6 +17,7 @@ public class Bean implements Serializable{
 	private int intValue = 12;
 	private String stringValue;
 	private long longValue;
+	private User selectedUser;
 	
 	public void test() {
 		System.out.println("Test");
@@ -43,5 +46,14 @@ public class Bean implements Serializable{
 	public void setIntValue(int intValue) {
 		this.intValue = intValue;
 	}
+
+	public User getSelectedUser() {
+		return selectedUser;
+	}
+
+	public void setSelectedUser(User selectedUser) {
+		this.selectedUser = selectedUser;
+	}
+
 
 }

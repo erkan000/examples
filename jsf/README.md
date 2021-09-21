@@ -13,6 +13,7 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 - http://localhost:9080/jsf/facelets/index.jsf
 - http://localhost:8080/jsf/bootstrap/testBootstrap.html
 - http://localhost:8080/jsf/bootstrap/testJsfBootstrap.jsf
+- http://localhost:8080/jsf/convertor.jsf
 
 ### Ajax
 

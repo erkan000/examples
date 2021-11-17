@@ -5,7 +5,7 @@
 #### Usage:
 
 - Copy project
-- run "docker-compose up" in docker-compose folder. (If not all services begin, re-run command)
+- run "docker-compose up -d" in docker-compose folder. (If not all services begin, re-run command)
 - run MyConsumer.java
 - run MyProducer.java
 

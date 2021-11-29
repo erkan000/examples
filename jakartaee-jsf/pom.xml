@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tr.examples</groupId>
+	<artifactId>jakartaee-jsf</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-web-api</artifactId>
+			<version>9.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>jakartaee-jsf</finalName>
+		<plugins>
+			<plugin>
+				<groupId>io.openliberty.tools</groupId>
+				<artifactId>liberty-maven-plugin</artifactId>
+				<version>3.5</version>
+				<configuration>
+					<libertyRuntimeVersion>21.0.0.12</libertyRuntimeVersion>
+					<features>
+						<feature>jakartaee-8.0</feature>
+					</features>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

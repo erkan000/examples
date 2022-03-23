@@ -1,0 +1,10 @@
+{
+	"type":"record",
+	"name":"ServiceCategorySource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"serviceCategoryId","type":"string"},
+		{"name":"name","type":"string"},
+		{"name":"parentId","type":["null","string"], "default": null}
+	]
+}

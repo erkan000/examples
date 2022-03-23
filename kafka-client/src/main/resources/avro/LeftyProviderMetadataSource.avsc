@@ -1,0 +1,40 @@
+{
+  "type": "record",
+  "name": "LeftyProviderMetadataSource",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "leftyUserId",
+      "type": "string"
+    },
+    {
+      "name":"licenceMedia",  
+	        "type":{        		
+	                "type": "array",  
+	                "items":{
+	                	"name":"id", "type":"com.leftybeauty.schema.avro.LeftyProviderMediaValue"
+	                 }
+	         }
+    },
+    {
+      "name": "available",
+      "type": "boolean"
+    },
+    {
+      "name": "licensePlateNumber",
+      "type": "string"
+    },
+    {
+      "name": "licensePlateState",
+      "type": "string"
+    },
+    {
+      "name": "experience",
+      "type": "string"
+    },
+    {
+      "name": "paymentProviderAccountIdentifier",
+      "type": "string"
+    }
+  ]
+}

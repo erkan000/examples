@@ -1,0 +1,21 @@
+{
+    "type":"record",
+    "name":"ChatMessageSent",
+    "namespace":"com.leftybeauty.schema.avro",
+    "fields":[
+        {"name":"appointmentId","type":"string"},
+        {"name":"message","type":"string"},  
+        {
+            "name":"timestamp",
+            "type": {
+                "name": "timestamp",
+                "type": "long",
+                "logicalType": "Timestamp"
+            }
+        },
+        {
+            "name": "actor",
+            "type": "com.leftybeauty.schema.avro.MessageActorEnum"
+        }
+    ]
+}

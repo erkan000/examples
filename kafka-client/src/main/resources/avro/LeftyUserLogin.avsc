@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "LeftyUserLogin",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {"name":"sessionId","type" : "string"},
+    {"name":"leftyUserId", "type":"string"},
+    {"name":"deviceId", "type":"string"},
+    {"name":"loginTimestamp","type":"long"},
+    {"name":"ipAddress","type":"string"},
+    {"name":"userAgent","type":"string"},
+    {"name":"userTypes","type": "com.leftybeauty.schema.avro.LeftyPaymentTypeEnum" },
+    {"name":"email","type":"string"}
+  ]
+}

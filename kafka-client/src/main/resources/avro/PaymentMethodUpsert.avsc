@@ -1,0 +1,13 @@
+{
+	"type":"record",
+	"name":"PaymentMethodUpsert",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"paymentMethodId", "type":["null","string"], "default": null},
+		{"name":"paymentProcessorPaymentMethodIdentifier", "type":"string"},
+		{"name":"last4", "type":"int"},
+		{"name":"expiration", "type":"int"},
+		{"name":"type","type":"com.leftybeauty.schema.avro.PaymentMethodTypeEnum"}
+	]
+}

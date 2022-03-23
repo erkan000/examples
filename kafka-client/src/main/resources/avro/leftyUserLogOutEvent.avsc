@@ -1,0 +1,9 @@
+{
+  "namespace": "com.leftybeauty.schema.avro",
+  "type": "record",
+  "name": "LeftyUserLogout",
+  "fields": [
+    {"name":"sessionId", "type": "string"},
+    {"name":"logoutTimestamp","type":"string"}
+  ]
+}

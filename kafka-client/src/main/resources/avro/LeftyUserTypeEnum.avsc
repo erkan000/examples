@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyUserTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Client", "Provider"]
+} 

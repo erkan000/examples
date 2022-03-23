@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"DiscountTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Percentage","FlatAmount"]
+} 

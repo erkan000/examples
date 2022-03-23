@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyProviderServiceStatusEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Active", "Paused", "Deleted"]
+} 

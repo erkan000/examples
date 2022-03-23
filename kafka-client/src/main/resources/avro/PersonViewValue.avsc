@@ -1,0 +1,12 @@
+{
+	"type":"record",
+	"name":"PersonViewValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string" },
+		{"name":"firstName", "type":"string" },
+		{"name":"lastName", "type":"string" },
+		{"name":"avatarUrl", "type":["null","string"], "default": null },
+		{"name": "type", "type":"com.leftybeauty.schema.avro.MessageActorEnum"}
+	]
+}

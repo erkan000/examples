@@ -1,0 +1,26 @@
+{
+  "namespace": "com.leftybeauty.schema.avro",
+  "type": "record",
+  "name": "LeftyUserSource",
+  "fields": [
+    {
+        "name": "leftyUserId",
+        "type": "string"
+    },
+    {
+        "name": "newUser",
+        "type": "boolean"
+    },
+    {
+        "name":"userTypes",
+        "type": {
+                  "type": "array",
+                  "items": "com.leftybeauty.schema.avro.LeftyUserTypeEnum"
+                }
+     },
+     {
+        "name": "paymentProviderCustomerIdentifier",
+        "type": "string"
+     }
+  ]
+}

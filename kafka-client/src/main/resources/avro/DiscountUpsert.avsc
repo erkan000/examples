@@ -1,0 +1,12 @@
+{
+	"type":"record",
+	"name":"DiscountUpsert",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"discountSourceId", "type":"string"},
+		{"name":"name", "type":"string"},
+		{"name":"amount", "type":"double"},
+		{"name":"type","type":"com.leftybeauty.schema.avro.DiscountTypeEnum"}
+	]
+}

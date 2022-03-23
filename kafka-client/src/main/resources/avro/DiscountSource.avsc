@@ -1,0 +1,11 @@
+{
+	"type":"record",
+	"name":"DiscountSource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"discountId", "type":"string"},
+		{"name":"code", "type":"string"},
+		{"name":"amount", "type":"double"},
+		{"name":"type","type":"com.leftybeauty.schema.avro.DiscountTypeEnum"}
+	]
+}

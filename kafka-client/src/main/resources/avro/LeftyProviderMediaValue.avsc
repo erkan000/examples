@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "LeftyProviderMediaValue",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "storageProviderLocation",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": "com.leftybeauty.schema.avro.LeftyProviderLicenceTypeEnum"
+    }
+  ]
+}

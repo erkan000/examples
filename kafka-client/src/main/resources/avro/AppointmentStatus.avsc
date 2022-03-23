@@ -1,0 +1,11 @@
+{
+	"type":"record",
+	"name":"AppointmentStatus",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId","type":"string"},
+		{"name":"appointmentId","type":"string"},
+		{"name":"timestamp","type":"long"},      
+		{"name":"Status","type":"com.leftybeauty.schema.avro.AppointmentStatusEnum"}
+	]
+}

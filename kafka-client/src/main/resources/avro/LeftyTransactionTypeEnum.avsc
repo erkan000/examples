@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyTransactionTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Credit", "Debit"]
+}

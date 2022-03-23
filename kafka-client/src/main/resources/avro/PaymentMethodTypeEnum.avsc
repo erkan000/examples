@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"PaymentMethodTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Visa", "Mastercard", "Amex", "Discover"]
+} 

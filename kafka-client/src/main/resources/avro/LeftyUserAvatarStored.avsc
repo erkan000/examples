@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "LeftyUserAvatarStored",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "leftyUserId",
+      "type": "string"
+    },
+    {
+      "name": "storageProviderLocation",
+      "type": "string"
+    }
+  ]
+}

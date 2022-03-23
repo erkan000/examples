@@ -1,0 +1,33 @@
+{
+	"type":"record",
+	"name":"AppointmentSource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"appointmentId","type":"string"},
+		{"name":"leftyUserProviderId","type":"string"},
+		{"name":"clientAddressId","type":"string"},
+		{"name":"appointmentDateTime","type":"long"},
+	    {"name":"status","type":"com.leftybeauty.schema.avro.AppointmentStatusEnum"},
+	    {
+	        "name":"leftyProviderServiceReferences",  
+	        "type":{        		
+	                "type": "array",  
+	                "items":"com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt"
+	         }
+	    },
+	    {"name":"actor","type":"com.leftybeauty.schema.avro.LeftyUserTypeEnum"},
+	    {"name":"financialAccountReference","type":"com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt"},
+	    {
+	        "name":"transactionIds",  
+	        "type":["null", 
+	        	{        		
+	                "type": "array",  
+	                "items":{
+	                	"name":"id", "type":"string"
+	                 }
+	         	}
+	        ],
+	        "default": null
+	    }
+	]
+}

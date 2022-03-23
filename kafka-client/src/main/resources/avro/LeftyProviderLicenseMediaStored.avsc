@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "LeftyProviderLicenseMediaStored",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "leftyUserId",
+      "type": "string"
+    },
+    {
+      "name": "storageProviderLocation",
+      "type": "string"
+    },
+    {
+      "name": "licenseType",
+      "type": "com.leftybeauty.schema.avro.LeftyProviderLicenceTypeEnum"
+    }
+  ]
+}

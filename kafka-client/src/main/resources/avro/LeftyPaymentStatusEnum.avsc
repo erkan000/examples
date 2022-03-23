@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyPaymentStatusEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Approved", "Declined"]
+} 

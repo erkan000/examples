@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"EmailSource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"address", "type":"string"}
+	]
+}

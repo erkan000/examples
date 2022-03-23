@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyPaymentTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Payment", "Refund"]
+} 

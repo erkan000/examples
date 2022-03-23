@@ -1,0 +1,56 @@
+{
+  "namespace": "com.leftybeauty.schema.avro",
+  "type": "record",
+  "name": "LeftyUserView",
+  "fields": [
+    {
+        "name": "leftyUserId",
+        "type": "string"
+    },
+    {
+        "name": "newUser",
+        "type": "boolean"
+    },
+    {
+        "name": "firstName",
+        "type": ["null", "string"],
+        "default" : null
+    },
+    {
+        "name": "lastName",
+        "type":  ["null","string"],
+        "default" : null
+    },
+    {
+        "name":"emails",
+        "type": [ "null" ,
+             {
+                  "type": "array",
+                  "items":{
+                              "name": "email",
+                              "type": "string"
+                          }
+             }
+        ],
+        "default" : null
+    },
+    {
+        "name":"userTypes",
+        "type": [ "null" ,
+             {
+                "type": "array",
+                "items":{
+                           "name": "leftyUserTypeEnum",
+                           "type": "com.leftybeauty.schema.avro.LeftyUserTypeEnum"
+                        }
+              }
+        ],
+        "default" : null
+    },
+    {
+        "name": "avatarStorageProviderLocation",
+        "type": ["null", "string"],
+        "default" : null
+    }
+  ]
+}

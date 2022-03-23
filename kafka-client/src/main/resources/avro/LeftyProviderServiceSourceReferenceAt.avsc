@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"LeftyProviderServiceSourceReferenceAt",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyProviderServiceId","type":"string"},
+		{"name":"timestamp","type":"long"}
+	]
+}

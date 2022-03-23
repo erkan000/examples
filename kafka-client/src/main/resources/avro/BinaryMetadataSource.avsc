@@ -1,0 +1,44 @@
+{
+  "type": "record",
+  "name": "BinaryMetadataSource",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "binaryMetadataId",
+      "type": "string"
+    },
+    {
+      "name": "leftyUsersIds",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "leftyUserId",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "name": "mimeType",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "MimeType",
+          "symbols": [
+            "TEXT",
+            "JSON",
+            "JPEG"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "storageProviderLocation",
+      "type": "string"
+    }
+  ]
+}

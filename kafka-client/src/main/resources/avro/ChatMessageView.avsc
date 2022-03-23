@@ -1,0 +1,12 @@
+{
+	"type":"record",
+	"name":"ChatMessageView",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"appointmentId", "type":"string"},
+		{"name":"person", "type":"com.leftybeauty.schema.avro.PersonViewValue"},
+		{"name":"message", "type":"string"},
+		{"name":"timestamp", "type":"long"}
+		
+	]
+}

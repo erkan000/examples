@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"RatingReasonEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["DidntListenToRequest","Rude", "UnhappyWithResult", "Late", "GreatService", "Friendly", "Professional", "OnTime"]
+} 

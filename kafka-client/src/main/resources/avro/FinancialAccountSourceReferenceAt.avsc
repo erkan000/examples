@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"FinancialAccountSourceReferenceAt",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"financialAccountId","type":"string"},
+		{"name":"timestamp","type":"long"}
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"UsStateEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Alabama", "Alaska", "Arizona", "Arkansas", "California"]
+} 

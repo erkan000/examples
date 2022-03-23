@@ -1,0 +1,12 @@
+{
+	"type":"record",
+	"name":"TransactionSource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"transactionId","type":"string"},
+		{"name":"providerTransactionIdentifier","type":"string"},
+		{"name":"financialAccountId","type":"string"},      
+		{"name": "type","type":"com.leftybeauty.schema.avro.LeftyTransactionTypeEnum"},
+	    {"name":"amount","type":"double"}	
+	]
+}

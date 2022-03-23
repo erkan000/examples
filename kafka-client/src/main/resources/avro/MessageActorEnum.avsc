@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"MessageActorEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Client", "Provider", "System"]
+}

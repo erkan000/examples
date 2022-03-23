@@ -1,0 +1,10 @@
+{
+  "namespace": "com.leftybeauty.schema.avro",
+  "type": "record",
+  "name": "AppointmentProviderLocation",
+  "fields": [
+    { "name": "appointmentId", "type": "string"},
+    { "name": "longitude", "type": "long" },
+    { "name": "latitude", "type": "long" }
+  ]
+}

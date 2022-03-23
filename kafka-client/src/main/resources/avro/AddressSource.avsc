@@ -1,0 +1,14 @@
+{
+	"type":"record",
+	"name":"AddressSource",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"addressId","type":"string"},
+		{"name":"leftyUserId","type":"string"},
+		{"name":"street1","type":"string"},
+		{"name":"street2","type":["null","string"], "default": null},
+		{"name":"city","type":"string"},
+		{"name":"state","type":"com.leftybeauty.schema.avro.UsStateEnum"},
+		{"name":"zipCode","type":"int"}
+	]
+}

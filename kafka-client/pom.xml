@@ -63,10 +63,20 @@
 							<sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
 							<outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
 							<imports>
-								<import>${project.basedir}/src/main/resources/avro/messageActorEnum.avsc</import>
-								<import>${project.basedir}/src/main/resources/avro/personViewValue.avsc</import>
-								<import>${project.basedir}/src/main/resources/avro/_referenceAt.avsc</import>
-								<import>${project.basedir}/src/main/resources/avro/_appointmentStatusEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/RatingReasonEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/MessageActorEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PersonViewValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/AppointmentStatusEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyProviderServiceSourceReferenceAt.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/FinancialAccountSourceReferenceAt.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyUserTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyTransactionTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyPaymentTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyPaymentStatusEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/UsStateEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyProviderServiceStatusEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PaymentMethodTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/DiscountTypeEnum.avsc</import>
 							</imports>
 						</configuration>
 					</execution>

@@ -1,0 +1,9 @@
+{
+"type":"record",
+"name":"LeftyProviderServiceMediaStored",
+"namespace":"com.leftybeauty.schema.avro",
+"fields":[
+	{"name":"leftyProviderServiceId", "type":"string"},
+	{"name":"storageProviderLocation","type":"string"}
+	]
+}

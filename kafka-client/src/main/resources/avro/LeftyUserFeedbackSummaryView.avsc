@@ -1,0 +1,10 @@
+{
+	"type":"record",
+	"name":"LeftyUserFeedbackSummaryView",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId","type":"string"},
+		{"name":"ratingAverage","type":"double"},
+		{"name":"feedbackTarget","type":"com.leftybeauty.schema.avro.LeftyUserTypeEnum"}
+	]
+}

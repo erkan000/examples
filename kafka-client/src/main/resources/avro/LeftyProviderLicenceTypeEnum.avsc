@@ -1,0 +1,6 @@
+{
+	"type":"enum",
+	"name":"LeftyProviderLicenceTypeEnum",
+	"namespace":"com.leftybeauty.schema.avro",
+	"symbols": ["Hair","Nails"]
+} 

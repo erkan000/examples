@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "LeftyProviderToggleAvailability",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {
+      "name": "leftyUserId",
+      "type": "string"
+    },
+    {
+      "name": "available",
+      "type": "boolean"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "namespace": "com.leftybeauty.schema.avro",
+  "type": "record",
+  "name": "SessionSource",
+  "fields": [
+    {"name":"sessionId","type" : "string"},
+    {"name":"leftyUserId", "type":"string"},
+    {"name":"deviceId", "type":"string"},
+    {"name":"loginTimestamp","type":"string"},
+    {"name":"logoutTimestamp","type":"string"},
+    {"name":"ipAddress","type":"string"},
+    {"name":"userAgent","type":"string"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type":"record",
+  "name":"LeftyUserProfileUpsert",
+  "namespace":"com.leftybeauty.schema.avro",
+  "fields":[
+    {"name":"leftyUserId", "type":"string"},
+    {"name":"firstName", "type":"string"},
+    {"name":"lastName", "type":"string"},
+    {"name":"phoneNumber", "type":"long"},
+    {"name":"countryCode", "type":"int"},
+    {"name":"experience", "type": ["null", "string"], "default" : null},
+    {"name":"userType","type":"com.leftybeauty.schema.avro.LeftyUserTypeEnum"}
+  ]
+}

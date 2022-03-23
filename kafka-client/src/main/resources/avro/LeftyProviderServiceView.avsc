@@ -1,0 +1,22 @@
+{
+	"type":"record",
+	"name":"LeftyProviderServiceView",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyProviderServiceId", "type":"string"},
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"serviceName", "type":"string"},
+		{"name":"price", "type":"double"},
+		{
+	      "name": "description",
+	      "type": ["null", "string"],
+	      "default": null
+	    },
+	    {"name":"duration", "type":"int"},
+		{"name":"storageProviderLocations","type": {
+	        "type": "array",
+	        "items": "string"
+	        }
+	    }
+	]
+}

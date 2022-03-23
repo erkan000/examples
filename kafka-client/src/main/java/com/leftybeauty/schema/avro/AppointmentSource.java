@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1177096989651761698L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"leftyUserProviderId\",\"type\":\"string\"},{\"name\":\"clientAddressId\",\"type\":\"string\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"Proposed\",\"Scheduled\",\"InProgress\",\"Cancelled\",\"Rejected\",\"TimedOut\",\"Completed\"]}},{\"name\":\"leftyProviderServiceReferences\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"LeftyProviderServiceSourceReferenceAt\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}}},{\"name\":\"actor\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}},{\"name\":\"financialAccountReference\",\"type\":{\"type\":\"record\",\"name\":\"FinancialAccountSourceReferenceAt\",\"fields\":[{\"name\":\"financialAccountId\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}},{\"name\":\"transactionIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"default\":null}]}");
+  private static final long serialVersionUID = -8855404819801414929L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"leftyUserProviderId\",\"type\":\"string\"},{\"name\":\"leftyUserClientId\",\"type\":\"string\"},{\"name\":\"clientAddress\",\"type\":{\"type\":\"record\",\"name\":\"AddressValue\",\"fields\":[{\"name\":\"addressId\",\"type\":\"string\"},{\"name\":\"street1\",\"type\":\"string\"},{\"name\":\"street2\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state\",\"type\":{\"type\":\"enum\",\"name\":\"UsStateEnum\",\"symbols\":[\"Alabama\",\"Alaska\",\"Arizona\",\"Arkansas\",\"California\"]}},{\"name\":\"zipCode\",\"type\":\"int\"}]}},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"Proposed\",\"Scheduled\",\"InProgress\",\"Cancelled\",\"Rejected\",\"TimedOut\",\"Completed\"]}},{\"name\":\"leftyProviderServices\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"LeftyProviderServiceValue\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"serviceCategoryName\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"duration\",\"type\":\"int\"}]}}},{\"name\":\"paymentMethodId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"transactionIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"default\":null},{\"name\":\"fees\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"FeeValue\",\"fields\":[{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"feeType\",\"type\":{\"type\":\"enum\",\"name\":\"FeeTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}],\"default\":null},{\"name\":\"tax\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"discounts\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DiscountValue\",\"fields\":[{\"name\":\"discountId\",\"type\":\"string\"},{\"name\":\"code\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"DiscountTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}}],\"default\":null},{\"name\":\"split\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"SplitValue\",\"fields\":[{\"name\":\"percentage\",\"type\":\"int\"},{\"name\":\"paymentProviderAccountIdentifier\",\"type\":\"string\"}]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,13 +73,17 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
 
    private java.lang.CharSequence appointmentId;
    private java.lang.CharSequence leftyUserProviderId;
-   private java.lang.CharSequence clientAddressId;
+   private java.lang.CharSequence leftyUserClientId;
+   private com.leftybeauty.schema.avro.AddressValue clientAddress;
    private long appointmentDateTime;
    private com.leftybeauty.schema.avro.AppointmentStatusEnum status;
-   private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> leftyProviderServiceReferences;
-   private com.leftybeauty.schema.avro.LeftyUserTypeEnum actor;
-   private com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt financialAccountReference;
+   private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> leftyProviderServices;
+   private java.lang.CharSequence paymentMethodId;
    private java.util.List<java.lang.CharSequence> transactionIds;
+   private com.leftybeauty.schema.avro.FeeValue fees;
+   private java.lang.Integer tax;
+   private java.util.List<com.leftybeauty.schema.avro.DiscountValue> discounts;
+   private com.leftybeauty.schema.avro.SplitValue split;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -92,24 +96,32 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
    * All-args constructor.
    * @param appointmentId The new value for appointmentId
    * @param leftyUserProviderId The new value for leftyUserProviderId
-   * @param clientAddressId The new value for clientAddressId
+   * @param leftyUserClientId The new value for leftyUserClientId
+   * @param clientAddress The new value for clientAddress
    * @param appointmentDateTime The new value for appointmentDateTime
    * @param status The new value for status
-   * @param leftyProviderServiceReferences The new value for leftyProviderServiceReferences
-   * @param actor The new value for actor
-   * @param financialAccountReference The new value for financialAccountReference
+   * @param leftyProviderServices The new value for leftyProviderServices
+   * @param paymentMethodId The new value for paymentMethodId
    * @param transactionIds The new value for transactionIds
+   * @param fees The new value for fees
+   * @param tax The new value for tax
+   * @param discounts The new value for discounts
+   * @param split The new value for split
    */
-  public AppointmentSource(java.lang.CharSequence appointmentId, java.lang.CharSequence leftyUserProviderId, java.lang.CharSequence clientAddressId, java.lang.Long appointmentDateTime, com.leftybeauty.schema.avro.AppointmentStatusEnum status, java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> leftyProviderServiceReferences, com.leftybeauty.schema.avro.LeftyUserTypeEnum actor, com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt financialAccountReference, java.util.List<java.lang.CharSequence> transactionIds) {
+  public AppointmentSource(java.lang.CharSequence appointmentId, java.lang.CharSequence leftyUserProviderId, java.lang.CharSequence leftyUserClientId, com.leftybeauty.schema.avro.AddressValue clientAddress, java.lang.Long appointmentDateTime, com.leftybeauty.schema.avro.AppointmentStatusEnum status, java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> leftyProviderServices, java.lang.CharSequence paymentMethodId, java.util.List<java.lang.CharSequence> transactionIds, com.leftybeauty.schema.avro.FeeValue fees, java.lang.Integer tax, java.util.List<com.leftybeauty.schema.avro.DiscountValue> discounts, com.leftybeauty.schema.avro.SplitValue split) {
     this.appointmentId = appointmentId;
     this.leftyUserProviderId = leftyUserProviderId;
-    this.clientAddressId = clientAddressId;
+    this.leftyUserClientId = leftyUserClientId;
+    this.clientAddress = clientAddress;
     this.appointmentDateTime = appointmentDateTime;
     this.status = status;
-    this.leftyProviderServiceReferences = leftyProviderServiceReferences;
-    this.actor = actor;
-    this.financialAccountReference = financialAccountReference;
+    this.leftyProviderServices = leftyProviderServices;
+    this.paymentMethodId = paymentMethodId;
     this.transactionIds = transactionIds;
+    this.fees = fees;
+    this.tax = tax;
+    this.discounts = discounts;
+    this.split = split;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -119,13 +131,17 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
     switch (field$) {
     case 0: return appointmentId;
     case 1: return leftyUserProviderId;
-    case 2: return clientAddressId;
-    case 3: return appointmentDateTime;
-    case 4: return status;
-    case 5: return leftyProviderServiceReferences;
-    case 6: return actor;
-    case 7: return financialAccountReference;
+    case 2: return leftyUserClientId;
+    case 3: return clientAddress;
+    case 4: return appointmentDateTime;
+    case 5: return status;
+    case 6: return leftyProviderServices;
+    case 7: return paymentMethodId;
     case 8: return transactionIds;
+    case 9: return fees;
+    case 10: return tax;
+    case 11: return discounts;
+    case 12: return split;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -136,13 +152,17 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
     switch (field$) {
     case 0: appointmentId = (java.lang.CharSequence)value$; break;
     case 1: leftyUserProviderId = (java.lang.CharSequence)value$; break;
-    case 2: clientAddressId = (java.lang.CharSequence)value$; break;
-    case 3: appointmentDateTime = (java.lang.Long)value$; break;
-    case 4: status = (com.leftybeauty.schema.avro.AppointmentStatusEnum)value$; break;
-    case 5: leftyProviderServiceReferences = (java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>)value$; break;
-    case 6: actor = (com.leftybeauty.schema.avro.LeftyUserTypeEnum)value$; break;
-    case 7: financialAccountReference = (com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt)value$; break;
+    case 2: leftyUserClientId = (java.lang.CharSequence)value$; break;
+    case 3: clientAddress = (com.leftybeauty.schema.avro.AddressValue)value$; break;
+    case 4: appointmentDateTime = (java.lang.Long)value$; break;
+    case 5: status = (com.leftybeauty.schema.avro.AppointmentStatusEnum)value$; break;
+    case 6: leftyProviderServices = (java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue>)value$; break;
+    case 7: paymentMethodId = (java.lang.CharSequence)value$; break;
     case 8: transactionIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 9: fees = (com.leftybeauty.schema.avro.FeeValue)value$; break;
+    case 10: tax = (java.lang.Integer)value$; break;
+    case 11: discounts = (java.util.List<com.leftybeauty.schema.avro.DiscountValue>)value$; break;
+    case 12: split = (com.leftybeauty.schema.avro.SplitValue)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -182,20 +202,37 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
   }
 
   /**
-   * Gets the value of the 'clientAddressId' field.
-   * @return The value of the 'clientAddressId' field.
+   * Gets the value of the 'leftyUserClientId' field.
+   * @return The value of the 'leftyUserClientId' field.
    */
-  public java.lang.CharSequence getClientAddressId() {
-    return clientAddressId;
+  public java.lang.CharSequence getLeftyUserClientId() {
+    return leftyUserClientId;
   }
 
 
   /**
-   * Sets the value of the 'clientAddressId' field.
+   * Sets the value of the 'leftyUserClientId' field.
    * @param value the value to set.
    */
-  public void setClientAddressId(java.lang.CharSequence value) {
-    this.clientAddressId = value;
+  public void setLeftyUserClientId(java.lang.CharSequence value) {
+    this.leftyUserClientId = value;
+  }
+
+  /**
+   * Gets the value of the 'clientAddress' field.
+   * @return The value of the 'clientAddress' field.
+   */
+  public com.leftybeauty.schema.avro.AddressValue getClientAddress() {
+    return clientAddress;
+  }
+
+
+  /**
+   * Sets the value of the 'clientAddress' field.
+   * @param value the value to set.
+   */
+  public void setClientAddress(com.leftybeauty.schema.avro.AddressValue value) {
+    this.clientAddress = value;
   }
 
   /**
@@ -233,54 +270,37 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
   }
 
   /**
-   * Gets the value of the 'leftyProviderServiceReferences' field.
-   * @return The value of the 'leftyProviderServiceReferences' field.
+   * Gets the value of the 'leftyProviderServices' field.
+   * @return The value of the 'leftyProviderServices' field.
    */
-  public java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> getLeftyProviderServiceReferences() {
-    return leftyProviderServiceReferences;
+  public java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> getLeftyProviderServices() {
+    return leftyProviderServices;
   }
 
 
   /**
-   * Sets the value of the 'leftyProviderServiceReferences' field.
+   * Sets the value of the 'leftyProviderServices' field.
    * @param value the value to set.
    */
-  public void setLeftyProviderServiceReferences(java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> value) {
-    this.leftyProviderServiceReferences = value;
+  public void setLeftyProviderServices(java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> value) {
+    this.leftyProviderServices = value;
   }
 
   /**
-   * Gets the value of the 'actor' field.
-   * @return The value of the 'actor' field.
+   * Gets the value of the 'paymentMethodId' field.
+   * @return The value of the 'paymentMethodId' field.
    */
-  public com.leftybeauty.schema.avro.LeftyUserTypeEnum getActor() {
-    return actor;
+  public java.lang.CharSequence getPaymentMethodId() {
+    return paymentMethodId;
   }
 
 
   /**
-   * Sets the value of the 'actor' field.
+   * Sets the value of the 'paymentMethodId' field.
    * @param value the value to set.
    */
-  public void setActor(com.leftybeauty.schema.avro.LeftyUserTypeEnum value) {
-    this.actor = value;
-  }
-
-  /**
-   * Gets the value of the 'financialAccountReference' field.
-   * @return The value of the 'financialAccountReference' field.
-   */
-  public com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt getFinancialAccountReference() {
-    return financialAccountReference;
-  }
-
-
-  /**
-   * Sets the value of the 'financialAccountReference' field.
-   * @param value the value to set.
-   */
-  public void setFinancialAccountReference(com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt value) {
-    this.financialAccountReference = value;
+  public void setPaymentMethodId(java.lang.CharSequence value) {
+    this.paymentMethodId = value;
   }
 
   /**
@@ -298,6 +318,74 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
    */
   public void setTransactionIds(java.util.List<java.lang.CharSequence> value) {
     this.transactionIds = value;
+  }
+
+  /**
+   * Gets the value of the 'fees' field.
+   * @return The value of the 'fees' field.
+   */
+  public com.leftybeauty.schema.avro.FeeValue getFees() {
+    return fees;
+  }
+
+
+  /**
+   * Sets the value of the 'fees' field.
+   * @param value the value to set.
+   */
+  public void setFees(com.leftybeauty.schema.avro.FeeValue value) {
+    this.fees = value;
+  }
+
+  /**
+   * Gets the value of the 'tax' field.
+   * @return The value of the 'tax' field.
+   */
+  public java.lang.Integer getTax() {
+    return tax;
+  }
+
+
+  /**
+   * Sets the value of the 'tax' field.
+   * @param value the value to set.
+   */
+  public void setTax(java.lang.Integer value) {
+    this.tax = value;
+  }
+
+  /**
+   * Gets the value of the 'discounts' field.
+   * @return The value of the 'discounts' field.
+   */
+  public java.util.List<com.leftybeauty.schema.avro.DiscountValue> getDiscounts() {
+    return discounts;
+  }
+
+
+  /**
+   * Sets the value of the 'discounts' field.
+   * @param value the value to set.
+   */
+  public void setDiscounts(java.util.List<com.leftybeauty.schema.avro.DiscountValue> value) {
+    this.discounts = value;
+  }
+
+  /**
+   * Gets the value of the 'split' field.
+   * @return The value of the 'split' field.
+   */
+  public com.leftybeauty.schema.avro.SplitValue getSplit() {
+    return split;
+  }
+
+
+  /**
+   * Sets the value of the 'split' field.
+   * @param value the value to set.
+   */
+  public void setSplit(com.leftybeauty.schema.avro.SplitValue value) {
+    this.split = value;
   }
 
   /**
@@ -343,14 +431,20 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
 
     private java.lang.CharSequence appointmentId;
     private java.lang.CharSequence leftyUserProviderId;
-    private java.lang.CharSequence clientAddressId;
+    private java.lang.CharSequence leftyUserClientId;
+    private com.leftybeauty.schema.avro.AddressValue clientAddress;
+    private com.leftybeauty.schema.avro.AddressValue.Builder clientAddressBuilder;
     private long appointmentDateTime;
     private com.leftybeauty.schema.avro.AppointmentStatusEnum status;
-    private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> leftyProviderServiceReferences;
-    private com.leftybeauty.schema.avro.LeftyUserTypeEnum actor;
-    private com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt financialAccountReference;
-    private com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.Builder financialAccountReferenceBuilder;
+    private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> leftyProviderServices;
+    private java.lang.CharSequence paymentMethodId;
     private java.util.List<java.lang.CharSequence> transactionIds;
+    private com.leftybeauty.schema.avro.FeeValue fees;
+    private com.leftybeauty.schema.avro.FeeValue.Builder feesBuilder;
+    private java.lang.Integer tax;
+    private java.util.List<com.leftybeauty.schema.avro.DiscountValue> discounts;
+    private com.leftybeauty.schema.avro.SplitValue split;
+    private com.leftybeauty.schema.avro.SplitValue.Builder splitBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -371,36 +465,58 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
         this.leftyUserProviderId = data().deepCopy(fields()[1].schema(), other.leftyUserProviderId);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.clientAddressId)) {
-        this.clientAddressId = data().deepCopy(fields()[2].schema(), other.clientAddressId);
+      if (isValidValue(fields()[2], other.leftyUserClientId)) {
+        this.leftyUserClientId = data().deepCopy(fields()[2].schema(), other.leftyUserClientId);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.appointmentDateTime)) {
-        this.appointmentDateTime = data().deepCopy(fields()[3].schema(), other.appointmentDateTime);
+      if (isValidValue(fields()[3], other.clientAddress)) {
+        this.clientAddress = data().deepCopy(fields()[3].schema(), other.clientAddress);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.status)) {
-        this.status = data().deepCopy(fields()[4].schema(), other.status);
+      if (other.hasClientAddressBuilder()) {
+        this.clientAddressBuilder = com.leftybeauty.schema.avro.AddressValue.newBuilder(other.getClientAddressBuilder());
+      }
+      if (isValidValue(fields()[4], other.appointmentDateTime)) {
+        this.appointmentDateTime = data().deepCopy(fields()[4].schema(), other.appointmentDateTime);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.leftyProviderServiceReferences)) {
-        this.leftyProviderServiceReferences = data().deepCopy(fields()[5].schema(), other.leftyProviderServiceReferences);
+      if (isValidValue(fields()[5], other.status)) {
+        this.status = data().deepCopy(fields()[5].schema(), other.status);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.actor)) {
-        this.actor = data().deepCopy(fields()[6].schema(), other.actor);
+      if (isValidValue(fields()[6], other.leftyProviderServices)) {
+        this.leftyProviderServices = data().deepCopy(fields()[6].schema(), other.leftyProviderServices);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.financialAccountReference)) {
-        this.financialAccountReference = data().deepCopy(fields()[7].schema(), other.financialAccountReference);
+      if (isValidValue(fields()[7], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[7].schema(), other.paymentMethodId);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
-      }
-      if (other.hasFinancialAccountReferenceBuilder()) {
-        this.financialAccountReferenceBuilder = com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.newBuilder(other.getFinancialAccountReferenceBuilder());
       }
       if (isValidValue(fields()[8], other.transactionIds)) {
         this.transactionIds = data().deepCopy(fields()[8].schema(), other.transactionIds);
         fieldSetFlags()[8] = other.fieldSetFlags()[8];
+      }
+      if (isValidValue(fields()[9], other.fees)) {
+        this.fees = data().deepCopy(fields()[9].schema(), other.fees);
+        fieldSetFlags()[9] = other.fieldSetFlags()[9];
+      }
+      if (other.hasFeesBuilder()) {
+        this.feesBuilder = com.leftybeauty.schema.avro.FeeValue.newBuilder(other.getFeesBuilder());
+      }
+      if (isValidValue(fields()[10], other.tax)) {
+        this.tax = data().deepCopy(fields()[10].schema(), other.tax);
+        fieldSetFlags()[10] = other.fieldSetFlags()[10];
+      }
+      if (isValidValue(fields()[11], other.discounts)) {
+        this.discounts = data().deepCopy(fields()[11].schema(), other.discounts);
+        fieldSetFlags()[11] = other.fieldSetFlags()[11];
+      }
+      if (isValidValue(fields()[12], other.split)) {
+        this.split = data().deepCopy(fields()[12].schema(), other.split);
+        fieldSetFlags()[12] = other.fieldSetFlags()[12];
+      }
+      if (other.hasSplitBuilder()) {
+        this.splitBuilder = com.leftybeauty.schema.avro.SplitValue.newBuilder(other.getSplitBuilder());
       }
     }
 
@@ -418,35 +534,53 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
         this.leftyUserProviderId = data().deepCopy(fields()[1].schema(), other.leftyUserProviderId);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.clientAddressId)) {
-        this.clientAddressId = data().deepCopy(fields()[2].schema(), other.clientAddressId);
+      if (isValidValue(fields()[2], other.leftyUserClientId)) {
+        this.leftyUserClientId = data().deepCopy(fields()[2].schema(), other.leftyUserClientId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.appointmentDateTime)) {
-        this.appointmentDateTime = data().deepCopy(fields()[3].schema(), other.appointmentDateTime);
+      if (isValidValue(fields()[3], other.clientAddress)) {
+        this.clientAddress = data().deepCopy(fields()[3].schema(), other.clientAddress);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.status)) {
-        this.status = data().deepCopy(fields()[4].schema(), other.status);
+      this.clientAddressBuilder = null;
+      if (isValidValue(fields()[4], other.appointmentDateTime)) {
+        this.appointmentDateTime = data().deepCopy(fields()[4].schema(), other.appointmentDateTime);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.leftyProviderServiceReferences)) {
-        this.leftyProviderServiceReferences = data().deepCopy(fields()[5].schema(), other.leftyProviderServiceReferences);
+      if (isValidValue(fields()[5], other.status)) {
+        this.status = data().deepCopy(fields()[5].schema(), other.status);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.actor)) {
-        this.actor = data().deepCopy(fields()[6].schema(), other.actor);
+      if (isValidValue(fields()[6], other.leftyProviderServices)) {
+        this.leftyProviderServices = data().deepCopy(fields()[6].schema(), other.leftyProviderServices);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.financialAccountReference)) {
-        this.financialAccountReference = data().deepCopy(fields()[7].schema(), other.financialAccountReference);
+      if (isValidValue(fields()[7], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[7].schema(), other.paymentMethodId);
         fieldSetFlags()[7] = true;
       }
-      this.financialAccountReferenceBuilder = null;
       if (isValidValue(fields()[8], other.transactionIds)) {
         this.transactionIds = data().deepCopy(fields()[8].schema(), other.transactionIds);
         fieldSetFlags()[8] = true;
       }
+      if (isValidValue(fields()[9], other.fees)) {
+        this.fees = data().deepCopy(fields()[9].schema(), other.fees);
+        fieldSetFlags()[9] = true;
+      }
+      this.feesBuilder = null;
+      if (isValidValue(fields()[10], other.tax)) {
+        this.tax = data().deepCopy(fields()[10].schema(), other.tax);
+        fieldSetFlags()[10] = true;
+      }
+      if (isValidValue(fields()[11], other.discounts)) {
+        this.discounts = data().deepCopy(fields()[11].schema(), other.discounts);
+        fieldSetFlags()[11] = true;
+      }
+      if (isValidValue(fields()[12], other.split)) {
+        this.split = data().deepCopy(fields()[12].schema(), other.split);
+        fieldSetFlags()[12] = true;
+      }
+      this.splitBuilder = null;
     }
 
     /**
@@ -530,42 +664,118 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
     }
 
     /**
-      * Gets the value of the 'clientAddressId' field.
+      * Gets the value of the 'leftyUserClientId' field.
       * @return The value.
       */
-    public java.lang.CharSequence getClientAddressId() {
-      return clientAddressId;
+    public java.lang.CharSequence getLeftyUserClientId() {
+      return leftyUserClientId;
     }
 
 
     /**
-      * Sets the value of the 'clientAddressId' field.
-      * @param value The value of 'clientAddressId'.
+      * Sets the value of the 'leftyUserClientId' field.
+      * @param value The value of 'leftyUserClientId'.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder setClientAddressId(java.lang.CharSequence value) {
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setLeftyUserClientId(java.lang.CharSequence value) {
       validate(fields()[2], value);
-      this.clientAddressId = value;
+      this.leftyUserClientId = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'clientAddressId' field has been set.
-      * @return True if the 'clientAddressId' field has been set, false otherwise.
+      * Checks whether the 'leftyUserClientId' field has been set.
+      * @return True if the 'leftyUserClientId' field has been set, false otherwise.
       */
-    public boolean hasClientAddressId() {
+    public boolean hasLeftyUserClientId() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'clientAddressId' field.
+      * Clears the value of the 'leftyUserClientId' field.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearClientAddressId() {
-      clientAddressId = null;
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearLeftyUserClientId() {
+      leftyUserClientId = null;
       fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'clientAddress' field.
+      * @return The value.
+      */
+    public com.leftybeauty.schema.avro.AddressValue getClientAddress() {
+      return clientAddress;
+    }
+
+
+    /**
+      * Sets the value of the 'clientAddress' field.
+      * @param value The value of 'clientAddress'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setClientAddress(com.leftybeauty.schema.avro.AddressValue value) {
+      validate(fields()[3], value);
+      this.clientAddressBuilder = null;
+      this.clientAddress = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'clientAddress' field has been set.
+      * @return True if the 'clientAddress' field has been set, false otherwise.
+      */
+    public boolean hasClientAddress() {
+      return fieldSetFlags()[3];
+    }
+
+    /**
+     * Gets the Builder instance for the 'clientAddress' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.leftybeauty.schema.avro.AddressValue.Builder getClientAddressBuilder() {
+      if (clientAddressBuilder == null) {
+        if (hasClientAddress()) {
+          setClientAddressBuilder(com.leftybeauty.schema.avro.AddressValue.newBuilder(clientAddress));
+        } else {
+          setClientAddressBuilder(com.leftybeauty.schema.avro.AddressValue.newBuilder());
+        }
+      }
+      return clientAddressBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'clientAddress' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setClientAddressBuilder(com.leftybeauty.schema.avro.AddressValue.Builder value) {
+      clearClientAddress();
+      clientAddressBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'clientAddress' field has an active Builder instance
+     * @return True if the 'clientAddress' field has an active Builder instance
+     */
+    public boolean hasClientAddressBuilder() {
+      return clientAddressBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'clientAddress' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearClientAddress() {
+      clientAddress = null;
+      clientAddressBuilder = null;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -584,9 +794,9 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentSource.Builder setAppointmentDateTime(long value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.appointmentDateTime = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -595,7 +805,7 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'appointmentDateTime' field has been set, false otherwise.
       */
     public boolean hasAppointmentDateTime() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
@@ -604,7 +814,7 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentSource.Builder clearAppointmentDateTime() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -623,9 +833,9 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentSource.Builder setStatus(com.leftybeauty.schema.avro.AppointmentStatusEnum value) {
-      validate(fields()[4], value);
+      validate(fields()[5], value);
       this.status = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -634,7 +844,7 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'status' field has been set, false otherwise.
       */
     public boolean hasStatus() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
@@ -644,162 +854,86 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.leftybeauty.schema.avro.AppointmentSource.Builder clearStatus() {
       status = null;
-      fieldSetFlags()[4] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'leftyProviderServiceReferences' field.
-      * @return The value.
-      */
-    public java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> getLeftyProviderServiceReferences() {
-      return leftyProviderServiceReferences;
-    }
-
-
-    /**
-      * Sets the value of the 'leftyProviderServiceReferences' field.
-      * @param value The value of 'leftyProviderServiceReferences'.
-      * @return This builder.
-      */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder setLeftyProviderServiceReferences(java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> value) {
-      validate(fields()[5], value);
-      this.leftyProviderServiceReferences = value;
-      fieldSetFlags()[5] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'leftyProviderServiceReferences' field has been set.
-      * @return True if the 'leftyProviderServiceReferences' field has been set, false otherwise.
-      */
-    public boolean hasLeftyProviderServiceReferences() {
-      return fieldSetFlags()[5];
-    }
-
-
-    /**
-      * Clears the value of the 'leftyProviderServiceReferences' field.
-      * @return This builder.
-      */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearLeftyProviderServiceReferences() {
-      leftyProviderServiceReferences = null;
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'actor' field.
+      * Gets the value of the 'leftyProviderServices' field.
       * @return The value.
       */
-    public com.leftybeauty.schema.avro.LeftyUserTypeEnum getActor() {
-      return actor;
+    public java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> getLeftyProviderServices() {
+      return leftyProviderServices;
     }
 
 
     /**
-      * Sets the value of the 'actor' field.
-      * @param value The value of 'actor'.
+      * Sets the value of the 'leftyProviderServices' field.
+      * @param value The value of 'leftyProviderServices'.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder setActor(com.leftybeauty.schema.avro.LeftyUserTypeEnum value) {
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setLeftyProviderServices(java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> value) {
       validate(fields()[6], value);
-      this.actor = value;
+      this.leftyProviderServices = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'actor' field has been set.
-      * @return True if the 'actor' field has been set, false otherwise.
+      * Checks whether the 'leftyProviderServices' field has been set.
+      * @return True if the 'leftyProviderServices' field has been set, false otherwise.
       */
-    public boolean hasActor() {
+    public boolean hasLeftyProviderServices() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-      * Clears the value of the 'actor' field.
+      * Clears the value of the 'leftyProviderServices' field.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearActor() {
-      actor = null;
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearLeftyProviderServices() {
+      leftyProviderServices = null;
       fieldSetFlags()[6] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'financialAccountReference' field.
+      * Gets the value of the 'paymentMethodId' field.
       * @return The value.
       */
-    public com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt getFinancialAccountReference() {
-      return financialAccountReference;
+    public java.lang.CharSequence getPaymentMethodId() {
+      return paymentMethodId;
     }
 
 
     /**
-      * Sets the value of the 'financialAccountReference' field.
-      * @param value The value of 'financialAccountReference'.
+      * Sets the value of the 'paymentMethodId' field.
+      * @param value The value of 'paymentMethodId'.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder setFinancialAccountReference(com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt value) {
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setPaymentMethodId(java.lang.CharSequence value) {
       validate(fields()[7], value);
-      this.financialAccountReferenceBuilder = null;
-      this.financialAccountReference = value;
+      this.paymentMethodId = value;
       fieldSetFlags()[7] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'financialAccountReference' field has been set.
-      * @return True if the 'financialAccountReference' field has been set, false otherwise.
+      * Checks whether the 'paymentMethodId' field has been set.
+      * @return True if the 'paymentMethodId' field has been set, false otherwise.
       */
-    public boolean hasFinancialAccountReference() {
+    public boolean hasPaymentMethodId() {
       return fieldSetFlags()[7];
     }
 
-    /**
-     * Gets the Builder instance for the 'financialAccountReference' field and creates one if it doesn't exist yet.
-     * @return This builder.
-     */
-    public com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.Builder getFinancialAccountReferenceBuilder() {
-      if (financialAccountReferenceBuilder == null) {
-        if (hasFinancialAccountReference()) {
-          setFinancialAccountReferenceBuilder(com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.newBuilder(financialAccountReference));
-        } else {
-          setFinancialAccountReferenceBuilder(com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.newBuilder());
-        }
-      }
-      return financialAccountReferenceBuilder;
-    }
 
     /**
-     * Sets the Builder instance for the 'financialAccountReference' field
-     * @param value The builder instance that must be set.
-     * @return This builder.
-     */
-
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder setFinancialAccountReferenceBuilder(com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt.Builder value) {
-      clearFinancialAccountReference();
-      financialAccountReferenceBuilder = value;
-      return this;
-    }
-
-    /**
-     * Checks whether the 'financialAccountReference' field has an active Builder instance
-     * @return True if the 'financialAccountReference' field has an active Builder instance
-     */
-    public boolean hasFinancialAccountReferenceBuilder() {
-      return financialAccountReferenceBuilder != null;
-    }
-
-    /**
-      * Clears the value of the 'financialAccountReference' field.
+      * Clears the value of the 'paymentMethodId' field.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearFinancialAccountReference() {
-      financialAccountReference = null;
-      financialAccountReferenceBuilder = null;
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearPaymentMethodId() {
+      paymentMethodId = null;
       fieldSetFlags()[7] = false;
       return this;
     }
@@ -844,6 +978,238 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
       return this;
     }
 
+    /**
+      * Gets the value of the 'fees' field.
+      * @return The value.
+      */
+    public com.leftybeauty.schema.avro.FeeValue getFees() {
+      return fees;
+    }
+
+
+    /**
+      * Sets the value of the 'fees' field.
+      * @param value The value of 'fees'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setFees(com.leftybeauty.schema.avro.FeeValue value) {
+      validate(fields()[9], value);
+      this.feesBuilder = null;
+      this.fees = value;
+      fieldSetFlags()[9] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'fees' field has been set.
+      * @return True if the 'fees' field has been set, false otherwise.
+      */
+    public boolean hasFees() {
+      return fieldSetFlags()[9];
+    }
+
+    /**
+     * Gets the Builder instance for the 'fees' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.leftybeauty.schema.avro.FeeValue.Builder getFeesBuilder() {
+      if (feesBuilder == null) {
+        if (hasFees()) {
+          setFeesBuilder(com.leftybeauty.schema.avro.FeeValue.newBuilder(fees));
+        } else {
+          setFeesBuilder(com.leftybeauty.schema.avro.FeeValue.newBuilder());
+        }
+      }
+      return feesBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'fees' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setFeesBuilder(com.leftybeauty.schema.avro.FeeValue.Builder value) {
+      clearFees();
+      feesBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'fees' field has an active Builder instance
+     * @return True if the 'fees' field has an active Builder instance
+     */
+    public boolean hasFeesBuilder() {
+      return feesBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'fees' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearFees() {
+      fees = null;
+      feesBuilder = null;
+      fieldSetFlags()[9] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'tax' field.
+      * @return The value.
+      */
+    public java.lang.Integer getTax() {
+      return tax;
+    }
+
+
+    /**
+      * Sets the value of the 'tax' field.
+      * @param value The value of 'tax'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setTax(java.lang.Integer value) {
+      validate(fields()[10], value);
+      this.tax = value;
+      fieldSetFlags()[10] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'tax' field has been set.
+      * @return True if the 'tax' field has been set, false otherwise.
+      */
+    public boolean hasTax() {
+      return fieldSetFlags()[10];
+    }
+
+
+    /**
+      * Clears the value of the 'tax' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearTax() {
+      tax = null;
+      fieldSetFlags()[10] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'discounts' field.
+      * @return The value.
+      */
+    public java.util.List<com.leftybeauty.schema.avro.DiscountValue> getDiscounts() {
+      return discounts;
+    }
+
+
+    /**
+      * Sets the value of the 'discounts' field.
+      * @param value The value of 'discounts'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setDiscounts(java.util.List<com.leftybeauty.schema.avro.DiscountValue> value) {
+      validate(fields()[11], value);
+      this.discounts = value;
+      fieldSetFlags()[11] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'discounts' field has been set.
+      * @return True if the 'discounts' field has been set, false otherwise.
+      */
+    public boolean hasDiscounts() {
+      return fieldSetFlags()[11];
+    }
+
+
+    /**
+      * Clears the value of the 'discounts' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearDiscounts() {
+      discounts = null;
+      fieldSetFlags()[11] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'split' field.
+      * @return The value.
+      */
+    public com.leftybeauty.schema.avro.SplitValue getSplit() {
+      return split;
+    }
+
+
+    /**
+      * Sets the value of the 'split' field.
+      * @param value The value of 'split'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setSplit(com.leftybeauty.schema.avro.SplitValue value) {
+      validate(fields()[12], value);
+      this.splitBuilder = null;
+      this.split = value;
+      fieldSetFlags()[12] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'split' field has been set.
+      * @return True if the 'split' field has been set, false otherwise.
+      */
+    public boolean hasSplit() {
+      return fieldSetFlags()[12];
+    }
+
+    /**
+     * Gets the Builder instance for the 'split' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.leftybeauty.schema.avro.SplitValue.Builder getSplitBuilder() {
+      if (splitBuilder == null) {
+        if (hasSplit()) {
+          setSplitBuilder(com.leftybeauty.schema.avro.SplitValue.newBuilder(split));
+        } else {
+          setSplitBuilder(com.leftybeauty.schema.avro.SplitValue.newBuilder());
+        }
+      }
+      return splitBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'split' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder setSplitBuilder(com.leftybeauty.schema.avro.SplitValue.Builder value) {
+      clearSplit();
+      splitBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'split' field has an active Builder instance
+     * @return True if the 'split' field has an active Builder instance
+     */
+    public boolean hasSplitBuilder() {
+      return splitBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'split' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentSource.Builder clearSplit() {
+      split = null;
+      splitBuilder = null;
+      fieldSetFlags()[12] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public AppointmentSource build() {
@@ -851,22 +1217,44 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
         AppointmentSource record = new AppointmentSource();
         record.appointmentId = fieldSetFlags()[0] ? this.appointmentId : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.leftyUserProviderId = fieldSetFlags()[1] ? this.leftyUserProviderId : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.clientAddressId = fieldSetFlags()[2] ? this.clientAddressId : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.appointmentDateTime = fieldSetFlags()[3] ? this.appointmentDateTime : (java.lang.Long) defaultValue(fields()[3]);
-        record.status = fieldSetFlags()[4] ? this.status : (com.leftybeauty.schema.avro.AppointmentStatusEnum) defaultValue(fields()[4]);
-        record.leftyProviderServiceReferences = fieldSetFlags()[5] ? this.leftyProviderServiceReferences : (java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>) defaultValue(fields()[5]);
-        record.actor = fieldSetFlags()[6] ? this.actor : (com.leftybeauty.schema.avro.LeftyUserTypeEnum) defaultValue(fields()[6]);
-        if (financialAccountReferenceBuilder != null) {
+        record.leftyUserClientId = fieldSetFlags()[2] ? this.leftyUserClientId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        if (clientAddressBuilder != null) {
           try {
-            record.financialAccountReference = this.financialAccountReferenceBuilder.build();
+            record.clientAddress = this.clientAddressBuilder.build();
           } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("financialAccountReference"));
+            e.addParentField(record.getSchema().getField("clientAddress"));
             throw e;
           }
         } else {
-          record.financialAccountReference = fieldSetFlags()[7] ? this.financialAccountReference : (com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt) defaultValue(fields()[7]);
+          record.clientAddress = fieldSetFlags()[3] ? this.clientAddress : (com.leftybeauty.schema.avro.AddressValue) defaultValue(fields()[3]);
         }
+        record.appointmentDateTime = fieldSetFlags()[4] ? this.appointmentDateTime : (java.lang.Long) defaultValue(fields()[4]);
+        record.status = fieldSetFlags()[5] ? this.status : (com.leftybeauty.schema.avro.AppointmentStatusEnum) defaultValue(fields()[5]);
+        record.leftyProviderServices = fieldSetFlags()[6] ? this.leftyProviderServices : (java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue>) defaultValue(fields()[6]);
+        record.paymentMethodId = fieldSetFlags()[7] ? this.paymentMethodId : (java.lang.CharSequence) defaultValue(fields()[7]);
         record.transactionIds = fieldSetFlags()[8] ? this.transactionIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[8]);
+        if (feesBuilder != null) {
+          try {
+            record.fees = this.feesBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("fees"));
+            throw e;
+          }
+        } else {
+          record.fees = fieldSetFlags()[9] ? this.fees : (com.leftybeauty.schema.avro.FeeValue) defaultValue(fields()[9]);
+        }
+        record.tax = fieldSetFlags()[10] ? this.tax : (java.lang.Integer) defaultValue(fields()[10]);
+        record.discounts = fieldSetFlags()[11] ? this.discounts : (java.util.List<com.leftybeauty.schema.avro.DiscountValue>) defaultValue(fields()[11]);
+        if (splitBuilder != null) {
+          try {
+            record.split = this.splitBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("split"));
+            throw e;
+          }
+        } else {
+          record.split = fieldSetFlags()[12] ? this.split : (com.leftybeauty.schema.avro.SplitValue) defaultValue(fields()[12]);
+        }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -903,17 +1291,19 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
 
     out.writeString(this.leftyUserProviderId);
 
-    out.writeString(this.clientAddressId);
+    out.writeString(this.leftyUserClientId);
+
+    this.clientAddress.customEncode(out);
 
     out.writeLong(this.appointmentDateTime);
 
     out.writeEnum(this.status.ordinal());
 
-    long size0 = this.leftyProviderServiceReferences.size();
+    long size0 = this.leftyProviderServices.size();
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt e0: this.leftyProviderServiceReferences) {
+    for (com.leftybeauty.schema.avro.LeftyProviderServiceValue e0: this.leftyProviderServices) {
       actualSize0++;
       out.startItem();
       e0.customEncode(out);
@@ -922,9 +1312,13 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
     if (actualSize0 != size0)
       throw new java.util.ConcurrentModificationException("Array-size written was " + size0 + ", but element count was " + actualSize0 + ".");
 
-    out.writeEnum(this.actor.ordinal());
-
-    this.financialAccountReference.customEncode(out);
+    if (this.paymentMethodId == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.paymentMethodId);
+    }
 
     if (this.transactionIds == null) {
       out.writeIndex(0);
@@ -945,6 +1339,49 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
         throw new java.util.ConcurrentModificationException("Array-size written was " + size1 + ", but element count was " + actualSize1 + ".");
     }
 
+    if (this.fees == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      this.fees.customEncode(out);
+    }
+
+    if (this.tax == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeInt(this.tax);
+    }
+
+    if (this.discounts == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      long size2 = this.discounts.size();
+      out.writeArrayStart();
+      out.setItemCount(size2);
+      long actualSize2 = 0;
+      for (com.leftybeauty.schema.avro.DiscountValue e2: this.discounts) {
+        actualSize2++;
+        out.startItem();
+        e2.customEncode(out);
+      }
+      out.writeArrayEnd();
+      if (actualSize2 != size2)
+        throw new java.util.ConcurrentModificationException("Array-size written was " + size2 + ", but element count was " + actualSize2 + ".");
+    }
+
+    if (this.split == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      this.split.customEncode(out);
+    }
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -956,36 +1393,41 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
 
       this.leftyUserProviderId = in.readString(this.leftyUserProviderId instanceof Utf8 ? (Utf8)this.leftyUserProviderId : null);
 
-      this.clientAddressId = in.readString(this.clientAddressId instanceof Utf8 ? (Utf8)this.clientAddressId : null);
+      this.leftyUserClientId = in.readString(this.leftyUserClientId instanceof Utf8 ? (Utf8)this.leftyUserClientId : null);
+
+      if (this.clientAddress == null) {
+        this.clientAddress = new com.leftybeauty.schema.avro.AddressValue();
+      }
+      this.clientAddress.customDecode(in);
 
       this.appointmentDateTime = in.readLong();
 
       this.status = com.leftybeauty.schema.avro.AppointmentStatusEnum.values()[in.readEnum()];
 
       long size0 = in.readArrayStart();
-      java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> a0 = this.leftyProviderServiceReferences;
+      java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> a0 = this.leftyProviderServices;
       if (a0 == null) {
-        a0 = new SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>((int)size0, SCHEMA$.getField("leftyProviderServiceReferences").schema());
-        this.leftyProviderServiceReferences = a0;
+        a0 = new SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue>((int)size0, SCHEMA$.getField("leftyProviderServices").schema());
+        this.leftyProviderServices = a0;
       } else a0.clear();
-      SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>)a0 : null);
+      SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt e0 = (ga0 != null ? ga0.peek() : null);
+          com.leftybeauty.schema.avro.LeftyProviderServiceValue e0 = (ga0 != null ? ga0.peek() : null);
           if (e0 == null) {
-            e0 = new com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt();
+            e0 = new com.leftybeauty.schema.avro.LeftyProviderServiceValue();
           }
           e0.customDecode(in);
           a0.add(e0);
         }
       }
 
-      this.actor = com.leftybeauty.schema.avro.LeftyUserTypeEnum.values()[in.readEnum()];
-
-      if (this.financialAccountReference == null) {
-        this.financialAccountReference = new com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt();
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.paymentMethodId = null;
+      } else {
+        this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
       }
-      this.financialAccountReference.customDecode(in);
 
       if (in.readIndex() != 1) {
         in.readNull();
@@ -1007,8 +1449,58 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
         }
       }
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.fees = null;
+      } else {
+        if (this.fees == null) {
+          this.fees = new com.leftybeauty.schema.avro.FeeValue();
+        }
+        this.fees.customDecode(in);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.tax = null;
+      } else {
+        this.tax = in.readInt();
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.discounts = null;
+      } else {
+        long size2 = in.readArrayStart();
+        java.util.List<com.leftybeauty.schema.avro.DiscountValue> a2 = this.discounts;
+        if (a2 == null) {
+          a2 = new SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue>((int)size2, SCHEMA$.getField("discounts").schema().getTypes().get(1));
+          this.discounts = a2;
+        } else a2.clear();
+        SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue> ga2 = (a2 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue>)a2 : null);
+        for ( ; 0 < size2; size2 = in.arrayNext()) {
+          for ( ; size2 != 0; size2--) {
+            com.leftybeauty.schema.avro.DiscountValue e2 = (ga2 != null ? ga2.peek() : null);
+            if (e2 == null) {
+              e2 = new com.leftybeauty.schema.avro.DiscountValue();
+            }
+            e2.customDecode(in);
+            a2.add(e2);
+          }
+        }
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.split = null;
+      } else {
+        if (this.split == null) {
+          this.split = new com.leftybeauty.schema.avro.SplitValue();
+        }
+        this.split.customDecode(in);
+      }
+
     } else {
-      for (int i = 0; i < 9; i++) {
+      for (int i = 0; i < 13; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.appointmentId = in.readString(this.appointmentId instanceof Utf8 ? (Utf8)this.appointmentId : null);
@@ -1019,30 +1511,37 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
           break;
 
         case 2:
-          this.clientAddressId = in.readString(this.clientAddressId instanceof Utf8 ? (Utf8)this.clientAddressId : null);
+          this.leftyUserClientId = in.readString(this.leftyUserClientId instanceof Utf8 ? (Utf8)this.leftyUserClientId : null);
           break;
 
         case 3:
-          this.appointmentDateTime = in.readLong();
+          if (this.clientAddress == null) {
+            this.clientAddress = new com.leftybeauty.schema.avro.AddressValue();
+          }
+          this.clientAddress.customDecode(in);
           break;
 
         case 4:
-          this.status = com.leftybeauty.schema.avro.AppointmentStatusEnum.values()[in.readEnum()];
+          this.appointmentDateTime = in.readLong();
           break;
 
         case 5:
+          this.status = com.leftybeauty.schema.avro.AppointmentStatusEnum.values()[in.readEnum()];
+          break;
+
+        case 6:
           long size0 = in.readArrayStart();
-          java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> a0 = this.leftyProviderServiceReferences;
+          java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> a0 = this.leftyProviderServices;
           if (a0 == null) {
-            a0 = new SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>((int)size0, SCHEMA$.getField("leftyProviderServiceReferences").schema());
-            this.leftyProviderServiceReferences = a0;
+            a0 = new SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue>((int)size0, SCHEMA$.getField("leftyProviderServices").schema());
+            this.leftyProviderServices = a0;
           } else a0.clear();
-          SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt>)a0 : null);
+          SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.LeftyProviderServiceValue>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt e0 = (ga0 != null ? ga0.peek() : null);
+              com.leftybeauty.schema.avro.LeftyProviderServiceValue e0 = (ga0 != null ? ga0.peek() : null);
               if (e0 == null) {
-                e0 = new com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt();
+                e0 = new com.leftybeauty.schema.avro.LeftyProviderServiceValue();
               }
               e0.customDecode(in);
               a0.add(e0);
@@ -1050,15 +1549,13 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
           }
           break;
 
-        case 6:
-          this.actor = com.leftybeauty.schema.avro.LeftyUserTypeEnum.values()[in.readEnum()];
-          break;
-
         case 7:
-          if (this.financialAccountReference == null) {
-            this.financialAccountReference = new com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt();
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.paymentMethodId = null;
+          } else {
+            this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
           }
-          this.financialAccountReference.customDecode(in);
           break;
 
         case 8:
@@ -1080,6 +1577,64 @@ public class AppointmentSource extends org.apache.avro.specific.SpecificRecordBa
                 a1.add(e1);
               }
             }
+          }
+          break;
+
+        case 9:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.fees = null;
+          } else {
+            if (this.fees == null) {
+              this.fees = new com.leftybeauty.schema.avro.FeeValue();
+            }
+            this.fees.customDecode(in);
+          }
+          break;
+
+        case 10:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.tax = null;
+          } else {
+            this.tax = in.readInt();
+          }
+          break;
+
+        case 11:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.discounts = null;
+          } else {
+            long size2 = in.readArrayStart();
+            java.util.List<com.leftybeauty.schema.avro.DiscountValue> a2 = this.discounts;
+            if (a2 == null) {
+              a2 = new SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue>((int)size2, SCHEMA$.getField("discounts").schema().getTypes().get(1));
+              this.discounts = a2;
+            } else a2.clear();
+            SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue> ga2 = (a2 instanceof SpecificData.Array ? (SpecificData.Array<com.leftybeauty.schema.avro.DiscountValue>)a2 : null);
+            for ( ; 0 < size2; size2 = in.arrayNext()) {
+              for ( ; size2 != 0; size2--) {
+                com.leftybeauty.schema.avro.DiscountValue e2 = (ga2 != null ? ga2.peek() : null);
+                if (e2 == null) {
+                  e2 = new com.leftybeauty.schema.avro.DiscountValue();
+                }
+                e2.customDecode(in);
+                a2.add(e2);
+              }
+            }
+          }
+          break;
+
+        case 12:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.split = null;
+          } else {
+            if (this.split == null) {
+              this.split = new com.leftybeauty.schema.avro.SplitValue();
+            }
+            this.split.customDecode(in);
           }
           break;
 

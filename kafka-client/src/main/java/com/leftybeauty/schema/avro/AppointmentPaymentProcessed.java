@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentPaymentProcessed extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6068482740345089864L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentPaymentProcessed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"financialAccountId\",\"type\":\"string\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentStatusEnum\",\"symbols\":[\"Approved\",\"Declined\"]}},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"transactionType\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentTypeEnum\",\"symbols\":[\"Payment\",\"Refund\"]}}]}");
+  private static final long serialVersionUID = 7989909194969977979L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentPaymentProcessed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"paymentMethodId\",\"type\":\"string\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentStatusEnum\",\"symbols\":[\"Approved\",\"Declined\"]}},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"transactionType\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentTypeEnum\",\"symbols\":[\"Payment\",\"Refund\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,7 +71,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence financialAccountId;
+   private java.lang.CharSequence paymentMethodId;
    private com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status;
    private java.lang.CharSequence providerTransactionIdentifier;
    private java.lang.CharSequence appointmentId;
@@ -87,15 +87,15 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
 
   /**
    * All-args constructor.
-   * @param financialAccountId The new value for financialAccountId
+   * @param paymentMethodId The new value for paymentMethodId
    * @param status The new value for status
    * @param providerTransactionIdentifier The new value for providerTransactionIdentifier
    * @param appointmentId The new value for appointmentId
    * @param amount The new value for amount
    * @param transactionType The new value for transactionType
    */
-  public AppointmentPaymentProcessed(java.lang.CharSequence financialAccountId, com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status, java.lang.CharSequence providerTransactionIdentifier, java.lang.CharSequence appointmentId, java.lang.Double amount, com.leftybeauty.schema.avro.LeftyPaymentTypeEnum transactionType) {
-    this.financialAccountId = financialAccountId;
+  public AppointmentPaymentProcessed(java.lang.CharSequence paymentMethodId, com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status, java.lang.CharSequence providerTransactionIdentifier, java.lang.CharSequence appointmentId, java.lang.Double amount, com.leftybeauty.schema.avro.LeftyPaymentTypeEnum transactionType) {
+    this.paymentMethodId = paymentMethodId;
     this.status = status;
     this.providerTransactionIdentifier = providerTransactionIdentifier;
     this.appointmentId = appointmentId;
@@ -108,7 +108,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return financialAccountId;
+    case 0: return paymentMethodId;
     case 1: return status;
     case 2: return providerTransactionIdentifier;
     case 3: return appointmentId;
@@ -122,7 +122,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: financialAccountId = (java.lang.CharSequence)value$; break;
+    case 0: paymentMethodId = (java.lang.CharSequence)value$; break;
     case 1: status = (com.leftybeauty.schema.avro.LeftyPaymentStatusEnum)value$; break;
     case 2: providerTransactionIdentifier = (java.lang.CharSequence)value$; break;
     case 3: appointmentId = (java.lang.CharSequence)value$; break;
@@ -133,20 +133,20 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   }
 
   /**
-   * Gets the value of the 'financialAccountId' field.
-   * @return The value of the 'financialAccountId' field.
+   * Gets the value of the 'paymentMethodId' field.
+   * @return The value of the 'paymentMethodId' field.
    */
-  public java.lang.CharSequence getFinancialAccountId() {
-    return financialAccountId;
+  public java.lang.CharSequence getPaymentMethodId() {
+    return paymentMethodId;
   }
 
 
   /**
-   * Sets the value of the 'financialAccountId' field.
+   * Sets the value of the 'paymentMethodId' field.
    * @param value the value to set.
    */
-  public void setFinancialAccountId(java.lang.CharSequence value) {
-    this.financialAccountId = value;
+  public void setPaymentMethodId(java.lang.CharSequence value) {
+    this.paymentMethodId = value;
   }
 
   /**
@@ -275,7 +275,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AppointmentPaymentProcessed>
     implements org.apache.avro.data.RecordBuilder<AppointmentPaymentProcessed> {
 
-    private java.lang.CharSequence financialAccountId;
+    private java.lang.CharSequence paymentMethodId;
     private com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status;
     private java.lang.CharSequence providerTransactionIdentifier;
     private java.lang.CharSequence appointmentId;
@@ -293,8 +293,8 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentPaymentProcessed.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.financialAccountId)) {
-        this.financialAccountId = data().deepCopy(fields()[0].schema(), other.financialAccountId);
+      if (isValidValue(fields()[0], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[0].schema(), other.paymentMethodId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (isValidValue(fields()[1], other.status)) {
@@ -325,8 +325,8 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentPaymentProcessed other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.financialAccountId)) {
-        this.financialAccountId = data().deepCopy(fields()[0].schema(), other.financialAccountId);
+      if (isValidValue(fields()[0], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[0].schema(), other.paymentMethodId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.status)) {
@@ -352,41 +352,41 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
     }
 
     /**
-      * Gets the value of the 'financialAccountId' field.
+      * Gets the value of the 'paymentMethodId' field.
       * @return The value.
       */
-    public java.lang.CharSequence getFinancialAccountId() {
-      return financialAccountId;
+    public java.lang.CharSequence getPaymentMethodId() {
+      return paymentMethodId;
     }
 
 
     /**
-      * Sets the value of the 'financialAccountId' field.
-      * @param value The value of 'financialAccountId'.
+      * Sets the value of the 'paymentMethodId' field.
+      * @param value The value of 'paymentMethodId'.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentPaymentProcessed.Builder setFinancialAccountId(java.lang.CharSequence value) {
+    public com.leftybeauty.schema.avro.AppointmentPaymentProcessed.Builder setPaymentMethodId(java.lang.CharSequence value) {
       validate(fields()[0], value);
-      this.financialAccountId = value;
+      this.paymentMethodId = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'financialAccountId' field has been set.
-      * @return True if the 'financialAccountId' field has been set, false otherwise.
+      * Checks whether the 'paymentMethodId' field has been set.
+      * @return True if the 'paymentMethodId' field has been set, false otherwise.
       */
-    public boolean hasFinancialAccountId() {
+    public boolean hasPaymentMethodId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'financialAccountId' field.
+      * Clears the value of the 'paymentMethodId' field.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.AppointmentPaymentProcessed.Builder clearFinancialAccountId() {
-      financialAccountId = null;
+    public com.leftybeauty.schema.avro.AppointmentPaymentProcessed.Builder clearPaymentMethodId() {
+      paymentMethodId = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -595,7 +595,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
     public AppointmentPaymentProcessed build() {
       try {
         AppointmentPaymentProcessed record = new AppointmentPaymentProcessed();
-        record.financialAccountId = fieldSetFlags()[0] ? this.financialAccountId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.paymentMethodId = fieldSetFlags()[0] ? this.paymentMethodId : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.status = fieldSetFlags()[1] ? this.status : (com.leftybeauty.schema.avro.LeftyPaymentStatusEnum) defaultValue(fields()[1]);
         record.providerTransactionIdentifier = fieldSetFlags()[2] ? this.providerTransactionIdentifier : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.appointmentId = fieldSetFlags()[3] ? this.appointmentId : (java.lang.CharSequence) defaultValue(fields()[3]);
@@ -633,7 +633,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeString(this.financialAccountId);
+    out.writeString(this.paymentMethodId);
 
     out.writeEnum(this.status.ordinal());
 
@@ -652,7 +652,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.financialAccountId = in.readString(this.financialAccountId instanceof Utf8 ? (Utf8)this.financialAccountId : null);
+      this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
 
       this.status = com.leftybeauty.schema.avro.LeftyPaymentStatusEnum.values()[in.readEnum()];
 
@@ -668,7 +668,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
       for (int i = 0; i < 6; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.financialAccountId = in.readString(this.financialAccountId instanceof Utf8 ? (Utf8)this.financialAccountId : null);
+          this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
           break;
 
         case 1:

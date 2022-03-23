@@ -22,7 +22,7 @@ public class LeftyUserFeedbackSourceProducer {
 				.setAppointmentId(userId)
 				.setComment("comm" + UUID.randomUUID().toString())
 				.setFeedbackTarget(LeftyUserTypeEnum.Client)
-				.setRating(11.67)
+				.setRating(8)
 				.setReason(RatingReasonEnum.DidntListenToRequest)
 				.build();
 	}

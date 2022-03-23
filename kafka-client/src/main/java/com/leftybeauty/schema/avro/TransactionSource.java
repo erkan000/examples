@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class TransactionSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6703632895847087912L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TransactionSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"transactionId\",\"type\":\"string\"},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"financialAccountId\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"symbols\":[\"Credit\",\"Debit\"]}},{\"name\":\"amount\",\"type\":\"double\"}]}");
+  private static final long serialVersionUID = -3465800710011489398L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TransactionSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"transactionId\",\"type\":\"string\"},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"paymentMethodId\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"symbols\":[\"Credit\",\"Debit\"]}},{\"name\":\"amount\",\"type\":\"double\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,7 +73,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
 
    private java.lang.CharSequence transactionId;
    private java.lang.CharSequence providerTransactionIdentifier;
-   private java.lang.CharSequence financialAccountId;
+   private java.lang.CharSequence paymentMethodId;
    private com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type;
    private double amount;
 
@@ -88,14 +88,14 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
    * All-args constructor.
    * @param transactionId The new value for transactionId
    * @param providerTransactionIdentifier The new value for providerTransactionIdentifier
-   * @param financialAccountId The new value for financialAccountId
+   * @param paymentMethodId The new value for paymentMethodId
    * @param type The new value for type
    * @param amount The new value for amount
    */
-  public TransactionSource(java.lang.CharSequence transactionId, java.lang.CharSequence providerTransactionIdentifier, java.lang.CharSequence financialAccountId, com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type, java.lang.Double amount) {
+  public TransactionSource(java.lang.CharSequence transactionId, java.lang.CharSequence providerTransactionIdentifier, java.lang.CharSequence paymentMethodId, com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type, java.lang.Double amount) {
     this.transactionId = transactionId;
     this.providerTransactionIdentifier = providerTransactionIdentifier;
-    this.financialAccountId = financialAccountId;
+    this.paymentMethodId = paymentMethodId;
     this.type = type;
     this.amount = amount;
   }
@@ -107,7 +107,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
     switch (field$) {
     case 0: return transactionId;
     case 1: return providerTransactionIdentifier;
-    case 2: return financialAccountId;
+    case 2: return paymentMethodId;
     case 3: return type;
     case 4: return amount;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
@@ -120,7 +120,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
     switch (field$) {
     case 0: transactionId = (java.lang.CharSequence)value$; break;
     case 1: providerTransactionIdentifier = (java.lang.CharSequence)value$; break;
-    case 2: financialAccountId = (java.lang.CharSequence)value$; break;
+    case 2: paymentMethodId = (java.lang.CharSequence)value$; break;
     case 3: type = (com.leftybeauty.schema.avro.LeftyTransactionTypeEnum)value$; break;
     case 4: amount = (java.lang.Double)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
@@ -162,20 +162,20 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
   }
 
   /**
-   * Gets the value of the 'financialAccountId' field.
-   * @return The value of the 'financialAccountId' field.
+   * Gets the value of the 'paymentMethodId' field.
+   * @return The value of the 'paymentMethodId' field.
    */
-  public java.lang.CharSequence getFinancialAccountId() {
-    return financialAccountId;
+  public java.lang.CharSequence getPaymentMethodId() {
+    return paymentMethodId;
   }
 
 
   /**
-   * Sets the value of the 'financialAccountId' field.
+   * Sets the value of the 'paymentMethodId' field.
    * @param value the value to set.
    */
-  public void setFinancialAccountId(java.lang.CharSequence value) {
-    this.financialAccountId = value;
+  public void setPaymentMethodId(java.lang.CharSequence value) {
+    this.paymentMethodId = value;
   }
 
   /**
@@ -255,7 +255,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
 
     private java.lang.CharSequence transactionId;
     private java.lang.CharSequence providerTransactionIdentifier;
-    private java.lang.CharSequence financialAccountId;
+    private java.lang.CharSequence paymentMethodId;
     private com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type;
     private double amount;
 
@@ -278,8 +278,8 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
         this.providerTransactionIdentifier = data().deepCopy(fields()[1].schema(), other.providerTransactionIdentifier);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.financialAccountId)) {
-        this.financialAccountId = data().deepCopy(fields()[2].schema(), other.financialAccountId);
+      if (isValidValue(fields()[2], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[2].schema(), other.paymentMethodId);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (isValidValue(fields()[3], other.type)) {
@@ -306,8 +306,8 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
         this.providerTransactionIdentifier = data().deepCopy(fields()[1].schema(), other.providerTransactionIdentifier);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.financialAccountId)) {
-        this.financialAccountId = data().deepCopy(fields()[2].schema(), other.financialAccountId);
+      if (isValidValue(fields()[2], other.paymentMethodId)) {
+        this.paymentMethodId = data().deepCopy(fields()[2].schema(), other.paymentMethodId);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.type)) {
@@ -401,41 +401,41 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
     }
 
     /**
-      * Gets the value of the 'financialAccountId' field.
+      * Gets the value of the 'paymentMethodId' field.
       * @return The value.
       */
-    public java.lang.CharSequence getFinancialAccountId() {
-      return financialAccountId;
+    public java.lang.CharSequence getPaymentMethodId() {
+      return paymentMethodId;
     }
 
 
     /**
-      * Sets the value of the 'financialAccountId' field.
-      * @param value The value of 'financialAccountId'.
+      * Sets the value of the 'paymentMethodId' field.
+      * @param value The value of 'paymentMethodId'.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.TransactionSource.Builder setFinancialAccountId(java.lang.CharSequence value) {
+    public com.leftybeauty.schema.avro.TransactionSource.Builder setPaymentMethodId(java.lang.CharSequence value) {
       validate(fields()[2], value);
-      this.financialAccountId = value;
+      this.paymentMethodId = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'financialAccountId' field has been set.
-      * @return True if the 'financialAccountId' field has been set, false otherwise.
+      * Checks whether the 'paymentMethodId' field has been set.
+      * @return True if the 'paymentMethodId' field has been set, false otherwise.
       */
-    public boolean hasFinancialAccountId() {
+    public boolean hasPaymentMethodId() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'financialAccountId' field.
+      * Clears the value of the 'paymentMethodId' field.
       * @return This builder.
       */
-    public com.leftybeauty.schema.avro.TransactionSource.Builder clearFinancialAccountId() {
-      financialAccountId = null;
+    public com.leftybeauty.schema.avro.TransactionSource.Builder clearPaymentMethodId() {
+      paymentMethodId = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -526,7 +526,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
         TransactionSource record = new TransactionSource();
         record.transactionId = fieldSetFlags()[0] ? this.transactionId : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.providerTransactionIdentifier = fieldSetFlags()[1] ? this.providerTransactionIdentifier : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.financialAccountId = fieldSetFlags()[2] ? this.financialAccountId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.paymentMethodId = fieldSetFlags()[2] ? this.paymentMethodId : (java.lang.CharSequence) defaultValue(fields()[2]);
         record.type = fieldSetFlags()[3] ? this.type : (com.leftybeauty.schema.avro.LeftyTransactionTypeEnum) defaultValue(fields()[3]);
         record.amount = fieldSetFlags()[4] ? this.amount : (java.lang.Double) defaultValue(fields()[4]);
         return record;
@@ -565,7 +565,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
 
     out.writeString(this.providerTransactionIdentifier);
 
-    out.writeString(this.financialAccountId);
+    out.writeString(this.paymentMethodId);
 
     out.writeEnum(this.type.ordinal());
 
@@ -582,7 +582,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
 
       this.providerTransactionIdentifier = in.readString(this.providerTransactionIdentifier instanceof Utf8 ? (Utf8)this.providerTransactionIdentifier : null);
 
-      this.financialAccountId = in.readString(this.financialAccountId instanceof Utf8 ? (Utf8)this.financialAccountId : null);
+      this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
 
       this.type = com.leftybeauty.schema.avro.LeftyTransactionTypeEnum.values()[in.readEnum()];
 
@@ -600,7 +600,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
           break;
 
         case 2:
-          this.financialAccountId = in.readString(this.financialAccountId instanceof Utf8 ? (Utf8)this.financialAccountId : null);
+          this.paymentMethodId = in.readString(this.paymentMethodId instanceof Utf8 ? (Utf8)this.paymentMethodId : null);
           break;
 
         case 3:

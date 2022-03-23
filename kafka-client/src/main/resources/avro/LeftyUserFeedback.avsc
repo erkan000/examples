@@ -1,0 +1,17 @@
+{
+	"type":"record",
+	"name":"LeftyUserFeedback",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId","type":"string"},
+		{"name":"appointmentId","type":"string"},
+		{"name":"rating","type":"double"},
+		{"name":"feedbackTarget","type":"com.leftybeauty.schema.avro.LeftyUserTypeEnum"},
+		{"name":"comment", "type": ["null", "string"], "default" : null},
+		{
+      		"name": "reason",
+       		"type": ["null", "com.leftybeauty.schema.avro.RatingReasonEnum"],
+       		"default" : null
+    	}
+	]
+}

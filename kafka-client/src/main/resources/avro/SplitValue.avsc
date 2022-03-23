@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"SplitValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"percentage","type":"int"},
+		{"name":"paymentProviderAccountIdentifier","type":"string"}
+	]
+}

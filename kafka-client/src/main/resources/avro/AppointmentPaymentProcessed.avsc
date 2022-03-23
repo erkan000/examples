@@ -3,7 +3,7 @@
 	"name":"AppointmentPaymentProcessed",
 	"namespace":"com.leftybeauty.schema.avro",
 	"fields":[
-		{"name": "financialAccountId","type":"string"},
+		{"name": "paymentMethodId","type":"string"},
 		{"name": "status","type": "com.leftybeauty.schema.avro.LeftyPaymentStatusEnum"},
 	    {"name": "providerTransactionIdentifier","type":"string"},
 		{"name": "appointmentId","type":"string"},

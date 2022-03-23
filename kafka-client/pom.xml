@@ -77,6 +77,14 @@
 								<import>${project.basedir}/src/main/resources/avro/LeftyProviderServiceStatusEnum.avsc</import>
 								<import>${project.basedir}/src/main/resources/avro/PaymentMethodTypeEnum.avsc</import>
 								<import>${project.basedir}/src/main/resources/avro/DiscountTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LeftyProviderServiceValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/FeeTypeEnum.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/FeeValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/SplitValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PersonValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/DiscountValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/PaymentMethodValue.avsc</import>
+								<import>${project.basedir}/src/main/resources/avro/LocationValue.avsc</import>
 							</imports>
 						</configuration>
 					</execution>

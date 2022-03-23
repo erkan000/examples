@@ -3,7 +3,9 @@
 	"name":"AppointmentProposed",
 	"namespace":"com.leftybeauty.schema.avro",
 	"fields":[
+		{"name":"leftyUserId","type":"string"},
 		{"name":"leftyUserProviderId","type":"string"},
+		{"name":"leftyUserClientId","type":"string"},
 		{"name":"clientAddressId","type":"string"},
 		{"name":"appointmentDateTime","type":"long"},
 		{"name":"proposedTimestamp","type":"long"}, 

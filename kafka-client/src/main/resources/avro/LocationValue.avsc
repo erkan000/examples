@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"LocationValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"longitude", "type":"double"},
+		{"name":"latitude", "type":"double"}
+	]
+}

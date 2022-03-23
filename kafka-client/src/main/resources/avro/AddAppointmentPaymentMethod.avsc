@@ -1,0 +1,10 @@
+{
+	"type":"record",
+	"name":"AddAppointmentPaymentMethod",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId","type":"string"},
+		{"name":"appointmentId","type":"string"},
+		{"name":"paymentMethodId","type":"string"}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"type":"record",
+	"name":"PersonValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId","type":"string"},
+		{"name":"firstName","type":"string"},
+		{"name":"lastName","type":"string"},
+		{"name":"avatarUrl","type":["null","string"], "default": null}
+	]
+}

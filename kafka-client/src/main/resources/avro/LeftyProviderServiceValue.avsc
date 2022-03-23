@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "LeftyProviderServiceValue",
+  "namespace": "com.leftybeauty.schema.avro",
+  "fields": [
+    {"name": "leftyProviderServiceId", "type": "string"},
+    {"name": "serviceCategoryName", "type": "string"},
+    {"name": "price", "type": "double"},
+    {"name": "duration", "type": "int"}
+  ]
+}

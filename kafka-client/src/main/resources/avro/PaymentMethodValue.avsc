@@ -1,0 +1,11 @@
+{
+	"type":"record",
+	"name":"PaymentMethodValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"paymentMethodId", "type":["null","string"], "default": null},
+		{"name":"last4", "type":"int"},
+		{"name":"expiration", "type":"int"},
+		{"name":"type","type":"com.leftybeauty.schema.avro.PaymentMethodTypeEnum"}
+	]
+}

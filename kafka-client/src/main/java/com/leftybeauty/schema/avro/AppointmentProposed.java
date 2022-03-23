@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentProposed extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6174502046285869803L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentProposed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserProviderId\",\"type\":\"string\"},{\"name\":\"clientAddressId\",\"type\":\"string\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"proposedTimestamp\",\"type\":\"long\"},{\"name\":\"leftyProviderServiceIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
+  private static final long serialVersionUID = 8342960707903617345L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentProposed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"leftyUserProviderId\",\"type\":\"string\"},{\"name\":\"leftyUserClientId\",\"type\":\"string\"},{\"name\":\"clientAddressId\",\"type\":\"string\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"proposedTimestamp\",\"type\":\"long\"},{\"name\":\"leftyProviderServiceIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -71,7 +71,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
     return DECODER.decode(b);
   }
 
+   private java.lang.CharSequence leftyUserId;
    private java.lang.CharSequence leftyUserProviderId;
+   private java.lang.CharSequence leftyUserClientId;
    private java.lang.CharSequence clientAddressId;
    private long appointmentDateTime;
    private long proposedTimestamp;
@@ -86,14 +88,18 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
 
   /**
    * All-args constructor.
+   * @param leftyUserId The new value for leftyUserId
    * @param leftyUserProviderId The new value for leftyUserProviderId
+   * @param leftyUserClientId The new value for leftyUserClientId
    * @param clientAddressId The new value for clientAddressId
    * @param appointmentDateTime The new value for appointmentDateTime
    * @param proposedTimestamp The new value for proposedTimestamp
    * @param leftyProviderServiceIds The new value for leftyProviderServiceIds
    */
-  public AppointmentProposed(java.lang.CharSequence leftyUserProviderId, java.lang.CharSequence clientAddressId, java.lang.Long appointmentDateTime, java.lang.Long proposedTimestamp, java.util.List<java.lang.CharSequence> leftyProviderServiceIds) {
+  public AppointmentProposed(java.lang.CharSequence leftyUserId, java.lang.CharSequence leftyUserProviderId, java.lang.CharSequence leftyUserClientId, java.lang.CharSequence clientAddressId, java.lang.Long appointmentDateTime, java.lang.Long proposedTimestamp, java.util.List<java.lang.CharSequence> leftyProviderServiceIds) {
+    this.leftyUserId = leftyUserId;
     this.leftyUserProviderId = leftyUserProviderId;
+    this.leftyUserClientId = leftyUserClientId;
     this.clientAddressId = clientAddressId;
     this.appointmentDateTime = appointmentDateTime;
     this.proposedTimestamp = proposedTimestamp;
@@ -105,11 +111,13 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return leftyUserProviderId;
-    case 1: return clientAddressId;
-    case 2: return appointmentDateTime;
-    case 3: return proposedTimestamp;
-    case 4: return leftyProviderServiceIds;
+    case 0: return leftyUserId;
+    case 1: return leftyUserProviderId;
+    case 2: return leftyUserClientId;
+    case 3: return clientAddressId;
+    case 4: return appointmentDateTime;
+    case 5: return proposedTimestamp;
+    case 6: return leftyProviderServiceIds;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -118,13 +126,32 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: leftyUserProviderId = (java.lang.CharSequence)value$; break;
-    case 1: clientAddressId = (java.lang.CharSequence)value$; break;
-    case 2: appointmentDateTime = (java.lang.Long)value$; break;
-    case 3: proposedTimestamp = (java.lang.Long)value$; break;
-    case 4: leftyProviderServiceIds = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 0: leftyUserId = (java.lang.CharSequence)value$; break;
+    case 1: leftyUserProviderId = (java.lang.CharSequence)value$; break;
+    case 2: leftyUserClientId = (java.lang.CharSequence)value$; break;
+    case 3: clientAddressId = (java.lang.CharSequence)value$; break;
+    case 4: appointmentDateTime = (java.lang.Long)value$; break;
+    case 5: proposedTimestamp = (java.lang.Long)value$; break;
+    case 6: leftyProviderServiceIds = (java.util.List<java.lang.CharSequence>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  /**
+   * Gets the value of the 'leftyUserId' field.
+   * @return The value of the 'leftyUserId' field.
+   */
+  public java.lang.CharSequence getLeftyUserId() {
+    return leftyUserId;
+  }
+
+
+  /**
+   * Sets the value of the 'leftyUserId' field.
+   * @param value the value to set.
+   */
+  public void setLeftyUserId(java.lang.CharSequence value) {
+    this.leftyUserId = value;
   }
 
   /**
@@ -142,6 +169,23 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
    */
   public void setLeftyUserProviderId(java.lang.CharSequence value) {
     this.leftyUserProviderId = value;
+  }
+
+  /**
+   * Gets the value of the 'leftyUserClientId' field.
+   * @return The value of the 'leftyUserClientId' field.
+   */
+  public java.lang.CharSequence getLeftyUserClientId() {
+    return leftyUserClientId;
+  }
+
+
+  /**
+   * Sets the value of the 'leftyUserClientId' field.
+   * @param value the value to set.
+   */
+  public void setLeftyUserClientId(java.lang.CharSequence value) {
+    this.leftyUserClientId = value;
   }
 
   /**
@@ -253,7 +297,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AppointmentProposed>
     implements org.apache.avro.data.RecordBuilder<AppointmentProposed> {
 
+    private java.lang.CharSequence leftyUserId;
     private java.lang.CharSequence leftyUserProviderId;
+    private java.lang.CharSequence leftyUserClientId;
     private java.lang.CharSequence clientAddressId;
     private long appointmentDateTime;
     private long proposedTimestamp;
@@ -270,25 +316,33 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentProposed.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.leftyUserProviderId)) {
-        this.leftyUserProviderId = data().deepCopy(fields()[0].schema(), other.leftyUserProviderId);
+      if (isValidValue(fields()[0], other.leftyUserId)) {
+        this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.clientAddressId)) {
-        this.clientAddressId = data().deepCopy(fields()[1].schema(), other.clientAddressId);
+      if (isValidValue(fields()[1], other.leftyUserProviderId)) {
+        this.leftyUserProviderId = data().deepCopy(fields()[1].schema(), other.leftyUserProviderId);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.appointmentDateTime)) {
-        this.appointmentDateTime = data().deepCopy(fields()[2].schema(), other.appointmentDateTime);
+      if (isValidValue(fields()[2], other.leftyUserClientId)) {
+        this.leftyUserClientId = data().deepCopy(fields()[2].schema(), other.leftyUserClientId);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.proposedTimestamp)) {
-        this.proposedTimestamp = data().deepCopy(fields()[3].schema(), other.proposedTimestamp);
+      if (isValidValue(fields()[3], other.clientAddressId)) {
+        this.clientAddressId = data().deepCopy(fields()[3].schema(), other.clientAddressId);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.leftyProviderServiceIds)) {
-        this.leftyProviderServiceIds = data().deepCopy(fields()[4].schema(), other.leftyProviderServiceIds);
+      if (isValidValue(fields()[4], other.appointmentDateTime)) {
+        this.appointmentDateTime = data().deepCopy(fields()[4].schema(), other.appointmentDateTime);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
+      if (isValidValue(fields()[5], other.proposedTimestamp)) {
+        this.proposedTimestamp = data().deepCopy(fields()[5].schema(), other.proposedTimestamp);
+        fieldSetFlags()[5] = other.fieldSetFlags()[5];
+      }
+      if (isValidValue(fields()[6], other.leftyProviderServiceIds)) {
+        this.leftyProviderServiceIds = data().deepCopy(fields()[6].schema(), other.leftyProviderServiceIds);
+        fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
     }
 
@@ -298,26 +352,74 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentProposed other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.leftyUserProviderId)) {
-        this.leftyUserProviderId = data().deepCopy(fields()[0].schema(), other.leftyUserProviderId);
+      if (isValidValue(fields()[0], other.leftyUserId)) {
+        this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.clientAddressId)) {
-        this.clientAddressId = data().deepCopy(fields()[1].schema(), other.clientAddressId);
+      if (isValidValue(fields()[1], other.leftyUserProviderId)) {
+        this.leftyUserProviderId = data().deepCopy(fields()[1].schema(), other.leftyUserProviderId);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.appointmentDateTime)) {
-        this.appointmentDateTime = data().deepCopy(fields()[2].schema(), other.appointmentDateTime);
+      if (isValidValue(fields()[2], other.leftyUserClientId)) {
+        this.leftyUserClientId = data().deepCopy(fields()[2].schema(), other.leftyUserClientId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.proposedTimestamp)) {
-        this.proposedTimestamp = data().deepCopy(fields()[3].schema(), other.proposedTimestamp);
+      if (isValidValue(fields()[3], other.clientAddressId)) {
+        this.clientAddressId = data().deepCopy(fields()[3].schema(), other.clientAddressId);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.leftyProviderServiceIds)) {
-        this.leftyProviderServiceIds = data().deepCopy(fields()[4].schema(), other.leftyProviderServiceIds);
+      if (isValidValue(fields()[4], other.appointmentDateTime)) {
+        this.appointmentDateTime = data().deepCopy(fields()[4].schema(), other.appointmentDateTime);
         fieldSetFlags()[4] = true;
       }
+      if (isValidValue(fields()[5], other.proposedTimestamp)) {
+        this.proposedTimestamp = data().deepCopy(fields()[5].schema(), other.proposedTimestamp);
+        fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.leftyProviderServiceIds)) {
+        this.leftyProviderServiceIds = data().deepCopy(fields()[6].schema(), other.leftyProviderServiceIds);
+        fieldSetFlags()[6] = true;
+      }
+    }
+
+    /**
+      * Gets the value of the 'leftyUserId' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getLeftyUserId() {
+      return leftyUserId;
+    }
+
+
+    /**
+      * Sets the value of the 'leftyUserId' field.
+      * @param value The value of 'leftyUserId'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentProposed.Builder setLeftyUserId(java.lang.CharSequence value) {
+      validate(fields()[0], value);
+      this.leftyUserId = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'leftyUserId' field has been set.
+      * @return True if the 'leftyUserId' field has been set, false otherwise.
+      */
+    public boolean hasLeftyUserId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'leftyUserId' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearLeftyUserId() {
+      leftyUserId = null;
+      fieldSetFlags()[0] = false;
+      return this;
     }
 
     /**
@@ -335,9 +437,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder setLeftyUserProviderId(java.lang.CharSequence value) {
-      validate(fields()[0], value);
+      validate(fields()[1], value);
       this.leftyUserProviderId = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -346,7 +448,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return True if the 'leftyUserProviderId' field has been set, false otherwise.
       */
     public boolean hasLeftyUserProviderId() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[1];
     }
 
 
@@ -356,7 +458,47 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearLeftyUserProviderId() {
       leftyUserProviderId = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'leftyUserClientId' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getLeftyUserClientId() {
+      return leftyUserClientId;
+    }
+
+
+    /**
+      * Sets the value of the 'leftyUserClientId' field.
+      * @param value The value of 'leftyUserClientId'.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentProposed.Builder setLeftyUserClientId(java.lang.CharSequence value) {
+      validate(fields()[2], value);
+      this.leftyUserClientId = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'leftyUserClientId' field has been set.
+      * @return True if the 'leftyUserClientId' field has been set, false otherwise.
+      */
+    public boolean hasLeftyUserClientId() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'leftyUserClientId' field.
+      * @return This builder.
+      */
+    public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearLeftyUserClientId() {
+      leftyUserClientId = null;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -375,9 +517,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder setClientAddressId(java.lang.CharSequence value) {
-      validate(fields()[1], value);
+      validate(fields()[3], value);
       this.clientAddressId = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -386,7 +528,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return True if the 'clientAddressId' field has been set, false otherwise.
       */
     public boolean hasClientAddressId() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[3];
     }
 
 
@@ -396,7 +538,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearClientAddressId() {
       clientAddressId = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -415,9 +557,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder setAppointmentDateTime(long value) {
-      validate(fields()[2], value);
+      validate(fields()[4], value);
       this.appointmentDateTime = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -426,7 +568,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return True if the 'appointmentDateTime' field has been set, false otherwise.
       */
     public boolean hasAppointmentDateTime() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[4];
     }
 
 
@@ -435,7 +577,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearAppointmentDateTime() {
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -454,9 +596,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder setProposedTimestamp(long value) {
-      validate(fields()[3], value);
+      validate(fields()[5], value);
       this.proposedTimestamp = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -465,7 +607,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return True if the 'proposedTimestamp' field has been set, false otherwise.
       */
     public boolean hasProposedTimestamp() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[5];
     }
 
 
@@ -474,7 +616,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearProposedTimestamp() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -493,9 +635,9 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return This builder.
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder setLeftyProviderServiceIds(java.util.List<java.lang.CharSequence> value) {
-      validate(fields()[4], value);
+      validate(fields()[6], value);
       this.leftyProviderServiceIds = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -504,7 +646,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       * @return True if the 'leftyProviderServiceIds' field has been set, false otherwise.
       */
     public boolean hasLeftyProviderServiceIds() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[6];
     }
 
 
@@ -514,7 +656,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       */
     public com.leftybeauty.schema.avro.AppointmentProposed.Builder clearLeftyProviderServiceIds() {
       leftyProviderServiceIds = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -523,11 +665,13 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
     public AppointmentProposed build() {
       try {
         AppointmentProposed record = new AppointmentProposed();
-        record.leftyUserProviderId = fieldSetFlags()[0] ? this.leftyUserProviderId : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.clientAddressId = fieldSetFlags()[1] ? this.clientAddressId : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.appointmentDateTime = fieldSetFlags()[2] ? this.appointmentDateTime : (java.lang.Long) defaultValue(fields()[2]);
-        record.proposedTimestamp = fieldSetFlags()[3] ? this.proposedTimestamp : (java.lang.Long) defaultValue(fields()[3]);
-        record.leftyProviderServiceIds = fieldSetFlags()[4] ? this.leftyProviderServiceIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[4]);
+        record.leftyUserId = fieldSetFlags()[0] ? this.leftyUserId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.leftyUserProviderId = fieldSetFlags()[1] ? this.leftyUserProviderId : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.leftyUserClientId = fieldSetFlags()[2] ? this.leftyUserClientId : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.clientAddressId = fieldSetFlags()[3] ? this.clientAddressId : (java.lang.CharSequence) defaultValue(fields()[3]);
+        record.appointmentDateTime = fieldSetFlags()[4] ? this.appointmentDateTime : (java.lang.Long) defaultValue(fields()[4]);
+        record.proposedTimestamp = fieldSetFlags()[5] ? this.proposedTimestamp : (java.lang.Long) defaultValue(fields()[5]);
+        record.leftyProviderServiceIds = fieldSetFlags()[6] ? this.leftyProviderServiceIds : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -560,7 +704,11 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
+    out.writeString(this.leftyUserId);
+
     out.writeString(this.leftyUserProviderId);
+
+    out.writeString(this.leftyUserClientId);
 
     out.writeString(this.clientAddressId);
 
@@ -588,7 +736,11 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
+      this.leftyUserId = in.readString(this.leftyUserId instanceof Utf8 ? (Utf8)this.leftyUserId : null);
+
       this.leftyUserProviderId = in.readString(this.leftyUserProviderId instanceof Utf8 ? (Utf8)this.leftyUserProviderId : null);
+
+      this.leftyUserClientId = in.readString(this.leftyUserClientId instanceof Utf8 ? (Utf8)this.leftyUserClientId : null);
 
       this.clientAddressId = in.readString(this.clientAddressId instanceof Utf8 ? (Utf8)this.clientAddressId : null);
 
@@ -612,25 +764,33 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
       }
 
     } else {
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 7; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.leftyUserProviderId = in.readString(this.leftyUserProviderId instanceof Utf8 ? (Utf8)this.leftyUserProviderId : null);
+          this.leftyUserId = in.readString(this.leftyUserId instanceof Utf8 ? (Utf8)this.leftyUserId : null);
           break;
 
         case 1:
-          this.clientAddressId = in.readString(this.clientAddressId instanceof Utf8 ? (Utf8)this.clientAddressId : null);
+          this.leftyUserProviderId = in.readString(this.leftyUserProviderId instanceof Utf8 ? (Utf8)this.leftyUserProviderId : null);
           break;
 
         case 2:
-          this.appointmentDateTime = in.readLong();
+          this.leftyUserClientId = in.readString(this.leftyUserClientId instanceof Utf8 ? (Utf8)this.leftyUserClientId : null);
           break;
 
         case 3:
-          this.proposedTimestamp = in.readLong();
+          this.clientAddressId = in.readString(this.clientAddressId instanceof Utf8 ? (Utf8)this.clientAddressId : null);
           break;
 
         case 4:
+          this.appointmentDateTime = in.readLong();
+          break;
+
+        case 5:
+          this.proposedTimestamp = in.readLong();
+          break;
+
+        case 6:
           long size0 = in.readArrayStart();
           java.util.List<java.lang.CharSequence> a0 = this.leftyProviderServiceIds;
           if (a0 == null) {

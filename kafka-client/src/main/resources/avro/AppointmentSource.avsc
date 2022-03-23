@@ -5,29 +5,54 @@
 	"fields":[
 		{"name":"appointmentId","type":"string"},
 		{"name":"leftyUserProviderId","type":"string"},
-		{"name":"clientAddressId","type":"string"},
+		{"name":"leftyUserClientId","type":"string"},
+		{"name":"clientAddress","type":"com.leftybeauty.schema.avro.AddressValue"},
 		{"name":"appointmentDateTime","type":"long"},
 	    {"name":"status","type":"com.leftybeauty.schema.avro.AppointmentStatusEnum"},
 	    {
-	        "name":"leftyProviderServiceReferences",  
+	        "name":"leftyProviderServices",  
 	        "type":{        		
 	                "type": "array",  
-	                "items":"com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt"
+	                "items":"com.leftybeauty.schema.avro.LeftyProviderServiceValue"
 	         }
 	    },
-	    {"name":"actor","type":"com.leftybeauty.schema.avro.LeftyUserTypeEnum"},
-	    {"name":"financialAccountReference","type":"com.leftybeauty.schema.avro.FinancialAccountSourceReferenceAt"},
-	    {
+	    {"name": "paymentMethodId", "type":  ["null","string"], "default" : null},
+	    {      
 	        "name":"transactionIds",  
-	        "type":["null", 
-	        	{        		
-	                "type": "array",  
-	                "items":{
-	                	"name":"id", "type":"string"
-	                 }
-	         	}
-	        ],
-	        "default": null
-	    }
+	        "type": [ "null" ,
+        				{
+         				"type": "array",
+        				"items":{
+            				"name": "id",
+            				"type": "string"
+         					}
+        				}
+        			],
+         	"default" : null
+	    },
+	    {
+			"name": "fees",
+			"type": ["null", "com.leftybeauty.schema.avro.FeeValue"],
+			"default" : null
+		},
+		{"name": "tax", "type":  ["null","int"], "default" : null},
+		{      
+	        "name":"discounts",  
+	        "type": [ "null" ,
+        				{
+         				"type": "array",
+        				"items":{
+            				"name": "id",
+            				"type": "com.leftybeauty.schema.avro.DiscountValue"
+         					}
+        				}
+        			],
+         	"default" : null
+	    },
+		{
+      		"name": "split",
+       		"type": ["null", "com.leftybeauty.schema.avro.SplitValue"],
+       		"default" : null
+    	}
 	]
 }

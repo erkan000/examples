@@ -1,0 +1,10 @@
+{
+	"type":"record",
+	"name":"ObscuredProviderLocation",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"longitude", "type":"double"},
+		{"name":"latitude", "type":"double"}
+	]
+}

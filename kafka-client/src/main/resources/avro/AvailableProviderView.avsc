@@ -1,0 +1,15 @@
+{
+	"type":"record",
+	"name":"AvailableProviderView",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"leftyUserId", "type":"string"},
+		{"name":"firstName","type":["null","string"], "default": null},
+		{"name":"lastName","type":["null","string"], "default": null},
+		{"name":"avatarStorageProviderLocation","type":["null","string"], "default": null},
+		{"name":"ratingAverage","type":["null","double"], "default": null},
+		{"name":"obscuredLocation", "type":  ["null","com.leftybeauty.schema.avro.LocationValue"], "default" : null},
+		{"name":"available","type":["null","boolean"], "default": null}
+		
+	]
+}

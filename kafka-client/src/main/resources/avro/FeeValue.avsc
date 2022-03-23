@@ -1,0 +1,9 @@
+{
+	"type":"record",
+	"name":"FeeValue",
+	"namespace":"com.leftybeauty.schema.avro",
+	"fields":[
+		{"name":"amount","type":"double"},
+		{"name":"feeType","type":"com.leftybeauty.schema.avro.FeeTypeEnum"}
+	]
+}

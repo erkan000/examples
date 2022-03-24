@@ -15,7 +15,7 @@ public class AppointmentSourceMessageProducer {
 	
 	public static void main(String[] args) throws Exception {
 		GenericMessage<AppointmentSource> mesaj = 
-				new GenericMessage<>("2", generateUserAvro());
+				new GenericMessage<>("appoint-3", generateUserAvro());
 		ProducerUtil.sendMessageToTopic("AppointmentSource" , mesaj);
 	}
 	
@@ -32,13 +32,14 @@ public class AppointmentSourceMessageProducer {
 				.setLeftyProviderServiceId("")
 				.setServiceCategoryName("")
 				.setPrice(0)
+				.setDuration(3)
 				.build();
 		
 		return AppointmentSource
 				.newBuilder()
-				.setAppointmentId("a123")
-				.setLeftyUserProviderId("a22")
-				.setLeftyUserClientId("a444")
+				.setAppointmentId("appoint-3")
+				.setLeftyUserProviderId("provider-1")
+				.setLeftyUserClientId("client-1")
 				.setClientAddress(addressValue)	
 				.setAppointmentDateTime(0L)
 				.setStatus(AppointmentStatusEnum.Proposed)

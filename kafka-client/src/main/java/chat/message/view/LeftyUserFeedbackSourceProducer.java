@@ -12,8 +12,9 @@ import utils.ProducerUtil;
 public class LeftyUserFeedbackSourceProducer {
 	
 	public static void main(String[] args) throws Exception {
+		LeftyUserFeedbackSource message = generateEmailSource("appoint-4");
 		GenericMessage<LeftyUserFeedbackSource> mesaj = 
-				new GenericMessage<>("userId4", generateEmailSource("2"));
+				new GenericMessage<>(message.getAppointmentId().toString(), message);
 		ProducerUtil.sendMessageToTopic("LeftyUserFeedbackSource" , mesaj);
 	}
 	
@@ -22,7 +23,7 @@ public class LeftyUserFeedbackSourceProducer {
 				.setAppointmentId(userId)
 				.setComment("comm" + UUID.randomUUID().toString())
 				.setFeedbackTarget(LeftyUserTypeEnum.Client)
-				.setRating(8)
+				.setRating(123)
 				.setReason(RatingReasonEnum.DidntListenToRequest)
 				.build();
 	}

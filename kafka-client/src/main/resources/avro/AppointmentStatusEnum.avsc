@@ -2,5 +2,6 @@
 	"type":"enum",
 	"name":"AppointmentStatusEnum",
 	"namespace":"com.leftybeauty.schema.avro",
-	"symbols": ["Proposed", "Scheduled", "InProgress", "Cancelled", "Rejected", "TimedOut", "Completed"]
+	"symbols": ["ClientProposed", "FutureScheduled", "ProviderAccepted", "CardDeclined", "InProgress", "ClientCancelled",
+				"ProviderCancelled", "ClientRejected", "ProviderRejected", "CardDeclinedTimedOut", "ProposalTimedOut", "Completed"]
 } 

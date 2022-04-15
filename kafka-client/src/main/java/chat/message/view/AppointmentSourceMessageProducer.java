@@ -42,7 +42,7 @@ public class AppointmentSourceMessageProducer {
 				.setLeftyUserClientId("client-1")
 				.setClientAddress(addressValue)	
 				.setAppointmentDateTime(0L)
-				.setStatus(AppointmentStatusEnum.Proposed)
+				.setStatus(AppointmentStatusEnum.CardDeclined)
 				.setLeftyProviderServices(List.of(service))
 				.build();
 	}

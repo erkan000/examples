@@ -6,8 +6,8 @@
 package com.leftybeauty.schema.avro;
 @org.apache.avro.specific.AvroGenerated
 public enum LeftyTransactionTypeEnum implements org.apache.avro.generic.GenericEnumSymbol<LeftyTransactionTypeEnum> {
-  Credit, Debit  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"namespace\":\"com.leftybeauty.schema.avro\",\"symbols\":[\"Credit\",\"Debit\"]}");
+  Payment, Refund  ;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"namespace\":\"com.leftybeauty.schema.avro\",\"symbols\":[\"Payment\",\"Refund\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
 }

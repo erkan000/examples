@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderServiceValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -7633268588158137828L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderServiceValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"serviceCategoryName\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"duration\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderServiceValue> ENCODER =
       new BinaryMessageEncoder<LeftyProviderServiceValue>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class LeftyProviderServiceValue extends org.apache.avro.specific.Specific
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyProviderServiceId;
-   private java.lang.CharSequence serviceCategoryName;
-   private double price;
-   private int duration;
+  private java.lang.CharSequence leftyProviderServiceId;
+  private java.lang.CharSequence serviceCategoryName;
+  private double price;
+  private int duration;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class LeftyProviderServiceValue extends org.apache.avro.specific.Specific
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class LeftyProviderServiceValue extends org.apache.avro.specific.Specific
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderServiceValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyProviderServiceId)) {
         this.leftyProviderServiceId = data().deepCopy(fields()[0].schema(), other.leftyProviderServiceId);
         fieldSetFlags()[0] = true;

@@ -17,7 +17,7 @@ public class AddressSourceProducer {
 	private static AddressSource generateAddressSource(String userId) {
 		return AddressSource.newBuilder()
 				.setLeftyUserId(userId)
-				.setAddressId("clientAddress5")
+				.setAddressId("1")
 				.setStreet1("str1")
 				.setCity("Istanbul")
 				.setState(UsStateEnum.Arizona)

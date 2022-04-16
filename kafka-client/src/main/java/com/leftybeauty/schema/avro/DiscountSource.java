@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class DiscountSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 6079717155106996585L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DiscountSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"discountId\",\"type\":\"string\"},{\"name\":\"code\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"DiscountTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<DiscountSource> ENCODER =
       new BinaryMessageEncoder<DiscountSource>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class DiscountSource extends org.apache.avro.specific.SpecificRecordBase 
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence discountId;
-   private java.lang.CharSequence code;
-   private double amount;
-   private com.leftybeauty.schema.avro.DiscountTypeEnum type;
+  private java.lang.CharSequence discountId;
+  private java.lang.CharSequence code;
+  private double amount;
+  private com.leftybeauty.schema.avro.DiscountTypeEnum type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class DiscountSource extends org.apache.avro.specific.SpecificRecordBase 
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class DiscountSource extends org.apache.avro.specific.SpecificRecordBase 
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.DiscountSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.discountId)) {
         this.discountId = data().deepCopy(fields()[0].schema(), other.discountId);
         fieldSetFlags()[0] = true;

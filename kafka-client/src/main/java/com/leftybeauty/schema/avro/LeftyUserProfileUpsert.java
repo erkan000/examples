@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserProfileUpsert extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 6332890611355167386L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserProfileUpsert\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"phoneNumber\",\"type\":\"long\"},{\"name\":\"countryCode\",\"type\":\"int\"},{\"name\":\"experience\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"userType\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserProfileUpsert> ENCODER =
       new BinaryMessageEncoder<LeftyUserProfileUpsert>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class LeftyUserProfileUpsert extends org.apache.avro.specific.SpecificRec
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence firstName;
-   private java.lang.CharSequence lastName;
-   private long phoneNumber;
-   private int countryCode;
-   private java.lang.CharSequence experience;
-   private com.leftybeauty.schema.avro.LeftyUserTypeEnum userType;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
+  private long phoneNumber;
+  private int countryCode;
+  private java.lang.CharSequence experience;
+  private com.leftybeauty.schema.avro.LeftyUserTypeEnum userType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class LeftyUserProfileUpsert extends org.apache.avro.specific.SpecificRec
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class LeftyUserProfileUpsert extends org.apache.avro.specific.SpecificRec
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserProfileUpsert other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

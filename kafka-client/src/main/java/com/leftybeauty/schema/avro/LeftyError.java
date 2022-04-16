@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyError extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 965592838534481593L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyError\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"errorName\",\"type\":\"string\"},{\"name\":\"sourceService\",\"type\":\"string\"},{\"name\":\"message\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyError> ENCODER =
       new BinaryMessageEncoder<LeftyError>(MODEL$, SCHEMA$);
@@ -71,9 +73,9 @@ public class LeftyError extends org.apache.avro.specific.SpecificRecordBase impl
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence errorName;
-   private java.lang.CharSequence sourceService;
-   private java.lang.CharSequence message;
+  private java.lang.CharSequence errorName;
+  private java.lang.CharSequence sourceService;
+  private java.lang.CharSequence message;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -215,7 +217,7 @@ public class LeftyError extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -243,7 +245,7 @@ public class LeftyError extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyError other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.errorName)) {
         this.errorName = data().deepCopy(fields()[0].schema(), other.errorName);
         fieldSetFlags()[0] = true;

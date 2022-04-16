@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderServiceSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -6382570654682314884L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderServiceSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"serviceCategoryId\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"duration\",\"type\":\"int\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyProviderServiceStatusEnum\",\"symbols\":[\"Active\",\"Paused\",\"Deleted\"]}},{\"name\":\"storageProviderLocations\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderServiceSource> ENCODER =
       new BinaryMessageEncoder<LeftyProviderServiceSource>(MODEL$, SCHEMA$);
@@ -71,14 +73,14 @@ public class LeftyProviderServiceSource extends org.apache.avro.specific.Specifi
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyProviderServiceId;
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence serviceCategoryId;
-   private double price;
-   private java.lang.CharSequence description;
-   private int duration;
-   private com.leftybeauty.schema.avro.LeftyProviderServiceStatusEnum status;
-   private java.util.List<java.lang.CharSequence> storageProviderLocations;
+  private java.lang.CharSequence leftyProviderServiceId;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence serviceCategoryId;
+  private double price;
+  private java.lang.CharSequence description;
+  private int duration;
+  private com.leftybeauty.schema.avro.LeftyProviderServiceStatusEnum status;
+  private java.util.List<java.lang.CharSequence> storageProviderLocations;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -330,7 +332,7 @@ public class LeftyProviderServiceSource extends org.apache.avro.specific.Specifi
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -378,7 +380,7 @@ public class LeftyProviderServiceSource extends org.apache.avro.specific.Specifi
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderServiceSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyProviderServiceId)) {
         this.leftyProviderServiceId = data().deepCopy(fields()[0].schema(), other.leftyProviderServiceId);
         fieldSetFlags()[0] = true;

@@ -14,11 +14,13 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2299434311423545936L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"leftyUserProvider\",\"type\":{\"type\":\"record\",\"name\":\"PersonValue\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"avatarUrl\",\"type\":[\"null\",\"string\"],\"default\":null}]}},{\"name\":\"leftyUserClient\",\"type\":\"PersonValue\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"clientAddress\",\"type\":{\"type\":\"record\",\"name\":\"AddressValue\",\"fields\":[{\"name\":\"addressId\",\"type\":\"string\"},{\"name\":\"street1\",\"type\":\"string\"},{\"name\":\"street2\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state\",\"type\":{\"type\":\"enum\",\"name\":\"UsStateEnum\",\"symbols\":[\"Alabama\",\"Alaska\",\"Arizona\",\"Arkansas\",\"California\"]}},{\"name\":\"zipCode\",\"type\":\"int\"}]}},{\"name\":\"leftyProviderServices\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"LeftyProviderServiceValue\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"serviceCategoryName\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"duration\",\"type\":\"int\"}]}}},{\"name\":\"paymentMethod\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"PaymentMethodValue\",\"fields\":[{\"name\":\"paymentMethodId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"last4\",\"type\":\"int\"},{\"name\":\"expiration\",\"type\":\"int\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentMethodTypeEnum\",\"symbols\":[\"Visa\",\"Mastercard\",\"Amex\",\"Discover\"]}}]}],\"default\":null},{\"name\":\"discounts\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DiscountValue\",\"fields\":[{\"name\":\"discountId\",\"type\":\"string\"},{\"name\":\"code\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"DiscountTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}}],\"default\":null},{\"name\":\"tax\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"fees\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"FeeValue\",\"fields\":[{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"feeType\",\"type\":{\"type\":\"enum\",\"name\":\"FeeTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}],\"default\":null},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"Proposed\",\"Scheduled\",\"InProgress\",\"Cancelled\",\"Rejected\",\"TimedOut\",\"Completed\"]}}]}");
+  private static final long serialVersionUID = -378531372897705673L;
+
+
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"leftyUserProvider\",\"type\":{\"type\":\"record\",\"name\":\"PersonValue\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"avatarUrl\",\"type\":[\"null\",\"string\"],\"default\":null}]}},{\"name\":\"leftyUserClient\",\"type\":\"PersonValue\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"clientAddress\",\"type\":{\"type\":\"record\",\"name\":\"AddressValue\",\"fields\":[{\"name\":\"addressId\",\"type\":\"string\"},{\"name\":\"street1\",\"type\":\"string\"},{\"name\":\"street2\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state\",\"type\":{\"type\":\"enum\",\"name\":\"UsStateEnum\",\"symbols\":[\"Alabama\",\"Alaska\",\"Arizona\",\"Arkansas\",\"California\"]}},{\"name\":\"zipCode\",\"type\":\"int\"}]}},{\"name\":\"leftyProviderServices\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"LeftyProviderServiceValue\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"serviceCategoryName\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"duration\",\"type\":\"int\"}]}}},{\"name\":\"paymentMethod\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"PaymentMethodValue\",\"fields\":[{\"name\":\"paymentMethodId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"last4\",\"type\":\"int\"},{\"name\":\"expiration\",\"type\":\"int\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentMethodTypeEnum\",\"symbols\":[\"Visa\",\"Mastercard\",\"Amex\",\"Discover\"]}}]}],\"default\":null},{\"name\":\"discounts\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"DiscountValue\",\"fields\":[{\"name\":\"discountId\",\"type\":\"string\"},{\"name\":\"code\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"DiscountTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}}],\"default\":null},{\"name\":\"tax\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"fees\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"FeeValue\",\"fields\":[{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"feeType\",\"type\":{\"type\":\"enum\",\"name\":\"FeeTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}],\"default\":null},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"ClientProposed\",\"FutureScheduled\",\"ProviderAccepted\",\"CardDeclined\",\"InProgress\",\"ClientCancelled\",\"ProviderCancelled\",\"ClientRejected\",\"ProviderRejected\",\"CardDeclinedTimedOut\",\"ProposalTimedOut\",\"Completed\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentView> ENCODER =
       new BinaryMessageEncoder<AppointmentView>(MODEL$, SCHEMA$);
@@ -71,17 +73,17 @@ public class AppointmentView extends org.apache.avro.specific.SpecificRecordBase
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private com.leftybeauty.schema.avro.PersonValue leftyUserProvider;
-   private com.leftybeauty.schema.avro.PersonValue leftyUserClient;
-   private long appointmentDateTime;
-   private com.leftybeauty.schema.avro.AddressValue clientAddress;
-   private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> leftyProviderServices;
-   private com.leftybeauty.schema.avro.PaymentMethodValue paymentMethod;
-   private java.util.List<com.leftybeauty.schema.avro.DiscountValue> discounts;
-   private java.lang.Integer tax;
-   private com.leftybeauty.schema.avro.FeeValue fees;
-   private com.leftybeauty.schema.avro.AppointmentStatusEnum status;
+  private java.lang.CharSequence appointmentId;
+  private com.leftybeauty.schema.avro.PersonValue leftyUserProvider;
+  private com.leftybeauty.schema.avro.PersonValue leftyUserClient;
+  private long appointmentDateTime;
+  private com.leftybeauty.schema.avro.AddressValue clientAddress;
+  private java.util.List<com.leftybeauty.schema.avro.LeftyProviderServiceValue> leftyProviderServices;
+  private com.leftybeauty.schema.avro.PaymentMethodValue paymentMethod;
+  private java.util.List<com.leftybeauty.schema.avro.DiscountValue> discounts;
+  private java.lang.Integer tax;
+  private com.leftybeauty.schema.avro.FeeValue fees;
+  private com.leftybeauty.schema.avro.AppointmentStatusEnum status;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -404,7 +406,7 @@ public class AppointmentView extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -479,7 +481,7 @@ public class AppointmentView extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

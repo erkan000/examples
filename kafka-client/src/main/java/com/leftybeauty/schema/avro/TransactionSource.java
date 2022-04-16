@@ -14,11 +14,13 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class TransactionSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3465800710011489398L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TransactionSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"transactionId\",\"type\":\"string\"},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"paymentMethodId\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"symbols\":[\"Credit\",\"Debit\"]}},{\"name\":\"amount\",\"type\":\"double\"}]}");
+  private static final long serialVersionUID = 7465158144402429581L;
+
+
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TransactionSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"transactionId\",\"type\":\"string\"},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"paymentMethodId\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyTransactionTypeEnum\",\"symbols\":[\"Payment\",\"Refund\"]}},{\"name\":\"amount\",\"type\":\"double\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<TransactionSource> ENCODER =
       new BinaryMessageEncoder<TransactionSource>(MODEL$, SCHEMA$);
@@ -71,11 +73,11 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence transactionId;
-   private java.lang.CharSequence providerTransactionIdentifier;
-   private java.lang.CharSequence paymentMethodId;
-   private com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type;
-   private double amount;
+  private java.lang.CharSequence transactionId;
+  private java.lang.CharSequence providerTransactionIdentifier;
+  private java.lang.CharSequence paymentMethodId;
+  private com.leftybeauty.schema.avro.LeftyTransactionTypeEnum type;
+  private double amount;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -261,7 +263,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -297,7 +299,7 @@ public class TransactionSource extends org.apache.avro.specific.SpecificRecordBa
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.TransactionSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.transactionId)) {
         this.transactionId = data().deepCopy(fields()[0].schema(), other.transactionId);
         fieldSetFlags()[0] = true;

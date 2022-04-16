@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class ChatMessageSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 7021281515256814832L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ChatMessageSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"Actor\",\"type\":{\"type\":\"enum\",\"name\":\"MessageActorEnum\",\"symbols\":[\"Client\",\"Provider\",\"System\"]}},{\"name\":\"message\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"Timestamp\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<ChatMessageSource> ENCODER =
       new BinaryMessageEncoder<ChatMessageSource>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class ChatMessageSource extends org.apache.avro.specific.SpecificRecordBa
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private com.leftybeauty.schema.avro.MessageActorEnum Actor;
-   private java.lang.CharSequence message;
-   private long timestamp;
+  private java.lang.CharSequence appointmentId;
+  private com.leftybeauty.schema.avro.MessageActorEnum Actor;
+  private java.lang.CharSequence message;
+  private long timestamp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class ChatMessageSource extends org.apache.avro.specific.SpecificRecordBa
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class ChatMessageSource extends org.apache.avro.specific.SpecificRecordBa
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.ChatMessageSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

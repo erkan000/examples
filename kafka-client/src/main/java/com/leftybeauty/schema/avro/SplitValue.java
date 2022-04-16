@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class SplitValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3155227344877959425L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SplitValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"percentage\",\"type\":\"int\"},{\"name\":\"paymentProviderAccountIdentifier\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<SplitValue> ENCODER =
       new BinaryMessageEncoder<SplitValue>(MODEL$, SCHEMA$);
@@ -71,8 +73,8 @@ public class SplitValue extends org.apache.avro.specific.SpecificRecordBase impl
     return DECODER.decode(b);
   }
 
-   private int percentage;
-   private java.lang.CharSequence paymentProviderAccountIdentifier;
+  private int percentage;
+  private java.lang.CharSequence paymentProviderAccountIdentifier;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -192,7 +194,7 @@ public class SplitValue extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -216,7 +218,7 @@ public class SplitValue extends org.apache.avro.specific.SpecificRecordBase impl
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.SplitValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.percentage)) {
         this.percentage = data().deepCopy(fields()[0].schema(), other.percentage);
         fieldSetFlags()[0] = true;

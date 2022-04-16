@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -4761002439781115302L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"newUser\",\"type\":\"boolean\"},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"emails\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"string\"}],\"default\":null},{\"name\":\"userTypes\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}}],\"default\":null},{\"name\":\"avatarStorageProviderLocation\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserView> ENCODER =
       new BinaryMessageEncoder<LeftyUserView>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class LeftyUserView extends org.apache.avro.specific.SpecificRecordBase i
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private boolean newUser;
-   private java.lang.CharSequence firstName;
-   private java.lang.CharSequence lastName;
-   private java.util.List<java.lang.CharSequence> emails;
-   private java.util.List<com.leftybeauty.schema.avro.LeftyUserTypeEnum> userTypes;
-   private java.lang.CharSequence avatarStorageProviderLocation;
+  private java.lang.CharSequence leftyUserId;
+  private boolean newUser;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
+  private java.util.List<java.lang.CharSequence> emails;
+  private java.util.List<com.leftybeauty.schema.avro.LeftyUserTypeEnum> userTypes;
+  private java.lang.CharSequence avatarStorageProviderLocation;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class LeftyUserView extends org.apache.avro.specific.SpecificRecordBase i
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class LeftyUserView extends org.apache.avro.specific.SpecificRecordBase i
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

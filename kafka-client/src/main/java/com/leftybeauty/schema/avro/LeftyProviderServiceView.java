@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderServiceView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 8652045570599206678L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderServiceView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"serviceName\",\"type\":\"string\"},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"description\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"duration\",\"type\":\"int\"},{\"name\":\"storageProviderLocations\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderServiceView> ENCODER =
       new BinaryMessageEncoder<LeftyProviderServiceView>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class LeftyProviderServiceView extends org.apache.avro.specific.SpecificR
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyProviderServiceId;
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence serviceName;
-   private double price;
-   private java.lang.CharSequence description;
-   private int duration;
-   private java.util.List<java.lang.CharSequence> storageProviderLocations;
+  private java.lang.CharSequence leftyProviderServiceId;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence serviceName;
+  private double price;
+  private java.lang.CharSequence description;
+  private int duration;
+  private java.util.List<java.lang.CharSequence> storageProviderLocations;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class LeftyProviderServiceView extends org.apache.avro.specific.SpecificR
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class LeftyProviderServiceView extends org.apache.avro.specific.SpecificR
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderServiceView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyProviderServiceId)) {
         this.leftyProviderServiceId = data().deepCopy(fields()[0].schema(), other.leftyProviderServiceId);
         fieldSetFlags()[0] = true;

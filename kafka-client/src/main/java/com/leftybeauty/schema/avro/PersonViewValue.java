@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class PersonViewValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 5711077056253766075L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PersonViewValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"avatarUrl\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"MessageActorEnum\",\"symbols\":[\"Client\",\"Provider\",\"System\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<PersonViewValue> ENCODER =
       new BinaryMessageEncoder<PersonViewValue>(MODEL$, SCHEMA$);
@@ -71,11 +73,11 @@ public class PersonViewValue extends org.apache.avro.specific.SpecificRecordBase
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence firstName;
-   private java.lang.CharSequence lastName;
-   private java.lang.CharSequence avatarUrl;
-   private com.leftybeauty.schema.avro.MessageActorEnum type;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
+  private java.lang.CharSequence avatarUrl;
+  private com.leftybeauty.schema.avro.MessageActorEnum type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -261,7 +263,7 @@ public class PersonViewValue extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -297,7 +299,7 @@ public class PersonViewValue extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.PersonViewValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

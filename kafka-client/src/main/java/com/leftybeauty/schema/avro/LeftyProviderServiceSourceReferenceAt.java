@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderServiceSourceReferenceAt extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 3897737601295632098L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderServiceSourceReferenceAt\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyProviderServiceId\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderServiceSourceReferenceAt> ENCODER =
       new BinaryMessageEncoder<LeftyProviderServiceSourceReferenceAt>(MODEL$, SCHEMA$);
@@ -71,8 +73,8 @@ public class LeftyProviderServiceSourceReferenceAt extends org.apache.avro.speci
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyProviderServiceId;
-   private long timestamp;
+  private java.lang.CharSequence leftyProviderServiceId;
+  private long timestamp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -192,7 +194,7 @@ public class LeftyProviderServiceSourceReferenceAt extends org.apache.avro.speci
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -216,7 +218,7 @@ public class LeftyProviderServiceSourceReferenceAt extends org.apache.avro.speci
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderServiceSourceReferenceAt other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyProviderServiceId)) {
         this.leftyProviderServiceId = data().deepCopy(fields()[0].schema(), other.leftyProviderServiceId);
         fieldSetFlags()[0] = true;

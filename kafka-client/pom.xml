@@ -12,15 +12,15 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<kafka.streams.avro.serde.version>6.2.0</kafka.streams.avro.serde.version>
-		<avro.maven.plugin.version>1.10.2</avro.maven.plugin.version>
+		<kafka.streams.avro.serde.version>7.1.0</kafka.streams.avro.serde.version>
+		<avro.maven.plugin.version>1.11.0</avro.maven.plugin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
-			<version>2.8.0</version>
+			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.confluent</groupId>
@@ -31,17 +31,17 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.15.0</version>
+			<version>2.17.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.17.1</version>
+			<version>2.17.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.30</version>
+			<version>1.7.36</version>
 		</dependency>
 	</dependencies>
 

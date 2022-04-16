@@ -14,11 +14,13 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentStatus extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2012637027008337838L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentStatus\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"Status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"Proposed\",\"Scheduled\",\"InProgress\",\"Cancelled\",\"Rejected\",\"TimedOut\",\"Completed\"]}}]}");
+  private static final long serialVersionUID = -3643424668890988550L;
+
+
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentStatus\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"Status\",\"type\":{\"type\":\"enum\",\"name\":\"AppointmentStatusEnum\",\"symbols\":[\"ClientProposed\",\"FutureScheduled\",\"ProviderAccepted\",\"CardDeclined\",\"InProgress\",\"ClientCancelled\",\"ProviderCancelled\",\"ClientRejected\",\"ProviderRejected\",\"CardDeclinedTimedOut\",\"ProposalTimedOut\",\"Completed\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentStatus> ENCODER =
       new BinaryMessageEncoder<AppointmentStatus>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class AppointmentStatus extends org.apache.avro.specific.SpecificRecordBa
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence appointmentId;
-   private long timestamp;
-   private com.leftybeauty.schema.avro.AppointmentStatusEnum Status;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence appointmentId;
+  private long timestamp;
+  private com.leftybeauty.schema.avro.AppointmentStatusEnum Status;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class AppointmentStatus extends org.apache.avro.specific.SpecificRecordBa
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class AppointmentStatus extends org.apache.avro.specific.SpecificRecordBa
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentStatus other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

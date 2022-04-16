@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class PaymentMethodUpsert extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -2115849661072794819L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentMethodUpsert\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"paymentMethodId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"paymentProcessorPaymentMethodIdentifier\",\"type\":\"string\"},{\"name\":\"last4\",\"type\":\"int\"},{\"name\":\"expiration\",\"type\":\"int\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentMethodTypeEnum\",\"symbols\":[\"Visa\",\"Mastercard\",\"Amex\",\"Discover\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<PaymentMethodUpsert> ENCODER =
       new BinaryMessageEncoder<PaymentMethodUpsert>(MODEL$, SCHEMA$);
@@ -71,12 +73,12 @@ public class PaymentMethodUpsert extends org.apache.avro.specific.SpecificRecord
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence paymentMethodId;
-   private java.lang.CharSequence paymentProcessorPaymentMethodIdentifier;
-   private int last4;
-   private int expiration;
-   private com.leftybeauty.schema.avro.PaymentMethodTypeEnum type;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence paymentMethodId;
+  private java.lang.CharSequence paymentProcessorPaymentMethodIdentifier;
+  private int last4;
+  private int expiration;
+  private com.leftybeauty.schema.avro.PaymentMethodTypeEnum type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -284,7 +286,7 @@ public class PaymentMethodUpsert extends org.apache.avro.specific.SpecificRecord
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -324,7 +326,7 @@ public class PaymentMethodUpsert extends org.apache.avro.specific.SpecificRecord
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.PaymentMethodUpsert other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

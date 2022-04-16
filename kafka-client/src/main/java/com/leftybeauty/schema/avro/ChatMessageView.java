@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class ChatMessageView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -6935647558783323161L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ChatMessageView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"person\",\"type\":{\"type\":\"record\",\"name\":\"PersonViewValue\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"avatarUrl\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"MessageActorEnum\",\"symbols\":[\"Client\",\"Provider\",\"System\"]}}]}},{\"name\":\"message\",\"type\":\"string\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<ChatMessageView> ENCODER =
       new BinaryMessageEncoder<ChatMessageView>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class ChatMessageView extends org.apache.avro.specific.SpecificRecordBase
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private com.leftybeauty.schema.avro.PersonViewValue person;
-   private java.lang.CharSequence message;
-   private long timestamp;
+  private java.lang.CharSequence appointmentId;
+  private com.leftybeauty.schema.avro.PersonViewValue person;
+  private java.lang.CharSequence message;
+  private long timestamp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -239,7 +241,7 @@ public class ChatMessageView extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -274,7 +276,7 @@ public class ChatMessageView extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.ChatMessageView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentPaymentProcessed extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 7989909194969977979L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentPaymentProcessed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"paymentMethodId\",\"type\":\"string\"},{\"name\":\"status\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentStatusEnum\",\"symbols\":[\"Approved\",\"Declined\"]}},{\"name\":\"providerTransactionIdentifier\",\"type\":\"string\"},{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"transactionType\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentTypeEnum\",\"symbols\":[\"Payment\",\"Refund\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentPaymentProcessed> ENCODER =
       new BinaryMessageEncoder<AppointmentPaymentProcessed>(MODEL$, SCHEMA$);
@@ -71,12 +73,12 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence paymentMethodId;
-   private com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status;
-   private java.lang.CharSequence providerTransactionIdentifier;
-   private java.lang.CharSequence appointmentId;
-   private double amount;
-   private com.leftybeauty.schema.avro.LeftyPaymentTypeEnum transactionType;
+  private java.lang.CharSequence paymentMethodId;
+  private com.leftybeauty.schema.avro.LeftyPaymentStatusEnum status;
+  private java.lang.CharSequence providerTransactionIdentifier;
+  private java.lang.CharSequence appointmentId;
+  private double amount;
+  private com.leftybeauty.schema.avro.LeftyPaymentTypeEnum transactionType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -284,7 +286,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -324,7 +326,7 @@ public class AppointmentPaymentProcessed extends org.apache.avro.specific.Specif
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentPaymentProcessed other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.paymentMethodId)) {
         this.paymentMethodId = data().deepCopy(fields()[0].schema(), other.paymentMethodId);
         fieldSetFlags()[0] = true;

@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class PaymentMethodValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4822800291267144299L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PaymentMethodValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"paymentMethodId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"last4\",\"type\":\"int\"},{\"name\":\"expiration\",\"type\":\"int\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"PaymentMethodTypeEnum\",\"symbols\":[\"Visa\",\"Mastercard\",\"Amex\",\"Discover\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<PaymentMethodValue> ENCODER =
       new BinaryMessageEncoder<PaymentMethodValue>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class PaymentMethodValue extends org.apache.avro.specific.SpecificRecordB
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence paymentMethodId;
-   private int last4;
-   private int expiration;
-   private com.leftybeauty.schema.avro.PaymentMethodTypeEnum type;
+  private java.lang.CharSequence paymentMethodId;
+  private int last4;
+  private int expiration;
+  private com.leftybeauty.schema.avro.PaymentMethodTypeEnum type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class PaymentMethodValue extends org.apache.avro.specific.SpecificRecordB
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class PaymentMethodValue extends org.apache.avro.specific.SpecificRecordB
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.PaymentMethodValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.paymentMethodId)) {
         this.paymentMethodId = data().deepCopy(fields()[0].schema(), other.paymentMethodId);
         fieldSetFlags()[0] = true;

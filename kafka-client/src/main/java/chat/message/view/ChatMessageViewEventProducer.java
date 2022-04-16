@@ -11,7 +11,7 @@ public class ChatMessageViewEventProducer {
 	
 	public static void main(String[] args) throws Exception {
 		GenericMessage<ChatMessageView> mesaj = 
-				new GenericMessage<>("appointmentId-1", generateChatSource(MessageActorEnum.Provider));
+				new GenericMessage<>("appointment-1", generateChatSource(MessageActorEnum.Provider));
 		ProducerUtil.sendMessageToTopic("ChatMessageView", mesaj);
 	}
 	
@@ -21,12 +21,12 @@ public class ChatMessageViewEventProducer {
 				.setAvatarUrl("avUrl")
 				.setFirstName("erk")
 				.setLastName("ne")
-				.setLeftyUserId("userID")
+				.setLeftyUserId("userID - 30")
 				.setType(actor)
 				.build();
 		return ChatMessageView.newBuilder()
-				.setAppointmentId("447")
-				.setMessage("test29")
+				.setAppointmentId("appointment-1")
+				.setMessage("test30")
 				.setTimestamp(29L)
 				.setPerson(person )
 				.build();

@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderMetadataSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 2877168583912026714L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderMetadataSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"licenceMedia\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"LeftyProviderMediaValue\",\"fields\":[{\"name\":\"storageProviderLocation\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyProviderLicenceTypeEnum\",\"symbols\":[\"Hair\",\"Nails\"]}}]}}},{\"name\":\"available\",\"type\":\"boolean\"},{\"name\":\"licensePlateNumber\",\"type\":\"string\"},{\"name\":\"licensePlateState\",\"type\":\"string\"},{\"name\":\"experience\",\"type\":\"string\"},{\"name\":\"paymentProviderAccountIdentifier\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderMetadataSource> ENCODER =
       new BinaryMessageEncoder<LeftyProviderMetadataSource>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class LeftyProviderMetadataSource extends org.apache.avro.specific.Specif
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.util.List<com.leftybeauty.schema.avro.LeftyProviderMediaValue> licenceMedia;
-   private boolean available;
-   private java.lang.CharSequence licensePlateNumber;
-   private java.lang.CharSequence licensePlateState;
-   private java.lang.CharSequence experience;
-   private java.lang.CharSequence paymentProviderAccountIdentifier;
+  private java.lang.CharSequence leftyUserId;
+  private java.util.List<com.leftybeauty.schema.avro.LeftyProviderMediaValue> licenceMedia;
+  private boolean available;
+  private java.lang.CharSequence licensePlateNumber;
+  private java.lang.CharSequence licensePlateState;
+  private java.lang.CharSequence experience;
+  private java.lang.CharSequence paymentProviderAccountIdentifier;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class LeftyProviderMetadataSource extends org.apache.avro.specific.Specif
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class LeftyProviderMetadataSource extends org.apache.avro.specific.Specif
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderMetadataSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

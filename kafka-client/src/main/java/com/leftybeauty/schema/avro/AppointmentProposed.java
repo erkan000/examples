@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentProposed extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 8342960707903617345L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentProposed\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"leftyUserProviderId\",\"type\":\"string\"},{\"name\":\"leftyUserClientId\",\"type\":\"string\"},{\"name\":\"clientAddressId\",\"type\":\"string\"},{\"name\":\"appointmentDateTime\",\"type\":\"long\"},{\"name\":\"proposedTimestamp\",\"type\":\"long\"},{\"name\":\"leftyProviderServiceIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentProposed> ENCODER =
       new BinaryMessageEncoder<AppointmentProposed>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence leftyUserProviderId;
-   private java.lang.CharSequence leftyUserClientId;
-   private java.lang.CharSequence clientAddressId;
-   private long appointmentDateTime;
-   private long proposedTimestamp;
-   private java.util.List<java.lang.CharSequence> leftyProviderServiceIds;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence leftyUserProviderId;
+  private java.lang.CharSequence leftyUserClientId;
+  private java.lang.CharSequence clientAddressId;
+  private long appointmentDateTime;
+  private long proposedTimestamp;
+  private java.util.List<java.lang.CharSequence> leftyProviderServiceIds;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class AppointmentProposed extends org.apache.avro.specific.SpecificRecord
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentProposed other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

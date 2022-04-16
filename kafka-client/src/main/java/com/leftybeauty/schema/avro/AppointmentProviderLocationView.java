@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentProviderLocationView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 7162717095627159372L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentProviderLocationView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"long\"},{\"name\":\"latitude\",\"type\":\"long\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentProviderLocationView> ENCODER =
       new BinaryMessageEncoder<AppointmentProviderLocationView>(MODEL$, SCHEMA$);
@@ -71,11 +73,11 @@ public class AppointmentProviderLocationView extends org.apache.avro.specific.Sp
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private long longitude;
-   private long latitude;
-   private java.lang.CharSequence firstName;
-   private java.lang.CharSequence lastName;
+  private java.lang.CharSequence appointmentId;
+  private long longitude;
+  private long latitude;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -261,7 +263,7 @@ public class AppointmentProviderLocationView extends org.apache.avro.specific.Sp
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -297,7 +299,7 @@ public class AppointmentProviderLocationView extends org.apache.avro.specific.Sp
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentProviderLocationView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

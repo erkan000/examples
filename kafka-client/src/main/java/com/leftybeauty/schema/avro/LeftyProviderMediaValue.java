@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyProviderMediaValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -1057635597351609301L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyProviderMediaValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"storageProviderLocation\",\"type\":\"string\"},{\"name\":\"type\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyProviderLicenceTypeEnum\",\"symbols\":[\"Hair\",\"Nails\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyProviderMediaValue> ENCODER =
       new BinaryMessageEncoder<LeftyProviderMediaValue>(MODEL$, SCHEMA$);
@@ -71,8 +73,8 @@ public class LeftyProviderMediaValue extends org.apache.avro.specific.SpecificRe
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence storageProviderLocation;
-   private com.leftybeauty.schema.avro.LeftyProviderLicenceTypeEnum type;
+  private java.lang.CharSequence storageProviderLocation;
+  private com.leftybeauty.schema.avro.LeftyProviderLicenceTypeEnum type;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -192,7 +194,7 @@ public class LeftyProviderMediaValue extends org.apache.avro.specific.SpecificRe
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -216,7 +218,7 @@ public class LeftyProviderMediaValue extends org.apache.avro.specific.SpecificRe
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyProviderMediaValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.storageProviderLocation)) {
         this.storageProviderLocation = data().deepCopy(fields()[0].schema(), other.storageProviderLocation);
         fieldSetFlags()[0] = true;

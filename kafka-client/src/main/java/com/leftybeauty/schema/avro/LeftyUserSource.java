@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -2530188891685975534L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"newUser\",\"type\":\"boolean\"},{\"name\":\"userTypes\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}}},{\"name\":\"paymentProviderCustomerIdentifier\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserSource> ENCODER =
       new BinaryMessageEncoder<LeftyUserSource>(MODEL$, SCHEMA$);
@@ -71,10 +73,10 @@ public class LeftyUserSource extends org.apache.avro.specific.SpecificRecordBase
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private boolean newUser;
-   private java.util.List<com.leftybeauty.schema.avro.LeftyUserTypeEnum> userTypes;
-   private java.lang.CharSequence paymentProviderCustomerIdentifier;
+  private java.lang.CharSequence leftyUserId;
+  private boolean newUser;
+  private java.util.List<com.leftybeauty.schema.avro.LeftyUserTypeEnum> userTypes;
+  private java.lang.CharSequence paymentProviderCustomerIdentifier;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -238,7 +240,7 @@ public class LeftyUserSource extends org.apache.avro.specific.SpecificRecordBase
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -270,7 +272,7 @@ public class LeftyUserSource extends org.apache.avro.specific.SpecificRecordBase
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

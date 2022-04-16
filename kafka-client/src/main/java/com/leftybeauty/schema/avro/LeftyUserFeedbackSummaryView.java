@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserFeedbackSummaryView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4571060753152082865L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserFeedbackSummaryView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"ratingAverage\",\"type\":\"double\"},{\"name\":\"feedbackTarget\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserFeedbackSummaryView> ENCODER =
       new BinaryMessageEncoder<LeftyUserFeedbackSummaryView>(MODEL$, SCHEMA$);
@@ -71,9 +73,9 @@ public class LeftyUserFeedbackSummaryView extends org.apache.avro.specific.Speci
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private double ratingAverage;
-   private com.leftybeauty.schema.avro.LeftyUserTypeEnum feedbackTarget;
+  private java.lang.CharSequence leftyUserId;
+  private double ratingAverage;
+  private com.leftybeauty.schema.avro.LeftyUserTypeEnum feedbackTarget;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -215,7 +217,7 @@ public class LeftyUserFeedbackSummaryView extends org.apache.avro.specific.Speci
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -243,7 +245,7 @@ public class LeftyUserFeedbackSummaryView extends org.apache.avro.specific.Speci
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserFeedbackSummaryView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

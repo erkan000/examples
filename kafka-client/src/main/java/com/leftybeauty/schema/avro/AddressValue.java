@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AddressValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 6727631131825901169L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AddressValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"addressId\",\"type\":\"string\"},{\"name\":\"street1\",\"type\":\"string\"},{\"name\":\"street2\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state\",\"type\":{\"type\":\"enum\",\"name\":\"UsStateEnum\",\"symbols\":[\"Alabama\",\"Alaska\",\"Arizona\",\"Arkansas\",\"California\"]}},{\"name\":\"zipCode\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AddressValue> ENCODER =
       new BinaryMessageEncoder<AddressValue>(MODEL$, SCHEMA$);
@@ -71,12 +73,12 @@ public class AddressValue extends org.apache.avro.specific.SpecificRecordBase im
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence addressId;
-   private java.lang.CharSequence street1;
-   private java.lang.CharSequence street2;
-   private java.lang.CharSequence city;
-   private com.leftybeauty.schema.avro.UsStateEnum state;
-   private int zipCode;
+  private java.lang.CharSequence addressId;
+  private java.lang.CharSequence street1;
+  private java.lang.CharSequence street2;
+  private java.lang.CharSequence city;
+  private com.leftybeauty.schema.avro.UsStateEnum state;
+  private int zipCode;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -284,7 +286,7 @@ public class AddressValue extends org.apache.avro.specific.SpecificRecordBase im
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -324,7 +326,7 @@ public class AddressValue extends org.apache.avro.specific.SpecificRecordBase im
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AddressValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.addressId)) {
         this.addressId = data().deepCopy(fields()[0].schema(), other.addressId);
         fieldSetFlags()[0] = true;

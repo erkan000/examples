@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserLogin extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -8096910640423473165L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserLogin\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"sessionId\",\"type\":\"string\"},{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"deviceId\",\"type\":\"string\"},{\"name\":\"loginTimestamp\",\"type\":\"long\"},{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"userAgent\",\"type\":\"string\"},{\"name\":\"userTypes\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyPaymentTypeEnum\",\"symbols\":[\"Payment\",\"Refund\"]}},{\"name\":\"email\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserLogin> ENCODER =
       new BinaryMessageEncoder<LeftyUserLogin>(MODEL$, SCHEMA$);
@@ -71,14 +73,14 @@ public class LeftyUserLogin extends org.apache.avro.specific.SpecificRecordBase 
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence sessionId;
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence deviceId;
-   private long loginTimestamp;
-   private java.lang.CharSequence ipAddress;
-   private java.lang.CharSequence userAgent;
-   private com.leftybeauty.schema.avro.LeftyPaymentTypeEnum userTypes;
-   private java.lang.CharSequence email;
+  private java.lang.CharSequence sessionId;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence deviceId;
+  private long loginTimestamp;
+  private java.lang.CharSequence ipAddress;
+  private java.lang.CharSequence userAgent;
+  private com.leftybeauty.schema.avro.LeftyPaymentTypeEnum userTypes;
+  private java.lang.CharSequence email;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -330,7 +332,7 @@ public class LeftyUserLogin extends org.apache.avro.specific.SpecificRecordBase 
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -378,7 +380,7 @@ public class LeftyUserLogin extends org.apache.avro.specific.SpecificRecordBase 
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserLogin other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.sessionId)) {
         this.sessionId = data().deepCopy(fields()[0].schema(), other.sessionId);
         fieldSetFlags()[0] = true;

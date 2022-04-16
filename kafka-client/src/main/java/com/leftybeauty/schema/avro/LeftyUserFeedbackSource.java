@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LeftyUserFeedbackSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -8426665848952662580L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LeftyUserFeedbackSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"rating\",\"type\":\"double\"},{\"name\":\"feedbackTarget\",\"type\":{\"type\":\"enum\",\"name\":\"LeftyUserTypeEnum\",\"symbols\":[\"Client\",\"Provider\"]}},{\"name\":\"comment\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"reason\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"RatingReasonEnum\",\"symbols\":[\"DidntListenToRequest\",\"Rude\",\"UnhappyWithResult\",\"Late\",\"GreatService\",\"Friendly\",\"Professional\",\"OnTime\"]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<LeftyUserFeedbackSource> ENCODER =
       new BinaryMessageEncoder<LeftyUserFeedbackSource>(MODEL$, SCHEMA$);
@@ -71,11 +73,11 @@ public class LeftyUserFeedbackSource extends org.apache.avro.specific.SpecificRe
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private double rating;
-   private com.leftybeauty.schema.avro.LeftyUserTypeEnum feedbackTarget;
-   private java.lang.CharSequence comment;
-   private com.leftybeauty.schema.avro.RatingReasonEnum reason;
+  private java.lang.CharSequence appointmentId;
+  private double rating;
+  private com.leftybeauty.schema.avro.LeftyUserTypeEnum feedbackTarget;
+  private java.lang.CharSequence comment;
+  private com.leftybeauty.schema.avro.RatingReasonEnum reason;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -261,7 +263,7 @@ public class LeftyUserFeedbackSource extends org.apache.avro.specific.SpecificRe
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -297,7 +299,7 @@ public class LeftyUserFeedbackSource extends org.apache.avro.specific.SpecificRe
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.LeftyUserFeedbackSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

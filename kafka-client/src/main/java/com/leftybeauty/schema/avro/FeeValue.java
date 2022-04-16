@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class FeeValue extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -6014432613615029260L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FeeValue\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"amount\",\"type\":\"double\"},{\"name\":\"feeType\",\"type\":{\"type\":\"enum\",\"name\":\"FeeTypeEnum\",\"symbols\":[\"Percentage\",\"FlatAmount\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<FeeValue> ENCODER =
       new BinaryMessageEncoder<FeeValue>(MODEL$, SCHEMA$);
@@ -71,8 +73,8 @@ public class FeeValue extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-   private double amount;
-   private com.leftybeauty.schema.avro.FeeTypeEnum feeType;
+  private double amount;
+  private com.leftybeauty.schema.avro.FeeTypeEnum feeType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -192,7 +194,7 @@ public class FeeValue extends org.apache.avro.specific.SpecificRecordBase implem
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -216,7 +218,7 @@ public class FeeValue extends org.apache.avro.specific.SpecificRecordBase implem
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.FeeValue other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.amount)) {
         this.amount = data().deepCopy(fields()[0].schema(), other.amount);
         fieldSetFlags()[0] = true;

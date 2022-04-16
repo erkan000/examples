@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class BinaryMetadataSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 4339165873133740789L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BinaryMetadataSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"binaryMetadataId\",\"type\":\"string\"},{\"name\":\"leftyUsersIds\",\"type\":{\"type\":\"array\",\"items\":\"string\"}},{\"name\":\"mimeType\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"MimeType\",\"symbols\":[\"TEXT\",\"JSON\",\"JPEG\"]}]},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"storageProviderLocation\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<BinaryMetadataSource> ENCODER =
       new BinaryMessageEncoder<BinaryMetadataSource>(MODEL$, SCHEMA$);
@@ -71,11 +73,11 @@ public class BinaryMetadataSource extends org.apache.avro.specific.SpecificRecor
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence binaryMetadataId;
-   private java.util.List<java.lang.CharSequence> leftyUsersIds;
-   private com.leftybeauty.schema.avro.MimeType mimeType;
-   private java.lang.CharSequence name;
-   private java.lang.CharSequence storageProviderLocation;
+  private java.lang.CharSequence binaryMetadataId;
+  private java.util.List<java.lang.CharSequence> leftyUsersIds;
+  private com.leftybeauty.schema.avro.MimeType mimeType;
+  private java.lang.CharSequence name;
+  private java.lang.CharSequence storageProviderLocation;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -261,7 +263,7 @@ public class BinaryMetadataSource extends org.apache.avro.specific.SpecificRecor
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -297,7 +299,7 @@ public class BinaryMetadataSource extends org.apache.avro.specific.SpecificRecor
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.BinaryMetadataSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.binaryMetadataId)) {
         this.binaryMetadataId = data().deepCopy(fields()[0].schema(), other.binaryMetadataId);
         fieldSetFlags()[0] = true;

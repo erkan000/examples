@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AddressUpsert extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -7655955088507580409L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AddressUpsert\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"addressId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"street1\",\"type\":\"string\"},{\"name\":\"street2\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state\",\"type\":{\"type\":\"enum\",\"name\":\"UsStateEnum\",\"symbols\":[\"Alabama\",\"Alaska\",\"Arizona\",\"Arkansas\",\"California\"]}},{\"name\":\"zipCode\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AddressUpsert> ENCODER =
       new BinaryMessageEncoder<AddressUpsert>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class AddressUpsert extends org.apache.avro.specific.SpecificRecordBase i
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence addressId;
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence street1;
-   private java.lang.CharSequence street2;
-   private java.lang.CharSequence city;
-   private com.leftybeauty.schema.avro.UsStateEnum state;
-   private int zipCode;
+  private java.lang.CharSequence addressId;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence street1;
+  private java.lang.CharSequence street2;
+  private java.lang.CharSequence city;
+  private com.leftybeauty.schema.avro.UsStateEnum state;
+  private int zipCode;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class AddressUpsert extends org.apache.avro.specific.SpecificRecordBase i
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class AddressUpsert extends org.apache.avro.specific.SpecificRecordBase i
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AddressUpsert other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.addressId)) {
         this.addressId = data().deepCopy(fields()[0].schema(), other.addressId);
         fieldSetFlags()[0] = true;

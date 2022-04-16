@@ -1,9 +1,6 @@
 package chat.message.view;
 
-import com.leftybeauty.schema.avro.AddressSource;
 import com.leftybeauty.schema.avro.EmailSource;
-import com.leftybeauty.schema.avro.UsStateEnum;
-
 import utils.GenericMessage;
 import utils.ProducerUtil;
 

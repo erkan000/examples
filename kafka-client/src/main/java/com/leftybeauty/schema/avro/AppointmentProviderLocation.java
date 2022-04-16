@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AppointmentProviderLocation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3627100919477085227L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AppointmentProviderLocation\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"appointmentId\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"long\"},{\"name\":\"latitude\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AppointmentProviderLocation> ENCODER =
       new BinaryMessageEncoder<AppointmentProviderLocation>(MODEL$, SCHEMA$);
@@ -71,9 +73,9 @@ public class AppointmentProviderLocation extends org.apache.avro.specific.Specif
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence appointmentId;
-   private long longitude;
-   private long latitude;
+  private java.lang.CharSequence appointmentId;
+  private long longitude;
+  private long latitude;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -215,7 +217,7 @@ public class AppointmentProviderLocation extends org.apache.avro.specific.Specif
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -243,7 +245,7 @@ public class AppointmentProviderLocation extends org.apache.avro.specific.Specif
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AppointmentProviderLocation other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.appointmentId)) {
         this.appointmentId = data().deepCopy(fields()[0].schema(), other.appointmentId);
         fieldSetFlags()[0] = true;

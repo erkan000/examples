@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class AvailableProviderView extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -7984947070027558677L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AvailableProviderView\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"lastName\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"avatarStorageProviderLocation\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"ratingAverage\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"obscuredLocation\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"LocationValue\",\"fields\":[{\"name\":\"longitude\",\"type\":\"double\"},{\"name\":\"latitude\",\"type\":\"double\"}]}],\"default\":null},{\"name\":\"available\",\"type\":[\"null\",\"boolean\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<AvailableProviderView> ENCODER =
       new BinaryMessageEncoder<AvailableProviderView>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class AvailableProviderView extends org.apache.avro.specific.SpecificReco
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence firstName;
-   private java.lang.CharSequence lastName;
-   private java.lang.CharSequence avatarStorageProviderLocation;
-   private java.lang.Double ratingAverage;
-   private com.leftybeauty.schema.avro.LocationValue obscuredLocation;
-   private java.lang.Boolean available;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
+  private java.lang.CharSequence avatarStorageProviderLocation;
+  private java.lang.Double ratingAverage;
+  private com.leftybeauty.schema.avro.LocationValue obscuredLocation;
+  private java.lang.Boolean available;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -308,7 +310,7 @@ public class AvailableProviderView extends org.apache.avro.specific.SpecificReco
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -355,7 +357,7 @@ public class AvailableProviderView extends org.apache.avro.specific.SpecificReco
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.AvailableProviderView other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

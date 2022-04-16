@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class SessionSource extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 5639201205127878533L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SessionSource\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"sessionId\",\"type\":\"string\"},{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"deviceId\",\"type\":\"string\"},{\"name\":\"loginTimestamp\",\"type\":\"string\"},{\"name\":\"logoutTimestamp\",\"type\":\"string\"},{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"userAgent\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<SessionSource> ENCODER =
       new BinaryMessageEncoder<SessionSource>(MODEL$, SCHEMA$);
@@ -71,13 +73,13 @@ public class SessionSource extends org.apache.avro.specific.SpecificRecordBase i
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence sessionId;
-   private java.lang.CharSequence leftyUserId;
-   private java.lang.CharSequence deviceId;
-   private java.lang.CharSequence loginTimestamp;
-   private java.lang.CharSequence logoutTimestamp;
-   private java.lang.CharSequence ipAddress;
-   private java.lang.CharSequence userAgent;
+  private java.lang.CharSequence sessionId;
+  private java.lang.CharSequence leftyUserId;
+  private java.lang.CharSequence deviceId;
+  private java.lang.CharSequence loginTimestamp;
+  private java.lang.CharSequence logoutTimestamp;
+  private java.lang.CharSequence ipAddress;
+  private java.lang.CharSequence userAgent;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -307,7 +309,7 @@ public class SessionSource extends org.apache.avro.specific.SpecificRecordBase i
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -351,7 +353,7 @@ public class SessionSource extends org.apache.avro.specific.SpecificRecordBase i
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.SessionSource other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.sessionId)) {
         this.sessionId = data().deepCopy(fields()[0].schema(), other.sessionId);
         fieldSetFlags()[0] = true;

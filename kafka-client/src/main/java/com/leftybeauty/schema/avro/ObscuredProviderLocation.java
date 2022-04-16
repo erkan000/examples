@@ -15,10 +15,12 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class ObscuredProviderLocation extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -882566221941644465L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ObscuredProviderLocation\",\"namespace\":\"com.leftybeauty.schema.avro\",\"fields\":[{\"name\":\"leftyUserId\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"double\"},{\"name\":\"latitude\",\"type\":\"double\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static SpecificData MODEL$ = new SpecificData();
+  private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<ObscuredProviderLocation> ENCODER =
       new BinaryMessageEncoder<ObscuredProviderLocation>(MODEL$, SCHEMA$);
@@ -71,9 +73,9 @@ public class ObscuredProviderLocation extends org.apache.avro.specific.SpecificR
     return DECODER.decode(b);
   }
 
-   private java.lang.CharSequence leftyUserId;
-   private double longitude;
-   private double latitude;
+  private java.lang.CharSequence leftyUserId;
+  private double longitude;
+  private double latitude;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -215,7 +217,7 @@ public class ObscuredProviderLocation extends org.apache.avro.specific.SpecificR
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -243,7 +245,7 @@ public class ObscuredProviderLocation extends org.apache.avro.specific.SpecificR
      * @param other The existing instance to copy.
      */
     private Builder(com.leftybeauty.schema.avro.ObscuredProviderLocation other) {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.leftyUserId)) {
         this.leftyUserId = data().deepCopy(fields()[0].schema(), other.leftyUserId);
         fieldSetFlags()[0] = true;

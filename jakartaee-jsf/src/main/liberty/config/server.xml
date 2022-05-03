@@ -1,0 +1,13 @@
+<server description="LibertyServer">
+
+	<featureManager>
+		<feature>jakartaee-9.1</feature>
+	</featureManager>
+
+	<webApplication location="jakartaee-jsf.war"
+		id="jakartaee-jsf" name="jakartaee-jsf" />
+
+	<httpEndpoint host="localhost" httpPort="9080"
+		id="defaultHttpEndpoint" />
+
+</server>

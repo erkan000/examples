@@ -6,5 +6,5 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 - Copy project
 - mvn clean package
 - mvn liberty:dev
-- http://localhost:9080/jsf/parameter.jsf
+- http://localhost:9080/jakartaee-jsf/hello.jsf
 

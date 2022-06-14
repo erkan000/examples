@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import examples.minio.util.Utils;
 import io.minio.MinioClient;
+import io.minio.ObjectWriteResponse;
 import io.minio.UploadObjectArgs;
 import io.minio.errors.MinioException;
 
@@ -28,7 +29,8 @@ public class UploadFile {
 					.filename("src/main/resources/test.txt")
 					.build();
 			
-			minioClient.uploadObject(file);
+			ObjectWriteResponse response = minioClient.uploadObject(file);
+			logger.info("Etag is: " + response.etag());
 
 			logger.info("File successfully uploaded to bucket.");
 

@@ -26,13 +26,15 @@ public class ListObjects {
 
 			ListObjectsArgs arg = ListObjectsArgs.builder()
 					.bucket(Utils.minioBucketName)
+					.prefix("myfolder")
+					.recursive(true)
 					.build();
+			
 			Iterable<Result<Item>> items = minioClient.listObjects(arg );
 			for (Result<Item> result : items) {
-				logger.info(result.get().etag());
-				logger.info(result.get().objectName());
+				logger.info(result.get().objectName() + "\t - \t" + result.get().etag() );
 			}
-
+			
 		} catch (MinioException e) {
 			logger.error("Error occurred: " + e);
 			logger.error("HTTP trace: " + e.httpTrace());

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import examples.minio.util.Utils;
 import io.minio.DownloadObjectArgs;
 import io.minio.MinioClient;
+import io.minio.errors.ErrorResponseException;
 import io.minio.errors.MinioException;
 
 public class DownloadFile {
@@ -24,7 +25,7 @@ public class DownloadFile {
 
 			DownloadObjectArgs file = DownloadObjectArgs.builder()
 					.bucket(Utils.minioBucketName)
-					.object("testFileName.txt")
+					.object("myfolder/testFileName.txt")
 					.filename("src/main/resources/downloadedFile.txt")
 					.build();
 
@@ -32,6 +33,12 @@ public class DownloadFile {
 
 			logger.info("File successfully downloaded to " + file.filename());
 
+		} catch (ErrorResponseException e) {
+			if(e.response().code() == 404) {
+				logger.error("File doesnt exists in bucket!!!");
+			}else {
+				logger.error("Error occurred: " + e);
+			}
 		} catch (MinioException e) {
 			logger.error("Error occurred: " + e);
 			logger.error("HTTP trace: " + e.httpTrace());

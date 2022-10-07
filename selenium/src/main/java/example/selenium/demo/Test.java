@@ -41,8 +41,10 @@ public class Test {
 			System.out.println("Driver problem : " + e.getMessage());
 		} catch (Exception e) {
 			System.out.println("General Error : " + e.getMessage());
-		}				
-		driver.quit();
+		}
+		if(driver != null) {
+			driver.quit();
+		}
 	}
 	
 

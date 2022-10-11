@@ -1,6 +1,7 @@
 package example.selenium.core;
 
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -37,6 +38,10 @@ public class Driver {
 	
 	public WebElement findElementByClass(String className){
 		return driver.findElement(byClass(className));
+	}
+	
+	public List<WebElement> findElementsByClass(String className){
+		return driver.findElements(byClass(className));
 	}
 	
 	public By byClass(String className){

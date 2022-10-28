@@ -1,12 +1,12 @@
 package example.jaxws;
 
-import javax.annotation.Resource;
-import javax.jws.WebMethod;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.servlet.http.HttpServletRequest;
-import javax.xml.ws.WebServiceContext;
-import javax.xml.ws.handler.MessageContext;
+import jakarta.annotation.Resource;
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebResult;
+import jakarta.jws.WebService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.xml.ws.WebServiceContext;
+import jakarta.xml.ws.handler.MessageContext;
 
 //@SOAPBinding(style = Style.DOCUMENT, use=Use.LITERAL)
 //Jax-ws has 4 different styles (RPC Vs Document Style)

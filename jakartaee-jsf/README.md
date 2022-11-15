@@ -8,3 +8,4 @@ This is a very basic JSF Sample. It uses maven liberty plug-in
 - mvn liberty:dev
 - http://localhost:9080/jakartaee-jsf/hello.jsf
 
+- fabric8 kullanımı notlarım da Docker klasöründe

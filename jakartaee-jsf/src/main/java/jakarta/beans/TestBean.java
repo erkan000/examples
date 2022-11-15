@@ -15,7 +15,7 @@ public class TestBean {
     private String message;
     
     public void doSomeTask() {
-    	setMessage(taskService.doSomeJob("test"));
+    	setMessage(taskService.doSomeJob(name));
     }
 
     

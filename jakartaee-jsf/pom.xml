@@ -38,12 +38,42 @@
 				<groupId>io.openliberty.tools</groupId>
 				<artifactId>liberty-maven-plugin</artifactId>
 				<version>3.5.2</version>
-
 			</plugin>
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
+            </plugin>
+            <plugin>
+    			<groupId>io.fabric8</groupId>
+    			<artifactId>docker-maven-plugin</artifactId>
+    			<version>0.40.2</version>
+    			<configuration>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <name>fabric8-dmp:v5</name>
+                            <build>
+                                <from>openjdk:11.0.10-jre-slim</from>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <arg>-jar</arg>
+                                        <arg>/maven/${project.build.finalName}.${project.packaging}</arg>
+                                    </exec>
+                                </entryPoint>
+                            </build>
+                            <run>
+                                <ports>
+                                    <port>9050:9080</port>
+                                </ports>
+                            </run>
+                        </image>
+                    </images>
+    			</configuration>
             </plugin>
 		</plugins>
 	</build>

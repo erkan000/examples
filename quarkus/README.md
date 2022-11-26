@@ -11,7 +11,7 @@ This is a very basic Quarkus sample app
 - mvn quarkus:dev (Read stopping server section)
 - Navigate to http://localhost:8080/
 - Navigate to http://localhost:8080/quarkus
-- Web componets frontend added, navigate to http://localhost:8080/demo.html
+- Web components frontend added, navigate to http://localhost:8080/demo.html
 
 - mvn quarkus:list-extensions	Lists extensions(e.g quarkus-resteasy-jsonb)
 
@@ -25,3 +25,18 @@ This is a very basic Quarkus sample app
  
  Json parsing is done by "quarkus-resteasy-jsonb" dependency.
  
+
+### Web components
+- MDN web docs 
+ - https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+ 
+- All web documents
+ - https://devdocs.io/
+ 
+- Browser sync
+ - lit-html
+ 
+ - Code pack
+  - snowpack or rollup.js
+
+

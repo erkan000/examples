@@ -30,10 +30,16 @@
 		<!-- Disable the second-level cache -->
 		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
 		
+		<!--
 		<mapping class="example.hibernate.dto.IslemDTO" />
 		
 		<mapping class="example.hibernate.entity.Ordeer" />
 		<mapping class="example.hibernate.entity.OrderItem" />
+		-->
+		
+		<mapping class="example.hibernate.entity2.Label" />
+		<mapping class="example.hibernate.entity2.Technology" />
+		<mapping class="example.hibernate.entity2.TechnologyLabel" />
 
 	</session-factory>
 </hibernate-configuration>

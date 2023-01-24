@@ -8,8 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.internal.logging.InternalLoggerFactory;
+import io.netty.util.internal.logging.Log4J2LoggerFactory;
 import netty.client.ClientHandler;
 import netty.client.RequestMessageEncoder;
 import netty.client.ResponseMessageDecoder;
@@ -21,22 +21,27 @@ public class StartClient {
 		String host = "localhost";
 		int port = 8080;
 		EventLoopGroup workerGroup = null;
+		// workerGroup asagidaki ikisiyle de olusturulabiliyor
+		// java.util.concurrent.Executor
+		// java.util.concurrent.ThreadFactory
+
 		try {
+			InternalLoggerFactory.setDefaultFactory(Log4J2LoggerFactory.INSTANCE);
 			workerGroup = new NioEventLoopGroup();
-			Bootstrap b = new Bootstrap();
-			b.group(workerGroup);
-			b.channel(NioSocketChannel.class);
-			b.option(ChannelOption.SO_KEEPALIVE, true);
-			b.handler(new ChannelInitializer<SocketChannel>() {
+			Bootstrap bootstrap = new Bootstrap();
+			bootstrap.group(workerGroup);
+			bootstrap.channel(NioSocketChannel.class);
+			bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
+			bootstrap.handler(new ChannelInitializer<SocketChannel>() {
 
 				@Override
 				public void initChannel(SocketChannel ch) throws Exception {
 					ch.pipeline().addLast(new RequestMessageEncoder(), new ResponseMessageDecoder(),
-							new ClientHandler(), new LoggingHandler(LogLevel.INFO));
+							new ClientHandler());
 				}
 			});
 
-			ChannelFuture f = b.connect(host, port).sync();
+			ChannelFuture f = bootstrap.connect(host, port).sync();
 
 			f.channel().closeFuture().sync();
 		} catch (Exception e) {

@@ -8,8 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.internal.logging.InternalLoggerFactory;
+import io.netty.util.internal.logging.Log4J2LoggerFactory;
 import netty.server.RequestMessageDecoder;
 import netty.server.ResponseMessageEncoder;
 import netty.server.ServerHandler;
@@ -23,13 +23,15 @@ public class StartServer {
 	}
 
 	public void run() throws Exception {
-		// InternalLoggerFactory.setDefaultFactory(Slf4JLoggerFactory.INSTANCE);
+
 		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 
 		try {
+			InternalLoggerFactory.setDefaultFactory(Log4J2LoggerFactory.INSTANCE);
+
 			ServerBootstrap b = new ServerBootstrap();
-			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
+			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class) // Use NIO to accept new connections.
 					.childHandler(new ChannelInitializer<SocketChannel>() {
 
 						@Override
@@ -38,12 +40,17 @@ public class StartServer {
 									new ServerHandler());
 						}
 
-					}).handler(new LoggingHandler(LogLevel.INFO)).option(ChannelOption.SO_BACKLOG, 128)
+					}).option(ChannelOption.SO_BACKLOG, 128)
 					.childOption(ChannelOption.SO_KEEPALIVE, true);
 
+			// Start the server.
 			ChannelFuture f = b.bind(port).sync();
+			System.out.println("Netty Server started.");
+
+			// Bind and start to accept incoming connections.
 			f.channel().closeFuture().sync();
 		} finally {
+			// Shut down all event loops to terminate all threads.
 			workerGroup.shutdownGracefully();
 			bossGroup.shutdownGracefully();
 		}

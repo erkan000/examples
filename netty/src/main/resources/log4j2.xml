@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+<!-- -Dlog4j2.contextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector -->
+	<Appenders>
+			<Console name="console">
+				<PatternLayout pattern="[%d{HH:mm:ss},%6.10r] %-5p [%t] (%F:%L) - %m%n" charset="UTF-8"/>
+			</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="debug" includeLocation="true">
+				<AppenderRef ref="console" level="debug"></AppenderRef>
+		</Root>
+	</Loggers>
+</Configuration>
+

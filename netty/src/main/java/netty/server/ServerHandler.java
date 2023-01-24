@@ -11,12 +11,12 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void handlerAdded(ChannelHandlerContext ctx) {
-		System.out.println("ProcessingHandler added");
+		System.out.println("ServerHandler added  : " + ctx.channel().id().asLongText());
 	}
 
 	@Override
 	public void handlerRemoved(ChannelHandlerContext ctx) {
-		System.out.println("ProcessingHandler removed");
+		System.out.println("ServerHandler removed : " + ctx.channel().id().asLongText());
 	}
 
 	@Override
@@ -31,4 +31,22 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 		ChannelFuture future = ctx.writeAndFlush(responseData);
 		future.addListener(ChannelFutureListener.CLOSE);
 	}
+
+	@Override
+	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+		System.out.println(cause.getMessage());
+	}
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		super.channelActive(ctx);
+		System.out.println("Channel active");
+	}
+
+	@Override
+	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+		super.channelInactive(ctx);
+		System.out.println("Channel inactive");
+	}
+
 }

@@ -22,4 +22,10 @@ public class RequestMessageDecoder extends ReplayingDecoder<RequestMessage> {
 		out.add(data);
 		System.out.println("Message parsed by server");
 	}
+
+	@Override
+	public void handlerAdded(ChannelHandlerContext ctx) {
+		System.out.println("DecoderHandler added : " + ctx.channel().id().asLongText());
+	}
+
 }

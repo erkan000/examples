@@ -16,4 +16,14 @@ public class ResponseMessageEncoder extends MessageToByteEncoder<ResponseMessage
 		out.writeInt(msg.getResult().length());
 		out.writeCharSequence(msg.getResult(), charset);
 	}
+
+	@Override
+	public void handlerAdded(ChannelHandlerContext ctx) {
+		System.out.println("Encoder added  : " + ctx.channel().id().asLongText());
+	}
+
+	@Override
+	public void handlerRemoved(ChannelHandlerContext ctx) {
+		System.out.println("Encoder removed : " + ctx.channel().id().asLongText());
+	}
 }

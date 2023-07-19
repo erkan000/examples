@@ -36,7 +36,9 @@ public class StartServer {
 
 						@Override
 						public void initChannel(SocketChannel ch) throws Exception {
-							ch.pipeline().addLast(new RequestMessageDecoder(), new ResponseMessageEncoder(),
+							ch.pipeline().addLast(
+									new RequestMessageDecoder(), 
+									new ResponseMessageEncoder(),
 									new ServerHandler());
 						}
 

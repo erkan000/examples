@@ -11,7 +11,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
 		System.out.println("Connected, channel ready to send");
 		RequestMessage msg = new RequestMessage();
-		msg.setCommandId(180079837);
+		msg.setCommandId(0xAABBCCDD);
+//		msg.setCommandId(180079837);
 		msg.setStringValue("hello netty");
 		ctx.writeAndFlush(msg);
 	}

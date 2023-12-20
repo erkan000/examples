@@ -1,22 +1,32 @@
 package netty.server;
 
-import java.nio.charset.Charset;
-
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.socket.DatagramPacket;
 
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 
-	private final Charset charset = Charset.forName("UTF-8");
-
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
+
 		DatagramPacket in = ((DatagramPacket) msg);
 
-		String veri = in.content().readCharSequence(in.content().readableBytes(), charset).toString();
-		System.out.println("Message arrived to server: " + veri);
-		// ChannelFuture future = ctx.writeAndFlush("");
+		ByteBuf byteBuf = in.content();
+
+//		System.out.println("Message arrived to server: " + byteBuf.readableBytes());
+
+		byte mesajKodu = byteBuf.readByte();
+		byte mesajNo = byteBuf.readByte();
+		int paketSayisi = byteBuf.readUnsignedShortLE();
+		int paketNo = byteBuf.readUnsignedShortLE();
+		int paketBoyu = byteBuf.readUnsignedShortLE();
+		int veriBoyutu = byteBuf.readUnsignedShortLE();
+
+		int kalanByteUzunlugu = byteBuf.readableBytes();
+
+		System.out.println(mesajKodu + "-" + mesajNo + "-" + paketSayisi + "-" + paketNo + "-" + paketBoyu + "-"
+				+ veriBoyutu + " - " + kalanByteUzunlugu);
 
 	}
 

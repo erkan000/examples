@@ -5,14 +5,13 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
+import io.netty.channel.FixedRecvByteBufAllocator;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
-import io.netty.util.internal.logging.InternalLoggerFactory;
-import io.netty.util.internal.logging.Log4J2LoggerFactory;
 
 public class StartServer {
 
-	private final static int port = 6671;
+	private final static int port = 1111;
 
 	public static void main(String[] args) throws Exception {
 		new StartServer().run();
@@ -23,7 +22,7 @@ public class StartServer {
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 
 		try {
-			InternalLoggerFactory.setDefaultFactory(Log4J2LoggerFactory.INSTANCE);
+			// InternalLoggerFactory.setDefaultFactory(Log4J2LoggerFactory.INSTANCE);
 
 			Bootstrap b = new Bootstrap();
 			b.group(workerGroup).channel(NioDatagramChannel.class)
@@ -32,12 +31,14 @@ public class StartServer {
 
 						@Override
 						public void initChannel(NioDatagramChannel ch) throws Exception {
-							ch.pipeline().addLast(
-									new ServerHandler());
+							ch.pipeline().addLast(new ServerHandler());
 						}
 
 					});
 			b.option(ChannelOption.SO_BROADCAST, true);
+			b.option(ChannelOption.RCVBUF_ALLOCATOR, new FixedRecvByteBufAllocator(40960)); // UDP default 2048 byte
+																							// alıyor, gerisi çöpe
+																							// gidiyor. Bunu arttırma																				// için bu satır
 
 			// Start the server.
 			ChannelFuture f = b.bind(port).sync();

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%date ID_DEGERI: [%X{id}] %msg%n" />      
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="ERROR">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+         <Logger name="examples.ClassWithDebugLog" level="DEBUG" additivity="false">
+        	<AppenderRef ref="ConsoleAppender" level="DEBUG" />
+    	</Logger>
+    </Loggers>
+    
+   
+    
+</Configuration>

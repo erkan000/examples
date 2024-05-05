@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:jsf="jakarta.faces"
+      >
+      
+	<f:view>	
+		<h:head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<title>Jakarta EE 10 - Greeting</title>
+		</h:head>
+	<body>	
+		<h:form prependId="false">
+            <label jsf:for="name" jsf:required="true">Name:</label>
+            <input type="text"
+                   jsf:id="name"
+                   jsf:value="#{testBean.name}"
+                   jsf:required="true"
+                   jsf:requiredMessage="Name is required."
+                   placeholder="Name field.."
+            />
+            <h:message for="name"/>
+            <br/>
+            <input type="submit" jsf:id="submit" value="Greet"  jsf:action="#{testBean.doSomeTask()}">
+                <f:ajax execute="@form" render="@form"/>
+            </input>
+            <br/>
+            <p id="message">#{testBean.message}</p>
+        </h:form>	
+	</body>
+	</f:view>
+</html>
+
